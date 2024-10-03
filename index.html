@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body {
+            width: 100vw;
+            height: 110vh;
+            margin: 0px;
+            padding: 0px;
+            background-color: aqua;
+            background-image: url(/img/cat1.jfif);
+        }
+        #app {
+            width: 70vw;
+            height: 100vh;
+            padding: 10px;
+            margin: auto;
+            background-color: rgba(255, 100, 200, 0.9);
+            box-shadow: 2px 2px 100px 2px snow;
+        }
+        #footer {
+            width: 70vw;
+            height: 10vh;
+            padding: 10px;
+            margin: auto;
+            background-color: rgba(255, 200, 250, 0.9);
+        }
+    </style>
+
+    <script src="model.js"></script>
+    <script src="updateViewLogin.js"></script>
+
+</head>
+
+<body>
+    <div id="app"></div>
+    <div id="footer"></div>
+
+    
+    <script>
+        // model
+        
+
+        // view
+        updateView();
+        function updateView() {
+            let page = model.app.currentPage;
+            if(page == 'login') {updateViewLogin();}
+            
+        }
+
+        // controller
+
+    </script>
+    
+</body>
+
+</html>
