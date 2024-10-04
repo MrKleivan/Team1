@@ -95,14 +95,11 @@ let model = {
 
     likedProfiles: [
         //Assign dates when liked
-        {userId: 1, likesUserId: 2, date: null,} 
-        , {userId: 2, likesUserId: 1, date: null,} 
-        , {userId: 3, likesUserId: 1, date: null,} 
+        {userId: 1, likesUserId: 2, date: null, isLike: false} 
+        , {userId: 2, likesUserId: 1, date: null,isLike: false} 
+        , {userId: 3, likesUserId: 1, date: null,isLike: false} 
     ],
     
-    matchedProfiles: [
-        {userId: 1, matchedWithUserId: 2}
-        , {userId: 2, matchedWithUserId: 1}
-    ]
+   
     
 }
