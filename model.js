@@ -42,7 +42,7 @@ let model = {
 
 
     //Fellesdata
-    user: [
+    users: [
         {
             userId: 1
             , userName: 'per'
@@ -99,7 +99,12 @@ let model = {
         , {userId: 2, likesUserId: 1, date: null,isLike: false} 
         , {userId: 3, likesUserId: 1, date: null,isLike: false} 
     ],
-    
-   
-    
+
+    chatLog: [
+      {senderId: 1, chatLogId: 0, message: 'Hei', date: null, recipientId:2}  
+      , {senderId: 1, chatLogId: 0, message: 'Hei', date: null, recipientId:2}  
+      , {senderId: 1, chatLogId: 1, message: 'Hei', date: null, recipientId:3}  
+      , {senderId: 1, chatLogId: 2, message: 'Hei', date: null, recipientId:4}  
+      , {senderId: 1, chatLogId: 3, message: 'Hei', date: null, recipientId:5}
+    ],    
 }
