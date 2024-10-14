@@ -1,10 +1,12 @@
 function updateViewRegister() {
     document.getElementById('app').innerHTML = /*HTML*/`
-
-        Email<input id="mailInput" value="Skriv Email" oninput="model.inputs.loginPage.email = this.value">
+        <h1>Registrer din bruker</h1>
+        Email<input id="mailInput" type="email" value="Skriv Email" oninput="model.inputs.loginPage.email = this.value">
         <br>
-        Passord<input id="mailInput" value="Skriv Passord" oninput="model.inputs.loginPage.password = this.value">
+        Brukernavn<input id="usernameInput" value="Skriv Brukernavn" oninput="model.inputs.loginPage.userName = this.value">
         <br>
-        <button onclick="navigateToLogin()">Registrer</button>
+        Passord<input id="passwordInput" type="password" oninput="model.inputs.loginPage.password = this.value">
+        <br>
+        <button onclick="createUser()">Registrer</button>
         `;
 }
