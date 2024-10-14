@@ -120,9 +120,9 @@ let model = {
  
     chatLog: [
       {senderId: 1, chatLogId: 0, message: 'Hei', date: null, recipientId:2}  
-      , {senderId: 1, chatLogId: 0, message: 'Hei', date: null, recipientId:2}   
-      , {senderId: 1, chatLogId: 1, message: 'Hei', date: null, recipientId:3}  
-      , {senderId: 1, chatLogId: 2, message: 'Hei', date: null, recipientId:4}  
+      , {senderId: 1, chatLogId: 0, message: 'Hvordan går det?', date: null, recipientId:2}   
+      , {senderId: 2, chatLogId: 1, message: 'Hello', date: null, recipientId:3}  
+      , {senderId: 2, chatLogId: 2, message: 'Hei', date: null, recipientId:4}  
       , {senderId: 1, chatLogId: 3, message: 'Hei', date: null, recipientId:5}
     ],    
 }
