@@ -49,7 +49,7 @@ let model = {
             , userEmail: 'per@hotmail.com'
             , password: '123'
             , firstName: 'Per'
-            , lastName: 'Norman'
+            , lastName: 'Nordman'
         },
         {
             userId: 2
