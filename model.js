@@ -28,7 +28,6 @@ let model = {
             , color: ''
             , age: null
             , race: ''
-            , interests: ''
             , description: ''
             , pictureUrl: ''
             , isEditMode: false
@@ -71,28 +70,33 @@ let model = {
 
     cats: [
         {
-           userId: 1
-           , name: 'Range' 
+            userId: 1
+            , name: 'Range' 
             , race: 'Norsk skogs katt' 
             , favouriteFood: 'bird'
             , personality: 'kind'
             , color: 'black'
             , age: null
-            , interests: 'sleep'
             , description: ''
         }
     ],
 
-    interests: [
-        {
-            userId: 1
-            , 
-        },
+    chosenInterests: [
+        {userId: 1, interest: 'Kose'}
+        , {userId: 1, interest: 'Sove'}
     ],
- 
 
+    interests: [
+        'Kose'
+        , 'Sove'
+        , 'Leke'
+        , 'Klatre'
+        , 'Spise'
+        , 'Utforske'
+    ],
+    
     pictures: [
-        //TO DO se på mulig bedre navn for placeInSequence
+        //TODO: se på mulig bedre navn for placeInSequence
         {userId: 1, pictureUrl: '', placeInSequence: 1}
         , {userId: 1, pictureUrl: '', placeInSequence: 2}
         , {userId: 1, pictureUrl: '', placeInSequence: 3}
