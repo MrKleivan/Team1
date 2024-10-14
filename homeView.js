@@ -1,4 +1,7 @@
-function updateViewHomePage() {
-    document.getElementById('app').innerHTML = /*HTML*/`<h1 style="font-size:10vh;text-align:center;color:purple;">Hei</h1>`;
+function updateViewHome() {
+    document.getElementById('app').innerHTML = /*HTML*/`
+        <h1 style="font-size:10vh;text-align:center;color:purple;">Finn din kats elsker</h1>
+    
+    `;
     
 }
