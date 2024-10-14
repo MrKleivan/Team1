@@ -18,7 +18,7 @@ let model = {
             , password: '123'
             , approvePassword: '123'
         },
-        myProfile: {
+        myProfile: { 
             firstName: ''
             , lastName: ''
             , profileImg: ''
@@ -30,7 +30,7 @@ let model = {
             , race: ''
             , interests: ''
             , description: ''
-            , pictureURL: ''
+            , pictureUrl: ''
             , isEditMode: false
         },
         home: {
@@ -69,35 +69,43 @@ let model = {
         },
     ],
 
-    cat: [
+    cats: [
         {
-           userID: 1
-           , catName: 'Range' 
+           userId: 1
+           , name: 'Range' 
             , race: 'Norsk skogs katt' 
-            , favFood: 'bird'
+            , favouriteFood: 'bird'
             , personality: 'kind'
             , color: 'black'
             , age: null
             , interests: 'sleep'
             , description: ''
-            , pictureURL: ''
         }
     ],
 
+    interests: [
+        {
+            userId: 1
+            , 
+        },
+    ],
+ 
+
     pictures: [
         //TO DO se på mulig bedre navn for placeInSequence
-        {userId: 1, pictureURL: '', placeInSequence: 1}
-        , {userId: 1, pictureURL: '', placeInSequence: 2}
-        , {userId: 1, pictureURL: '', placeInSequence: 3}
-        , {userId: 1, pictureURL: '', placeInSequence: 4}
-        , {userId: 1, pictureURL: '', placeInSequence: 5}
+        {userId: 1, pictureUrl: '', placeInSequence: 1}
+        , {userId: 1, pictureUrl: '', placeInSequence: 2}
+        , {userId: 1, pictureUrl: '', placeInSequence: 3}
+        , {userId: 1, pictureUrl: '', placeInSequence: 4}
+        , {userId: 1, pictureUrl: '', placeInSequence: 5}
     ],
 
-    likedProfiles: [
+    //TODO: Tenk på navn likesUserId    
+    interactedProfiles: [
         //Assign dates when liked
-        {userId: 1, likesUserId: 2, date: null, isLike: true} 
-        , {userId: 2, likesUserId: 1, date: null,isLike: true} 
-        , {userId: 3, likesUserId: 1, date: null,isLike: false} 
+        {userId: 1, interactedUserId: 2, date: null, isLike: true} 
+        , {userId: 2, interactedUserId: 1, date: null,isLike: true} 
+        , {userId: 3, interactedUserId: 1, date: null,isLike: false}  
     ],
  
     chatLog: [
