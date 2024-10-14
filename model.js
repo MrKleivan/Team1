@@ -22,7 +22,7 @@ let model = {
             firstName: ''
             , lastName: ''
             , profileImg: ''
-            , favFood: ''
+            , favouriteFood: ''
             , catName: ''
             , personality: ''
             , color: ''
@@ -86,6 +86,7 @@ let model = {
         , {userId: 1, interest: 'Sove'}
     ],
 
+    //Select Values
     interests: [
         'Kose'
         , 'Sove'
