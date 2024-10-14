@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'home' // register , myProfile, home, matchProfile, chat,
+        currentPage: 'myProfile' // register , myProfile, home, matchProfile, chat,
         , loggedInUser: null
     },
 
@@ -11,12 +11,16 @@ let model = {
             email: ''
             , userName: ''
             , password: ''
+            , error : ''
         },
         register: {
             userName: 'per'
             , userEmail: 'per@hotmail.com'
             , password: '123'
             , approvePassword: '123'
+            , firstName : 'per'
+            , lastName : 'ivar'
+            , error : ''
         },
         myProfile: { 
             firstName: ''
@@ -30,6 +34,7 @@ let model = {
             , race: ''
             , description: ''
             , pictureUrl: ''
+            , interests: []
             , isEditMode: false
         },
         home: {
