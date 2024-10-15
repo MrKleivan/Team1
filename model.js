@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'login' // register , myProfile, home, matchProfile, chat, messages
+        currentPage: 'home' // register , myProfile, home, matchProfile, chat, messages
         , loggedInUser: null
     },
 
@@ -82,8 +82,33 @@ let model = {
             , personality: 'kind'
             , color: 'black'
             , age: null
+<<<<<<< Updated upstream
             , description: ''
         }
+=======
+            , description: 'Livlig og kosen katt'
+        },
+        {
+            userId: 2
+            , name: 'Raptus' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'tørrfor'
+            , personality: 'leken'
+            , color: 'black&white'
+            , age: null
+            , description: ''
+        },
+        {
+            userId: 3
+            , name: 'Mango' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'mus'
+            , personality: 'vilter'
+            , color: 'oransje'
+            , age: null
+            , description: ''
+        },
+>>>>>>> Stashed changes
     ],
 
     chosenInterests: [
