@@ -13,8 +13,11 @@ function updateViewHome() {
             <div style="width: 10%; height: 80%; align-content:center;" >
                 <button style="width: 20px; height: 20px;"></button>
             </div>
-            <div id="homeProfile" style="width: 80%; height: 80%; align-content: center; border-radius: 40px; background-color: rgba(255, 255, 255, 0.5);">
-                
+            <div id="homeProfile" style="width: 80%; height: 80%; border-radius: 40px; align-content: center; background-color: rgba(255, 255, 255, 0.5);">
+                <div class="profileView" style=" width: 90%; height: 90%; margin: auto; border-radius: 40px; background-image: url(${catPicture[0].pictureUrl});background-size: cover;">
+                    <h1>${otherCatProfile[0].name}<h1>
+                    <h1 class="profileScript">${otherCatProfile[0].description}<h1>
+                </div>
             </div>
             <div style="width: 10%; height: 80%;align-content:center;">
                 <button style="width: 20px; height: 20px;"></button>
@@ -30,6 +33,7 @@ function updateViewHome() {
         `;
     
 }
+
 
 
 function likeCat(myUserProfile, otherUserProfile) {
