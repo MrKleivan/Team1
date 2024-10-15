@@ -8,11 +8,7 @@ function updateViewChat() {
 
     document.getElementById('app').innerHTML = /*HTML*/`
         <div>
-            <div>
-                <img style="height: 30px" src="img/house-solid.svg" alt="Home Icon"  onclick="changePage('home')" />
-                <img style="height: 30px" src="img/user-solid.svg" alt="Profile Icon"  onclick="changePage('myProfile')" />
-                <img style="height: 30px" src="img/right-to-bracket-solid.svg" alt="Log out Icon"  onclick="changePage('login')" />
-            </div>
+
             <div style="text-align:center; font:50px bold; ">
                 ${selectedUser.userName}
             </div><br />
@@ -21,7 +17,6 @@ function updateViewChat() {
             </div>
         </div>
     `;
-    
 }
 
 function drawChatHtml(){
