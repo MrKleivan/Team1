@@ -1,10 +1,10 @@
 let selectedUser = model.users.filter(user => {
     return user.userId === 2
 });
+selectedUser = selectedUser.pop()
 let loggedInUser = 1;
 
 function updateViewChat() { 
-    selectedUser = selectedUser.pop()
 
     document.getElementById('app').innerHTML = /*HTML*/`
         <div>
@@ -37,8 +37,7 @@ function drawChatHtml(){
             ${log.message} <br />
             ${log.date} <br /><br />
         </div>
-
-        `
+        `;
     }
 
     return html
