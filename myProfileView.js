@@ -1,18 +1,32 @@
 function updateViewMyProfile() {
+    let loggedInUser = model.app.loggedInUser ? model.app.loggedInUser.userId : 1;
+    console.log(loggedInUser);
+    let loggedUser = model.users.find(user => user.userId === loggedInUser);
+    let loggedUserLastName = loggedUser.lastName;
+    let loggedUserFirstName = loggedUser.firstName;
+    let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
+    let loggedFavouriteFood = loggedCat.favouriteFood;
+    let loggedCatName = loggedCat.name;
+    let loggedPersonality = loggedCat.personality;
+    let loggedColor = loggedCat.color;
+    let loggedAge = loggedCat.age;
+    let loggedRace = loggedCat.race;
+    //let loggedDescription = loggedInUser.firstName;
+   
     document.getElementById('app').innerHTML = /*HTML*/`
     <h1>Din katteprofil</h1>
     <div id="myProfileContent">
         <div id="column1">
-            First Name<br><input id="firstNameInput" type="text" placeholder="write your first name" oninput="model.inputs.myProfile.firstName = this.value"><br>
-            Last Name<br><input id="lastNameInput" type="text" placeholder="write your last name" oninput="model.inputs.myProfile.lastName = this.value"><br>
-            Favorite Food<br><input id="favouriteFoodInput" type="text" placeholder="your cat's favorite food" oninput="model.inputs.myProfile.favouriteFood = this.value"><br>
-            Cat Name<br><input id="catNameInput" type="text" placeholder="write your cat name" oninput="model.inputs.myProfile.catName = this.value"><br>
+            First Name<br><input id="firstNameInput" type="text" placeholder="${loggedUserFirstName} || first name" oninput="model.inputs.myProfile.firstName = this.value"><br>
+            Last Name<br><input id="lastNameInput" type="text" placeholder="${loggedUserLastName}" oninput="model.inputs.myProfile.lastName = this.value"><br>
+            Favorite Food<br><input id="favouriteFoodInput" type="text" placeholder="${loggedFavouriteFood} || your cat's favorite food" oninput="model.inputs.myProfile.favouriteFood = this.value"><br>
+            Cat Name<br><input id="catNameInput" type="text" placeholder="${loggedCatName} || write your cat name" oninput="model.inputs.myProfile.catName = this.value"><br>
         </div>
         <div id="column2">
-            Personality<br><input id="personalityInput" type="text" placeholder="personality of your cat" oninput="model.inputs.myProfile.personality = this.value"><br>
-            Color<br><input id="colorInput" type="text" placeholder="color of your cat" oninput="model.inputs.myProfile.color = this.value"><br>
-            Age<br><input id="ageInput" type="number" placeholder="age of your cat" oninput="model.inputs.myProfile.age = this.value"><br>
-            Race<br><input id="raceInput" type="text" placeholder="race of your cat" oninput="model.inputs.myProfile.race = this.value"><br>
+            Personality<br><input id="personalityInput" type="text" placeholder="${loggedPersonality} || personality of your cat" oninput="model.inputs.myProfile.personality = this.value"><br>
+            Color<br><input id="colorInput" type="text" placeholder="${loggedColor} || color of your cat" oninput="model.inputs.myProfile.color = this.value"><br>
+            Age<br><input id="ageInput" type="number" placeholder="${loggedAge} || age of your cat" oninput="model.inputs.myProfile.age = this.value"><br>
+            Race<br><input id="raceInput" type="text" placeholder="${loggedRace} || race of your cat" oninput="model.inputs.myProfile.race = this.value"><br>
         </div>
     </div>
     <div id="noneColumnContent" style="display: flex; flex-direction: column; justify-content: center; align-items: stretch;">
@@ -36,15 +50,18 @@ function updateViewMyProfile() {
     
     Description<br><input id="descriptionInput" type="text" placeholder="describe your cat" oninput="model.inputs.myProfile.description = this.value"><br>
     <button onclick="saveChanges()">Save</button><br>
-
-    <button onclick="updateViewHome()">Home</button>
-    <button onclick="updateViewMatch()">Match</button>
-    <button onclick="updateViewChat()">Chat</button>
     `;
     loadSavedData();
 }
+function addImage(event) {
+    const imageInput = document.getElementById('dragImageHere');
+    imageInput.addEventListener('dragover', (event))
+    imageInput.addEventListener('drop', (event))
+
+}
 function saveChanges() {
-    const myProfileIdOwner = model.app.loggedInUser ? model.app.loggedInUser.userId : 1;
+    const myProfileIdOwner = model.app.loggedInUser;
+    console.log(myProfileIdOwner)
     const formData = {
         firstName: model.inputs.myProfile.firstName,
         lastName: model.inputs.myProfile.lastName,

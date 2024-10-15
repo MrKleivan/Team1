@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'home' // register , myProfile, home, matchProfile, chat, messages
+        currentPage: 'myProfile' // register , myProfile, home, matchProfile, chat, messages
         , loggedInUser: null
     },
 
@@ -82,10 +82,6 @@ let model = {
             , personality: 'kind'
             , color: 'black'
             , age: null
-<<<<<<< Updated upstream
-            , description: ''
-        }
-=======
             , description: 'Livlig og kosen katt'
         },
         {
@@ -108,7 +104,6 @@ let model = {
             , age: null
             , description: ''
         },
->>>>>>> Stashed changes
     ],
 
     chosenInterests: [
