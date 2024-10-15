@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'login' // register , myProfile, home, matchProfile, chat,
+        currentPage: 'home' // register , myProfile, home, matchProfile, chat, messages
         , loggedInUser: null
     },
 
@@ -14,12 +14,12 @@ let model = {
             , error : ''
         },
         register: {
-            userName: 'per'
-            , userEmail: 'per@hotmail.com'
-            , password: '123'
-            , approvePassword: '123'
-            , firstName : 'per'
-            , lastName : 'ivar'
+            userName: ''
+            , userEmail: ''
+            , password: ''
+            , approvePassword: ''
+            , firstName : ''
+            , lastName : ''
             , error : ''
         },
         myProfile: { 
@@ -50,7 +50,7 @@ let model = {
         {
             userId: 1
             , userName: 'per'
-            , userEmail: 'per@hotmail.com'
+            , userEmail: 'per@gmail.com'
             , password: '123'
             , firstName: 'Per'
             , lastName: 'Nordman'
@@ -58,7 +58,7 @@ let model = {
         {
             userId: 2
             , userName: 'espen'
-            , userEmail: 'epsen@mail.com'
+            , userEmail: 'epsen@gmail.com'
             , password: '123'
             , firstName: 'Espen'
             , lastName: 'Norman'
@@ -82,8 +82,33 @@ let model = {
             , personality: 'kind'
             , color: 'black'
             , age: null
+<<<<<<< Updated upstream
             , description: ''
         }
+=======
+            , description: 'Livlig og kosen katt'
+        },
+        {
+            userId: 2
+            , name: 'Raptus' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'tørrfor'
+            , personality: 'leken'
+            , color: 'black&white'
+            , age: null
+            , description: ''
+        },
+        {
+            userId: 3
+            , name: 'Mango' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'mus'
+            , personality: 'vilter'
+            , color: 'oransje'
+            , age: null
+            , description: ''
+        },
+>>>>>>> Stashed changes
     ],
 
     chosenInterests: [
@@ -119,10 +144,10 @@ let model = {
     ],
  
     chatLog: [
-      {senderId: 1, chatLogId: 0, message: 'Hei', date: null, recipientId:2}  
-      , {senderId: 1, chatLogId: 0, message: 'Hvordan går det?', date: null, recipientId:2}   
-      , {senderId: 2, chatLogId: 1, message: 'Hello', date: null, recipientId:1}  
-      , {senderId: 2, chatLogId: 2, message: 'Hei', date: null, recipientId:4}  
-      , {senderId: 1, chatLogId: 3, message: 'Hei', date: null, recipientId:5}
-    ],    
+      {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(14,32,0,0)), recipientId:2}  
+      , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2}   
+      , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-9").setHours(15,47,0,0)), recipientId:1}  
+      , {senderId: 2, message: 'Hei', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3}  
+      , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3}
+    ],
 }
