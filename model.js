@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'home' // register , myProfile, home, matchProfile, chat, messages
+        currentPage: 'login' // register , myProfile, home, matchProfile, chat, messages
         , loggedInUser: null
     },
 
@@ -123,8 +123,11 @@ let model = {
     
     pictures: [
         //TODO: se på mulig bedre navn for placeInSequence
-        {userId: 1, pictureUrl: 'img/cat1.jfif', placeInSequence: 1}
-        , {userId: 1, pictureUrl: 'img/cat2.jpg', placeInSequence: 2}
+        {userId: 1, pictureUrl: '', placeInSequence: 1}
+        , {userId: 1, pictureUrl: '', placeInSequence: 2}
+        , {userId: 1, pictureUrl: '', placeInSequence: 3}
+        , {userId: 1, pictureUrl: '', placeInSequence: 4}
+        , {userId: 1, pictureUrl: '', placeInSequence: 5}
     ],
 
     //TODO: Tenk på navn likesUserId    
