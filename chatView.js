@@ -1,7 +1,9 @@
+let selectedUser = model.users.filter(user => {
+    return user.userId === 2
+});
+let loggedInUser = 1;
+
 function updateViewChat() { 
-    let selectedUser = model.users.filter(user => {
-        return user.userId === 1
-    });
     selectedUser = selectedUser.pop()
 
     document.getElementById('app').innerHTML = /*HTML*/`
@@ -18,18 +20,23 @@ function updateViewChat() {
 }
 
 function drawChatHtml(){
-    let chat = model.chatLog;
     let chatLogs = [];
     let html = '';
     console.log(chatLogs)
     model.chatLog.filter(log => {
-        if(log.senderId === 1){chatLogs.push(log)}
+        if((log.senderId === loggedInUser && log.recipientId === selectedUser.userId) ||(log.senderId === selectedUser.userId && log.recipientId === loggedInUser)){chatLogs.push(log)}
     })
 
     for(log of chatLogs){
+        let isSender = false;
+        if(log.senderId == loggedInUser){isSender = true}
+        let alignMessage = isSender ? 'right' : 'left';
+
         html += `
+        <div style="text-align: ${alignMessage}">
             ${log.message} <br />
             ${log.date} <br /><br />
+        </div>
 
         `
     }
