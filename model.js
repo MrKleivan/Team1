@@ -50,7 +50,7 @@ let model = {
         {
             userId: 1
             , userName: 'per'
-            , userEmail: 'per@hotmail.com'
+            , userEmail: 'per@gmail.com'
             , password: '123'
             , firstName: 'Per'
             , lastName: 'Nordman'
@@ -58,7 +58,7 @@ let model = {
         {
             userId: 2
             , userName: 'espen'
-            , userEmail: 'epsen@mail.com'
+            , userEmail: 'epsen@gmail.com'
             , password: '123'
             , firstName: 'Espen'
             , lastName: 'Norman'

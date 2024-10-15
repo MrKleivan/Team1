@@ -14,9 +14,6 @@ function createUser(){
     user.lastName = getInputLastName;
     user.password = getInputPassword;
 
-    console.log(user.password)
-    console.log(approvedPassword)
-
     if(!getInputEmail || !getInputUserName || !getInputFirstName || !getInputLastName || !getInputPassword){
         model.inputs.register.error = "Det er et tomt felt"; 
         updateView(); 
@@ -25,7 +22,8 @@ function createUser(){
     if(!getInputEmail.match(/@gmail.com/)){        
         model.inputs.register.error = "Vi tar kun @gmail.com brukere"; 
         updateView(); 
-        return}
+        return
+    }
     if(user.password != approvedPassword){
         model.inputs.register.error = "Ikke samme passord";
         updateView();
