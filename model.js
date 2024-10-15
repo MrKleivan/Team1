@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'login' // register , myProfile, home, matchProfile, chat,
+        currentPage: 'myProfile' // register , myProfile, home, matchProfile, chat,
         , loggedInUser: null
     },
 
@@ -34,6 +34,7 @@ let model = {
             , race: ''
             , description: ''
             , pictureUrl: ''
+            , interests: []
             , isEditMode: false
         },
         home: {

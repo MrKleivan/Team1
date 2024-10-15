@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <style>
         body {
             width: 100vw;
@@ -15,6 +15,7 @@
             background-image: url(img/cat1.jfif);
             background-color: aqua;
         }
+
         #app {
             width: 70vw;
             height: 100vh;
@@ -23,6 +24,7 @@
             background-color: rgba(255, 100, 200, 0.9);
             box-shadow: 2px 2px 100px 2px snow;
         }
+
         #footer {
             width: 70vw;
             height: 10vh;
@@ -41,7 +43,8 @@
     <script src="registerView.js"></script>
     <script src="chatView.js"></script>
     <script src="chatController.js"></script>
-    
+    <script src="myProfileView.js"></script>
+
 
 </head>
 
@@ -49,27 +52,28 @@
     <div id="app"></div>
     <div id="footer"></div>
 
-    
+
     <script>
         // model
-        
+
 
         // view
         updateView();
         function updateView() {
             let page = model.app.currentPage;
-            if(page == 'login') {updateViewLogin();}
-            if(page == 'home') {updateViewHome();}
-            if(page == 'chat') {updateViewChat();}
-            if(page == 'register') {updateViewRegister();}
-            
-            
+            if (page == 'login') { updateViewLogin(); }
+            if (page == 'home') { updateViewHome(); }
+            if (page == 'chat') { updateViewChat(); }
+            if (page == 'register') { updateViewRegister(); }
+            if (page == 'myProfile') { updateViewMyProfile(); }
+
+
         }
 
         // controller
 
     </script>
-    
+
 </body>
 
 </html>
