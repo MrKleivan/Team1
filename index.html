@@ -43,6 +43,8 @@
     <script src="registerView.js"></script>
     <script src="chatView.js"></script>
     <script src="chatController.js"></script>
+    <script src="messagesView.js"></script>
+    <script src="messagesController.js"></script>
     <script src="myProfileView.js"></script>
     <script src="commonController.js"></script>
 
@@ -73,6 +75,7 @@
             let page = model.app.currentPage;
             if (page == 'login') { updateViewLogin(); }
             if (page == 'home') { updateViewHome(); }
+            if (page == 'messages') { updateViewMessages(); }
             if (page == 'chat') { updateViewChat(); }
             if (page == 'register') { updateViewRegister(); }
             if (page == 'myProfile') { updateViewMyProfile(); }
