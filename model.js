@@ -83,7 +83,27 @@ let model = {
             , color: 'black'
             , age: null
             , description: ''
-        }
+        },
+        {
+            userId: 2
+            , name: 'Raptus' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'tørrfor'
+            , personality: 'leken'
+            , color: 'black&white'
+            , age: null
+            , description: ''
+        },
+        {
+            userId: 3
+            , name: 'Mango' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'mus'
+            , personality: 'vilter'
+            , color: 'oransje'
+            , age: null
+            , description: ''
+        },
     ],
 
     chosenInterests: [
