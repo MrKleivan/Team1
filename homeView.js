@@ -8,13 +8,17 @@ function updateViewHome() {
         </div><br/>
         <div style="width: 20vw; margin: auto; text-align: center;">
             <button onclick="likeCat()" style="width: 5vw; height: 4vh; border: none; margin-right: 20px; border-radius: 10px; background-color: rgba(255,255,255,0.7);">Liker</button>
-            <button style="width: 5vw; height: 4vh; border: none; border-radius: 10px; background-color: rgba(255,255,255,0.7);">Liker ikke</button>
+            <button onclick="notLikeCat()" style="width: 5vw; height: 4vh; border: none; border-radius: 10px; background-color: rgba(255,255,255,0.7);">Liker ikke</button>
         </div>
         `;
     
 }
 
 
-function likeCat() {
+function likeCat(myUserProfile, otherUserProfile) {
     
+}
+
+function notLikeCat(myUserProfile, otherUserProfile) {
+
 }
