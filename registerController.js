@@ -11,9 +11,9 @@ function createUser(){
     if(user.password != approvedPassword){
         return model.inputs.register.error = "Feil passord";
     }
+
     model.users.push(user);
-    
-    
+    navigateToLogin();
 }
 
 function navigateToLogin(){
