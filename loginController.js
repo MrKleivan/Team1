@@ -5,7 +5,7 @@ function authenticateUser(){
     let findUser = model.users.find(u => u.userEmail == email && u.password == password)
 
     if(findUser) {
-        model.app.loggedInUser = findUser.userName;
+        model.app.loggedInUser = findUser.userId;
         navigateToPage('home')
     }
 }

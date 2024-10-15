@@ -14,12 +14,12 @@ let model = {
             , error : ''
         },
         register: {
-            userName: 'per'
-            , userEmail: 'per@hotmail.com'
-            , password: '123'
-            , approvePassword: '123'
-            , firstName : 'per'
-            , lastName : 'ivar'
+            userName: ''
+            , userEmail: ''
+            , password: ''
+            , approvePassword: ''
+            , firstName : ''
+            , lastName : ''
             , error : ''
         },
         myProfile: { 
