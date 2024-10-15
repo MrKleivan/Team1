@@ -1,8 +1,8 @@
 let selectedUser = model.users.filter(user => {
-    return user.userId === 2
+    return user.userId === 1
 });
 selectedUser = selectedUser.pop()
-let loggedInUser = 1;
+let loggedInUser = 3;
 
 function updateViewChat() { 
 
@@ -20,11 +20,13 @@ function updateViewChat() {
 }
 
 function drawChatHtml(){
+    let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
+
     let chatLogs = [];
     let html = '';
     console.log(chatLogs)
     model.chatLog.filter(log => {
-        if((log.senderId === loggedInUser && log.recipientId === selectedUser.userId) ||(log.senderId === selectedUser.userId && log.recipientId === loggedInUser)){chatLogs.push(log)}
+        if((log.senderId === loggedInUser && log.recipientId === selectedUser.userId) || (log.senderId === selectedUser.userId && log.recipientId === loggedInUser)){chatLogs.push(log)}
     })
 
     for(log of chatLogs){
@@ -35,7 +37,7 @@ function drawChatHtml(){
         html += `
         <div style="text-align: ${alignMessage}">
             ${log.message} <br />
-            ${log.date} <br /><br />
+            ${log.date.toLocaleString("no-NO", dateFormat)} <br /><br />
         </div>
         `;
     }

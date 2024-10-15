@@ -119,10 +119,10 @@ let model = {
     ],
  
     chatLog: [
-      {senderId: 1, chatLogId: 0, message: 'Hei', date: null, recipientId:2}  
-      , {senderId: 1, chatLogId: 0, message: 'Hvordan går det?', date: null, recipientId:2}   
-      , {senderId: 2, chatLogId: 1, message: 'Hello', date: null, recipientId:1}  
-      , {senderId: 2, chatLogId: 2, message: 'Hei', date: null, recipientId:4}  
-      , {senderId: 1, chatLogId: 3, message: 'Hei', date: null, recipientId:5}
-    ],    
+      {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(14,32,0,0)), recipientId:2}  
+      , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2}   
+      , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-9").setHours(15,47,0,0)), recipientId:1}  
+      , {senderId: 2, message: 'Hei', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3}  
+      , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3}
+    ],
 }
