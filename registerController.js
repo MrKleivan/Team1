@@ -5,6 +5,7 @@ function createUser(){
     let getInputFirstName = document.getElementById("firstNameInput").value;
     let getInputLastName = document.getElementById("lastNameInput").value;
     let getInputPassword = document.getElementById("passwordInput").value;
+    let findUser = model.users.find(u => u.userEmail == getInputEmail || u.userName == getInputUserName);
     let user = {}
 
     user.userId = model.users.length+1;
@@ -22,14 +23,21 @@ function createUser(){
     if(!getInputEmail.match(/@gmail.com/)){        
         model.inputs.register.error = "Vi tar kun @gmail.com brukere"; 
         updateView(); 
-        return
+        return;
     }
     if(user.password != approvedPassword){
         model.inputs.register.error = "Ikke samme passord";
         updateView();
         return;
     }
+    if(findUser){
+        model.inputs.register.error = "Brukeren eksisterer allerede";
+        updateView();
+        return;
+    }
+
         model.users.push(user);
+        console.log(model.users);
         navigateToLogin();
     
 }
