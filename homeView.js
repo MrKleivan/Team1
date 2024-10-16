@@ -11,16 +11,16 @@ function updateViewHome() {
         
         <div id="homeContent"  style="width: 100%; height: 80%; margin: auto;align-items: center; display: flex; align-content:center; text-align: center;">
             <div style="width: 10%; height: 95%; align-content:center;" >
-            <img style="height: 5vh" src="img/leftArrow.svg" alt="Home Icon"  onclick="count > 0 ? count-- : count = 0" />
+            <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
             </div>
             <div id="homeProfile" style="width: 95%; height: 90%; border-radius: 40px; align-content: center; background-color: rgba(255, 255, 255, 0.5);">
                 <div class="profileView" style=" width: 90%; height: 90%; margin: auto; border-radius: 40px; background-image: url(${catPicture[count].pictureUrl});background-size: cover;background-position: center; background-repeat: no-repeat;">
                     <h1>${otherCatProfile[0].name}<h1>
-                    <h1 class="profileScript">${otherCatProfile[0].description}<h1>
+                    <h1 class="profileScript" >${otherCatProfile[0].description}<h1>
                 </div>
             </div>
             <div style="width: 10%; height: 10%; align-content:center;">
-            <img style="height: 5vh" src="img/rightArrow.svg" alt="Home Icon"  onclick="count < catPicture.lenght ? count++ : count = Number(catPicture.length)" />
+            <img style="height: 5vh" src="img/rightArrow.svg" alt="Right arrow"  onclick="nextPic()" />
             </div>
         </div>
         
@@ -34,7 +34,18 @@ function updateViewHome() {
     
 }
 
-
+function privPic() {
+    if(count == 0) {
+        return;
+    } else {count--}
+    updateView();
+}
+function nextPic() {
+    if(count == catPicture.length - 1) {
+        return;
+    } else {count++}
+    updateView();
+}
 
 function likeCat(myUserProfile, otherUserProfile) {
     
