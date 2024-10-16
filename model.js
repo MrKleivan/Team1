@@ -123,15 +123,14 @@ let model = {
     
     pictures: [
         //TODO: se på mulig bedre navn for placeInSequence
-        {userId: 1, pictureUrl: 'img/cat1.jfif', placeInSequence: 1}
-        , {userId: 1, pictureUrl: 'img/cat2.jpg', placeInSequence: 2}
-        , {userId: 1, pictureUrl: 'img/cat3.jpg', placeInSequence: 3}
-        , {userId: 2, pictureUrl: 'img/cat1.jfif', placeInSequence: 1}
-        , {userId: 2, pictureUrl: 'img/cat2.jpg', placeInSequence: 2}
-        , {userId: 2, pictureUrl: 'img/cat3.jpg', placeInSequence: 3}
-        , {userId: 3, pictureUrl: 'img/cat1.jfif', placeInSequence: 1}
-        , {userId: 3, pictureUrl: 'img/cat2.jpg', placeInSequence: 2}
-        , {userId: 3, pictureUrl: 'img/cat3.jpg', placeInSequence: 3}
+        {userId: 1, pictureUrl: 'img/brownCat1.jpg', placeInSequence: 1}
+        , {userId: 1, pictureUrl: 'img/brownCat2.jpg', placeInSequence: 2}
+        , {userId: 2, pictureUrl: 'img/blackCat1.jpg', placeInSequence: 1}
+        , {userId: 2, pictureUrl: 'img/blackCat2.jpg', placeInSequence: 2}
+        , {userId: 2, pictureUrl: 'img/blackCat3.jpg', placeInSequence: 3}
+        , {userId: 3, pictureUrl: 'img/greyCat1.jpg', placeInSequence: 1}
+        , {userId: 3, pictureUrl: 'img/greyCat2.jpg', placeInSequence: 2}
+        , {userId: 3, pictureUrl: 'img/greyCat3.jpg', placeInSequence: 3}
     ],
 
     //TODO: Tenk på navn likesUserId    

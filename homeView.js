@@ -1,11 +1,9 @@
-let myProfile = model.app.loggedInUser;
-let otherProfile = model.users.filter(user => user.userId != myProfile);
-let profileCount = Math.floor(Math.random() * otherProfile.length); 
-let otherCatProfile =  model.cats.filter(user => user.userId != myProfile);
-let catPicture = model.pictures.filter(user => user.userId == otherProfile[profileCount].userId);
-let count = 0;
+
 function updateViewHome() {
-    
+    let otherProfile = createSvipeList();
+    let profileCount = Math.floor(Math.random() * otherProfile.length);
+    otherProfile = otherProfile.filter(user => user.userId === profileCount);
+    let catPic = otherProfile.filter(u => u.pictureUrl);
     
     document.getElementById('app').innerHTML = /*HTML*/`
         <h1 style="font-size:3vh;text-align:center;color:purple;">Finn din kats elsker</h1>
@@ -15,9 +13,9 @@ function updateViewHome() {
             <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
             </div>
             <div id="homeProfile" style="width: 95%; height: 90%; border-radius: 40px; align-content: center; background-color: rgba(255, 255, 255, 0.5);">
-                <div class="profileView" onclick="navigateToPage('otherProfile')" style=" width: 90%; height: 90%; margin: auto; border-radius: 40px; background-image: url(${catPicture[count].pictureUrl});background-size: cover;background-position: center; background-repeat: no-repeat;">
-                    <div style="height: 80%; padding: 20px;"><h1>${otherCatProfile[profileCount].name}<h1></div>
-                    <div style="text-align: start;"><h1 class="profileScript" >${otherCatProfile[profileCount].description}<h1></div>
+                <div class="profileView" onclick="navigateToPage('otherProfile')" style=" width: 90%; height: 90%; margin: auto; border-radius: 40px; background-image: url(${catPic[1]});background-size: cover;background-position: center; background-repeat: no-repeat;">
+                    <div style="height: 80%; padding: 20px;"><h1>${otherProfile.name}<h1></div>
+                    <div style="text-align: start;"><h1 class="profileScript" >${otherProfile.description}<h1></div>
                 </div>
             </div>
             <div style="width: 10%; height: 10%; align-content:center;">
@@ -60,36 +58,6 @@ function updateViewHome() {
     
 }
 
-function privPic() {
-    if(count == 0) {
-        return;
-    } else {count--}
-    updateView();
-}
-function nextPic() {
-    if(count == catPicture.length - 1) {
-        return;
-    } else {count++}
-    updateView();
-}
 
-
-
-
-function likeCat(myUserProfile, otherUserProfile) {
-    model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: true});
-    otherProfile = otherProfile.filter(user => user.userId !== otherProfile[profileCount].userId);
-    profileCount = Math.floor(Math.random() * otherProfile.length);
-
-    updateView();
-}
-
-function notLikeCat(myUserProfile, otherUserProfile) {
-    model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: false});
-    otherProfile.filter(user => user.userId != profileCount);
-    profileCount = Math.floor(Math.random() * otherProfile.length);
-
-    updateView();
-}
 
 
