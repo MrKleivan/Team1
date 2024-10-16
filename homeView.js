@@ -1,9 +1,9 @@
 
+let otherProfile = createSvipeList();
+let profileCount = Math.floor(Math.random() * model.users.length);
+otherProfile = otherProfile.filter(user => user.userId === profileCount);
+let catPic = otherProfile.filter(u => u.pictureUrl);
 function updateViewHome() {
-    let otherProfile = createSvipeList();
-    let profileCount = Math.floor(Math.random() * otherProfile.length);
-    otherProfile = otherProfile.filter(user => user.userId === profileCount);
-    let catPic = otherProfile.filter(u => u.pictureUrl);
     
     document.getElementById('app').innerHTML = /*HTML*/`
         <h1 style="font-size:3vh;text-align:center;color:purple;">Finn din kats elsker</h1>

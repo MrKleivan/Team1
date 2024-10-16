@@ -6,8 +6,7 @@
     // let otherCatProfile =  model.cats.filter(user => user.userId != myProfile);
     // let catPicture = model.pictures.filter(user => user.userId != myProfile);
 
-   
-    let myProfile = model.app.loggedInUser;
+let myProfile = model.app.loggedInUser;
 let count = 0;
 
 function privPic() {
