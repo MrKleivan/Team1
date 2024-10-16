@@ -1,7 +1,7 @@
 let model = {
     app: {
         currentPage: 'home' // register , myProfile, home, matchProfile, chat, messages
-        , loggedInUser: null
+        , loggedInUser: 1
     },
 
 
@@ -92,7 +92,7 @@ let model = {
             , personality: 'leken'
             , color: 'black&white'
             , age: null
-            , description: ''
+            , description: 'Livlig og kosen katt'
         },
         {
             userId: 3
@@ -102,7 +102,7 @@ let model = {
             , personality: 'vilter'
             , color: 'oransje'
             , age: null
-            , description: ''
+            , description: 'Livlig og kosen katt'
         },
     ],
 
@@ -126,6 +126,12 @@ let model = {
         {userId: 1, pictureUrl: 'img/cat1.jfif', placeInSequence: 1}
         , {userId: 1, pictureUrl: 'img/cat2.jpg', placeInSequence: 2}
         , {userId: 1, pictureUrl: 'img/cat3.jpg', placeInSequence: 3}
+        , {userId: 2, pictureUrl: 'img/cat1.jfif', placeInSequence: 1}
+        , {userId: 2, pictureUrl: 'img/cat2.jpg', placeInSequence: 2}
+        , {userId: 2, pictureUrl: 'img/cat3.jpg', placeInSequence: 3}
+        , {userId: 3, pictureUrl: 'img/cat1.jfif', placeInSequence: 1}
+        , {userId: 3, pictureUrl: 'img/cat2.jpg', placeInSequence: 2}
+        , {userId: 3, pictureUrl: 'img/cat3.jpg', placeInSequence: 3}
     ],
 
     //TODO: Tenk på navn likesUserId    
