@@ -125,9 +125,6 @@ let model = {
         //TODO: se på mulig bedre navn for placeInSequence
         {userId: 1, pictureUrl: 'img/cat1.jfif', placeInSequence: 1}
         , {userId: 1, pictureUrl: 'img/cat2.jpg', placeInSequence: 2}
-        , {userId: 1, pictureUrl: '', placeInSequence: 3}
-        , {userId: 1, pictureUrl: '', placeInSequence: 4}
-        , {userId: 1, pictureUrl: '', placeInSequence: 5}
     ],
 
     //TODO: Tenk på navn likesUserId    
