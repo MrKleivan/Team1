@@ -1,29 +1,30 @@
 function updateViewChat() {
-    let selectedUser = model.users.filter(user => user.userId === 2);
-    selectedUser = selectedUser.pop() 
     document.getElementById('app').innerHTML = /*HTML*/`
         <div>
-
-            <div style="text-align:center; font:50px bold; ">
-                ${selectedUser.userName}
-            </div><br />
-            <div>
-                ${drawChatHtml(selectedUser)}
-            </div>
+            ${drawChatHtml(model.inputs.chat.selectedChatId)}
         </div>
     `;
 }
 
-function drawChatHtml(selectedUser){
+function drawChatHtml(id){
+    let selectedChat = model.chatLog.find(({ chatId }) => chatId === id)
+    let selectedUser;
     let currentUser = model.app.loggedInUser;
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
-
     let chatLogs = [];
-    let html = '';
-    console.log(chatLogs)
+    let html;
+    
+    if(selectedChat.senderId !== currentUser){selectedUser = selectedChat.senderId}
+    else{selectedUser = selectedChat.recipientId}
+    let username = getUsernameFromId(selectedUser)
+
     model.chatLog.filter(log => {
-        if((log.senderId === currentUser && log.recipientId === selectedUser.userId) || (log.senderId === selectedUser.userId && log.recipientId === currentUser)){chatLogs.push(log)}
+        if((log.senderId === currentUser && log.recipientId === selectedUser) || (log.senderId === selectedUser && log.recipientId === currentUser)){chatLogs.push(log)}
     })
+
+    html = `
+        <div style="text-align:center; font:50px bold;">${username.firstName}</div>
+    `
 
     for(log of chatLogs){
         let isSender = false;
