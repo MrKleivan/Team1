@@ -1,4 +1,4 @@
-let loggedInUser = model.app.loggedInUser ? model.app.loggedInUser.userId : 1;
+let loggedInUser = model.app.loggedInUser;
 function updateViewMyProfile() {
     console.log(loggedInUser);
     let loggedUser = model.users.find(user => user.userId === loggedInUser);
