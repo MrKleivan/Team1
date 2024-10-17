@@ -10,11 +10,11 @@
     border-radius: 15px;
     cursor: pointer;
 }
-.dragImageHere{
+.imageDisplay{
     display: flex;
     height: 100px;
     width: 100px;
-    border: 2px dashed rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 15px;
     margin: 10px;
     cursor: pointer;
@@ -49,4 +49,15 @@
     flex-direction: column; 
     padding-right: 20px;
     padding: 10px;
+}
+
+.cross{
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 40px;
 }
