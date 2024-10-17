@@ -1,12 +1,12 @@
 function createUser(){
-    let confirmPassword = document.getElementById("approvePasswordInput").value;
     let getInputEmail = document.getElementById("emailInput").value;
     let getInputUserName = document.getElementById("userNameInput").value;
     let getInputFirstName = document.getElementById("firstNameInput").value;
     let getInputLastName = document.getElementById("lastNameInput").value;
-    let getInputPassword = document.getElementById("passwordInput").value;
+    let getInputPassword = document.getElementById("passwordInput").value
+    let confirmPassword = document.getElementById("confirmPasswordInput").value;
 
-    authenticateInputData(confirmPassword, getInputEmail, getInputUserName, getInputFirstName, getInputLastName, getInputPassword)
+    authenticateInputData(getInputEmail, getInputUserName, getInputFirstName, getInputLastName, getInputPassword, confirmPassword)
 }
 
 function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputLastName, inputPassword, inputConfirmPassword){
@@ -25,7 +25,7 @@ function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputL
         updateView(); 
         return;
     }
-    if(!inputEmail.match(/@gmail.com/)){        
+    if(!inputEmail.match(/@gmail.com/)){      
         model.inputs.register.error = "Vi tar kun @gmail.com brukere"; 
         updateView(); 
         return;
@@ -42,10 +42,6 @@ function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputL
     }
 
         model.users.push(user);
-        navigateToLogin();
-}
-
-function navigateToLogin(){
-    model.app.currentPage = "login";
-    updateView();
+        console.log(model.users)
+        navigateToPage("login")
 }
