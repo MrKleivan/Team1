@@ -51,13 +51,15 @@ function processLoadedImage(pictureUrl) {
     displayImages();
 }
 function updateModelPictures(sequence, pictureUrl) {
-    let pictureIndex = model.pictures.findIndex(picture => picture.placeInSequence === sequence);
+    let userId = loggedInUser;
+    let pictureIndex = model.pictures.findIndex(picture => picture.userId === userId && picture.placeInSequence === sequence);
     console.log(pictureIndex);
     if (pictureIndex !== -1) {
         model.pictures[pictureIndex].pictureUrl = pictureUrl;
+        console.log('Updated', model.pictures);
     } else {
         model.pictures.push({ userId: loggedInUser, pictureUrl: pictureUrl, placeInSequence: sequence });
-        console.log(model.pictures);
+        console.log("added new",model.pictures);
     }
 }
 
@@ -86,9 +88,10 @@ function updateImageDiv(addImageToDiv, picture, i) {
     }
 }
 function deleteImage(sequence, event) {
-    event.stopPropagation();
+    event.stopPropagation(); 
+    console.log('model.pictures', model.pictures);
     model.pictures = model.pictures.filter(picture => picture.placeInSequence !== sequence);
-    updateModelPictures(sequence, null);
+    console.log(model.pictures);
     displayImages();
 }
 displayImages();
