@@ -58,6 +58,7 @@ function likeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: true});
     otherProfileS = otherProfileS.filter(user => user.userId != otherUserProfile);
     otherProfile = getOtherProfile();
+    catPic = otherProfile.filter(u => u.pictureUrl);
     
     updateView();
 }
@@ -66,6 +67,7 @@ function notLikeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: false});
     otherProfileS = otherProfileS.filter(user => user.userId != otherUserProfile);
     otherProfile = getOtherProfile();
+    catPic = otherProfile.filter(u => u.pictureUrl);
     
     updateView();
 }
