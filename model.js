@@ -170,10 +170,10 @@ let model = {
         , {userId: 3, pictureUrl: 'img/greyCat1.jpg', placeInSequence: 1}
         , {userId: 3, pictureUrl: 'img/greyCat2.jpg', placeInSequence: 2}
         , {userId: 3, pictureUrl: 'img/greyCat3.jpg', placeInSequence: 3}
-        , {userId: 4, pictureUrl: 'img/browCat1.jpg', placeInSequence: 1}
-        , {userId: 4, pictureUrl: 'img/browCat2.jpg', placeInSequence: 2}
-        , {userId: 5, pictureUrl: 'img/browCat1a.jpg', placeInSequence: 1}
-        , {userId: 5, pictureUrl: 'img/browCat2a.jpg', placeInSequence: 2}
+        , {userId: 4, pictureUrl: 'img/brownCat1.jpg', placeInSequence: 1}
+        , {userId: 4, pictureUrl: 'img/brownCat2.jpg', placeInSequence: 2}
+        , {userId: 5, pictureUrl: 'img/brownCat1a.jpg', placeInSequence: 1}
+        , {userId: 5, pictureUrl: 'img/brownCat2a.jpg', placeInSequence: 2}
     ],
 
     //TODO: Tenk på navn likesUserId    
