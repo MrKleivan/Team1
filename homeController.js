@@ -39,17 +39,19 @@ function createSvipeList() {
 
     return otherProfile;
 }
-
+let profileCount = Math.ceil(Math.random() * model.users.length);
 function getOtherProfile() {
     let otherProfile;
-    let profileCount = Math.ceil(Math.random() * model.users.length);
-    
-    while(profileCount == myProfile) {
-        profileCount = Math.ceil(Math.random() * 3);
-    } 
     otherProfile = otherProfileS.filter(user => user.userId != myProfile);
+    let profileCount = Math.ceil(Math.random() * otherProfileS.length);
+    profileCount = otherProfileS[profileCount].userId;
+    
+    // while(profileCount == myProfile) {
+    //     profileCount = Math.ceil(Math.random() * userProfiles);
+    //     if(userProfiles < 0) {profileCount = 0 }
+    // } 
     otherProfile = otherProfileS.filter(user => user.userId === profileCount);
-    otherProfile = otherProfileS.filter(user => user.userId === profileCount);
+    
     return otherProfile;
 
 }
