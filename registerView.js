@@ -5,27 +5,27 @@ function updateViewRegister() {
         <h1>Registrer</h1>
         <label>Email:</label>
         <br>
-        <input class="registrationInput" id="emailInput" type="email" value="${model.inputs.register.userEmail}" placeholder="example@gmail.com" oninput="model.inputs.register.userEmail = this.value">
+        <input id="emailInput" type="email" value="${model.inputs.register.userEmail}" placeholder="example@gmail.com" oninput="model.inputs.register.userEmail = this.value">
         <br>
         <label>Brukernavn:</label>
         <br>
-        <input class="registrationInput" id="userNameInput" placeholder="Skriv inn ditt brukernavn" value="${model.inputs.register.userName}" type="text" oninput="model.inputs.register.userName = this.value">
+        <input id="userNameInput" placeholder="Skriv inn ditt brukernavn" value="${model.inputs.register.userName}" type="text" oninput="model.inputs.register.userName = this.value">
         <br>
         <label>Fornavn:</label>
         <br>
-        <input class="registrationInput" id="firstNameInput" placeholder="Skriv inn ditt fornavn" value="${model.inputs.register.firstName}" type="text" oninput="model.inputs.register.firstName = this.value">
+        <input id="firstNameInput" placeholder="Skriv inn ditt fornavn" value="${model.inputs.register.firstName}" type="text" oninput="model.inputs.register.firstName = this.value">
         <br>
         <label>Etternavn:</label>
         <br>
-        <input class="registrationInput" id="lastNameInput" placeholder="Skriv inn ditt etternavn" value="${model.inputs.register.lastName}" type="text" oninput="model.inputs.register.lastName = this.value">
+        <input id="lastNameInput" placeholder="Skriv inn ditt etternavn" value="${model.inputs.register.lastName}" type="text" oninput="model.inputs.register.lastName = this.value">
         <br>
         <label>Passord:</label>
         <br>
-        <input class="registrationInput" id="passwordInput" placeholder="Skriv inn ditt passord" type="password" oninput="model.inputs.register.password = this.value">
+        <input id="passwordInput" placeholder="Skriv inn ditt passord" type="password" oninput="model.inputs.register.password = this.value">
         <br>
         <label>Bekreft passord:</label>
         <br>
-        <input class="registrationInput" id="approvePasswordInput" type="password" placeholder="Skriv inn passord på nytt" oninput="model.inputs.register.approvePassword = this.value">
+        <input id="confirmPasswordInput" type="password" placeholder="Skriv inn passord på nytt" oninput="model.inputs.register.confirmPassword = this.value">
         <br>
         <button type="submit" onclick="createUser()">Registrer</button>
         <h2>${model.inputs.register.error}</h2>

@@ -1,7 +1,7 @@
 let model = {
     app: {
-        currentPage: 'home' // register , myProfile, home, matchProfile, chat, messages
-        , loggedInUser: null
+        currentPage: 'login' // register , myProfile, home, matchProfile, chat, messages
+        , loggedInUser: 1
     },
 
 
@@ -17,7 +17,7 @@ let model = {
             userName: ''
             , userEmail: ''
             , password: ''
-            , approvePassword: ''
+            , confirmPassword: ''
             , firstName : ''
             , lastName : ''
             , error : ''
@@ -41,6 +41,9 @@ let model = {
             userId: null
             , isLike: false
             , placeInSequence: 1 
+        },
+        chat: {
+            selectedChatId : null
         }
     },
 
@@ -71,6 +74,22 @@ let model = {
             , firstName: 'Pål'
             , lastName: 'Norman'
         },
+        {
+            userId: 4
+            , userName: 'kåre'
+            , userEmail: 'kaare@gmail.com'
+            , password: '123'
+            , firstName: 'Kåre'
+            , lastName: 'Norman'
+        },
+        {
+            userId: 5
+            , userName: 'Ole'
+            , userEmail: 'ole@gmail.com'
+            , password: '321'
+            , firstName: 'Ole'
+            , lastName: 'Norman'
+        },
     ],
 
     cats: [
@@ -92,7 +111,7 @@ let model = {
             , personality: 'leken'
             , color: 'black&white'
             , age: null
-            , description: ''
+            , description: 'Livlig og kosen katt'
         },
         {
             userId: 3
@@ -102,7 +121,27 @@ let model = {
             , personality: 'vilter'
             , color: 'oransje'
             , age: null
-            , description: ''
+            , description: 'Livlig og kosen katt'
+        },
+        {
+            userId: 4
+            , name: 'Emma' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'tørrfor'
+            , personality: 'Gal'
+            , color: 'brun'
+            , age: null
+            , description: 'Rar og gal'
+        },
+        {
+            userId: 5
+            , name: 'Monsen' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'mus'
+            , personality: 'Utadvendt'
+            , color: 'brun'
+            , age: null
+            , description: 'Utekatt'
         },
     ],
 
@@ -123,9 +162,18 @@ let model = {
     
     pictures: [
         //TODO: se på mulig bedre navn for placeInSequence
-        {userId: 1, pictureUrl: 'img/cat1.jfif', placeInSequence: 1}
-        , {userId: 1, pictureUrl: 'img/cat2.jpg', placeInSequence: 2}
-        , {userId: 1, pictureUrl: 'img/cat3.jpg', placeInSequence: 3}
+        {userId: 1, pictureUrl: 'img/orangeCat1.jpg', placeInSequence: 1}
+        , {userId: 1, pictureUrl: 'img/orangeCat2.jpg', placeInSequence: 2}
+        , {userId: 2, pictureUrl: 'img/blackCat1.jpg', placeInSequence: 1}
+        , {userId: 2, pictureUrl: 'img/blackCat2.jpg', placeInSequence: 2}
+        , {userId: 2, pictureUrl: 'img/blackCat3.jpg', placeInSequence: 3}
+        , {userId: 3, pictureUrl: 'img/greyCat1.jpg', placeInSequence: 1}
+        , {userId: 3, pictureUrl: 'img/greyCat2.jpg', placeInSequence: 2}
+        , {userId: 3, pictureUrl: 'img/greyCat3.jpg', placeInSequence: 3}
+        , {userId: 4, pictureUrl: 'img/brownCat1.jpg', placeInSequence: 1}
+        , {userId: 4, pictureUrl: 'img/brownCat2.jpg', placeInSequence: 2}
+        , {userId: 5, pictureUrl: 'img/brownCat1a.jpg', placeInSequence: 1}
+        , {userId: 5, pictureUrl: 'img/brownCat2a.jpg', placeInSequence: 2}
     ],
 
     //TODO: Tenk på navn likesUserId    
@@ -137,10 +185,10 @@ let model = {
     ],
  
     chatLog: [
-      {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(14,32,0,0)), recipientId:2}  
-      , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2}   
-      , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-9").setHours(15,47,0,0)), recipientId:1}  
-      , {senderId: 2, message: 'Hei', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3}  
-      , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3}
+      {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(14,32,0,0)), recipientId:2, chatId: 1}  
+      , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1}   
+      , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-9").setHours(15,47,0,0)), recipientId:1, chatId: 1}  
+      , {senderId: 2, message: 'Hei', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2}  
+      , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3}
     ],
 }

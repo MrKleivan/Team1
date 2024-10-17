@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script>
+          model = {
+            app : {
+            loggedInUser: null,
+        },
+
+        users : [
+        {
+            userId: 1
+            , userName: 'per'
+            , userEmail: 'per@gmail.com'
+            , password: '123'
+            , firstName: 'Per'
+            , lastName: 'Nordman'
+        },
+        {
+            userId: 2
+            , userName: 'espen'
+            , userEmail: 'epsen@gmail.com'
+            , password: '123'
+            , firstName: 'Espen'
+            , lastName: 'Norman'
+        },
+        {
+            userId: 3
+            , userName: 'pål'
+            , userEmail: 'pållern@gmail.com'
+            , password: '321'
+            , firstName: 'Pål'
+            , lastName: 'Norman'
+        },
+        ],
+
+        inputs : {
+            register : {
+                error : '',
+            }
+        }
+
+    }
+    </script>
+    <script src="/registerController.js"></script>
+    <script src="/registerView.js"></script>
+    <script src="/loginController.js"></script>
+    <script src="/loginView.js"></script>
+
+    <script>        
+      
+
+        function updateView(){};
+
+        QUnit.test("validate Registration", function (assert) {
+
+            authenticateInputData('tommy@gmail.com', 'Tommy', 'Tommy', 'Mai', '123', '123');
+
+            assert.deepEqual(model.users.length, 4);
+            
+        });
+
+        QUnit.test("Registration check for empty fields", function (assert) {
+
+            authenticateInputData('hei@gmail.com', 'Hei', '', 'Mai', '123', '123');
+
+            assert.deepEqual(model.inputs.register.error, "Det er et tomt felt");
+            assert.deepEqual(model.users.length, 4);
+            
+        });
+
+        QUnit.test("Registration check not matched passwords", function (assert) {
+            
+            authenticateInputData('hei@gmail.com', 'Hei', 'Hei', 'Mai', '123', '321');
+            assert.deepEqual(model.inputs.register.error, "Ikke samme passord");
+            assert.deepEqual(model.users.length, 4);
+            
+        });
+
+        QUnit.test("Registration check for duplicate users", function (assert) {
+
+            authenticateInputData('tommy@gmail.com', 'Tommy', 'Tommy', 'Mai', '123', '123');
+
+            assert.deepEqual(model.inputs.register.error, "En bruker med denne emailen eller brukernavnet eksisterer allerede");
+            assert.deepEqual(model.users.length, 4);
+        });
+
+        QUnit.test("invalid Login", function (assert) {
+
+            let user = authenticateLoginData('feil@gmail.com', '123');
+
+            assert.deepEqual(user, undefined);
+            
+        });
+
+
+        QUnit.test("validate Login", function (assert) {
+
+            let user = authenticateLoginData('per@gmail.com', '123')
+ 
+            assert.deepEqual(user.userId, 1);
+            
+        });
+
+
+
+    </script>
+</body>
+</html>
