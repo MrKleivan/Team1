@@ -1,4 +1,4 @@
-.registrationInput {
+.inputBox > input {
     border-radius: 2px;
     border: 0.5px solid grey;
     padding: 5px;
@@ -17,12 +17,14 @@
 
 #registrationForm{
     display:flex;
-    align-items: center;
+    text-align: center;
     justify-content: center;
 }
 
-.inputBox > label,h1 {
-    margin-left: 25px;
+.inputBox > label {
+    display:flex;
+    text-align: center;
+    justify-content: center;
 }
 
 .inputBox > button {

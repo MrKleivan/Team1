@@ -1,5 +1,5 @@
 function createUser(){
-    let approvedPassword = document.getElementById("approvePasswordInput").value;
+    let confirmPassword = document.getElementById("approvePasswordInput").value;
     let getInputEmail = document.getElementById("emailInput").value;
     let getInputUserName = document.getElementById("userNameInput").value;
     let getInputFirstName = document.getElementById("firstNameInput").value;
@@ -25,21 +25,19 @@ function createUser(){
         updateView(); 
         return;
     }
-    if(user.password != approvedPassword){
+    if(user.password != confirmPassword){
         model.inputs.register.error = "Ikke samme passord";
         updateView();
         return;
     }
     if(findUser){
-        model.inputs.register.error = "Brukeren eksisterer allerede";
+        model.inputs.register.error = "En bruker med denne emailen eller brukernavnet eksisterer allerede";
         updateView();
         return;
     }
 
         model.users.push(user);
-        console.log(model.users);
         navigateToLogin();
-    
 }
 
 function navigateToLogin(){
