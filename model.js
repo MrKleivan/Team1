@@ -74,6 +74,22 @@ let model = {
             , firstName: 'Pål'
             , lastName: 'Norman'
         },
+        {
+            userId: 4
+            , userName: 'kåre'
+            , userEmail: 'kaare@gmail.com'
+            , password: '123'
+            , firstName: 'Kåre'
+            , lastName: 'Norman'
+        },
+        {
+            userId: 5
+            , userName: 'Ole'
+            , userEmail: 'ole@gmail.com'
+            , password: '321'
+            , firstName: 'Ole'
+            , lastName: 'Norman'
+        },
     ],
 
     cats: [
@@ -107,6 +123,26 @@ let model = {
             , age: null
             , description: 'Livlig og kosen katt'
         },
+        {
+            userId: 4
+            , name: 'Emma' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'tørrfor'
+            , personality: 'Gal'
+            , color: 'brun'
+            , age: null
+            , description: 'Rar og gal'
+        },
+        {
+            userId: 5
+            , name: 'Monsen' 
+            , race: 'Norsk skogs katt' 
+            , favouriteFood: 'mus'
+            , personality: 'Utadvendt'
+            , color: 'brun'
+            , age: null
+            , description: 'Utekatt'
+        },
     ],
 
     chosenInterests: [
@@ -126,14 +162,18 @@ let model = {
     
     pictures: [
         //TODO: se på mulig bedre navn for placeInSequence
-        {userId: 1, pictureUrl: 'img/brownCat1.jpg', placeInSequence: 1}
-        , {userId: 1, pictureUrl: 'img/brownCat2.jpg', placeInSequence: 2}
+        {userId: 1, pictureUrl: 'img/orangeCat1.jpg', placeInSequence: 1}
+        , {userId: 1, pictureUrl: 'img/orangeCat2.jpg', placeInSequence: 2}
         , {userId: 2, pictureUrl: 'img/blackCat1.jpg', placeInSequence: 1}
         , {userId: 2, pictureUrl: 'img/blackCat2.jpg', placeInSequence: 2}
         , {userId: 2, pictureUrl: 'img/blackCat3.jpg', placeInSequence: 3}
         , {userId: 3, pictureUrl: 'img/greyCat1.jpg', placeInSequence: 1}
         , {userId: 3, pictureUrl: 'img/greyCat2.jpg', placeInSequence: 2}
         , {userId: 3, pictureUrl: 'img/greyCat3.jpg', placeInSequence: 3}
+        , {userId: 4, pictureUrl: 'img/browCat1.jpg', placeInSequence: 1}
+        , {userId: 4, pictureUrl: 'img/browCat2.jpg', placeInSequence: 2}
+        , {userId: 5, pictureUrl: 'img/browCat1a.jpg', placeInSequence: 1}
+        , {userId: 5, pictureUrl: 'img/browCat2a.jpg', placeInSequence: 2}
     ],
 
     //TODO: Tenk på navn likesUserId    
