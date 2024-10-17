@@ -10,17 +10,13 @@
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
-    <script src="lib.js"></script>
-    <script src="/model.js"></script>
-    <script src="/registerController.js"></script>
-    <script src="/registerView.js"></script>
-    <script src="/loginController.js"></script>
-    <script src="/loginView.js"></script>
+    <script>
+          model = {
+            app : {
+            loggedInUser: null,
+        },
 
-    <script>        
-                
-    
-        users = [
+        users : [
         {
             userId: 1
             , userName: 'per'
@@ -45,128 +41,73 @@
             , firstName: 'Pål'
             , lastName: 'Norman'
         },
-        ]
+        ],
 
-        inputs = {
+        inputs : {
             register : {
                 error : '',
             }
         }
 
+    }
+    </script>
+    <script src="/registerController.js"></script>
+    <script src="/registerView.js"></script>
+    <script src="/loginController.js"></script>
+    <script src="/loginView.js"></script>
+
+    <script>        
+      
+
         function updateView(){};
 
         QUnit.test("validate Registration", function (assert) {
 
-            let user = {};
-            user.userId = 4;
-            user.userEmail = 'tommymai@gmail.com';
-            user.userName = 'Tommy';
-            user.firstName = 'Tommy';
-            user.lastName = 'Mai';
-            user.password = '123';
-          
-            users.push(user);
-            assert.deepEqual(users.length, 4);
+            authenticateInputData('tommy@gmail.com', 'Tommy', 'Tommy', 'Mai', '123', '123');
+
+            assert.deepEqual(model.users.length, 4);
             
         });
 
         QUnit.test("Registration check for empty fields", function (assert) {
 
-            let user = {};
-            user.userId = 4;
-            user.userEmail = 'tommymai@gmail.com';
-            user.userName = 'Tommy';
-            user.firstName = '';
-            user.lastName = 'Mai';
-            user.password = '123';
-          
-            if(!user.userEmail || !user.userName || !user.firstName || !user.lastName || !user.password){
-                inputs.register.error = "Det er et tomt felt"; 
-                updateView(); 
-            }else {
-                users.push(user);
-            }
+            authenticateInputData('hei@gmail.com', 'Hei', '', 'Mai', '123', '123');
 
-            assert.deepEqual(inputs.register.error, "Det er et tomt felt");
-            assert.deepEqual(users.length, 4);
+            assert.deepEqual(model.inputs.register.error, "Det er et tomt felt");
+            assert.deepEqual(model.users.length, 4);
             
         });
 
-        QUnit.test("Registration match passwords", function (assert) {
+        QUnit.test("Registration check not matched passwords", function (assert) {
             
-            let confirmPassword = '321';
-            let user = {};
-            user.userId = 4;
-            user.userEmail = 'tommymai@gmail.com';
-            user.userName = 'Tommy';
-            user.firstName = '123';
-            user.lastName = 'Mai';
-            user.password = '123';
-          
-            if(user.password != confirmPassword){
-                inputs.register.error = "Ikke samme passord";
-                updateView();
-            }else {
-                users.push(user);
-            }
-
-            assert.deepEqual(inputs.register.error, "Ikke samme passord");
-            assert.deepEqual(users.length, 4);
+            authenticateInputData('hei@gmail.com', 'Hei', 'Hei', 'Mai', '123', '321');
+            assert.deepEqual(model.inputs.register.error, "Ikke samme passord");
+            assert.deepEqual(model.users.length, 4);
             
         });
 
         QUnit.test("Registration check for duplicate users", function (assert) {
-            
-            let user = {};
-            user.userId = 4;
-            user.userEmail = 'tommymai@gmail.com';
-            user.userName = 'Tommy';
-            user.firstName = '123';
-            user.lastName = 'Mai';
-            user.password = '123';
-            let findUser = users.find(u => u.userEmail == 'tommymai@gmail.com' || u.userName == 'Tommy');
 
-            if(findUser){
-                inputs.register.error = "En bruker med denne emailen eller brukernavnet eksisterer allerede";
-                updateView();
-            }else {
-                users.push(user);
-            }
+            authenticateInputData('tommy@gmail.com', 'Tommy', 'Tommy', 'Mai', '123', '123');
 
-            assert.deepEqual(inputs.register.error, "En bruker med denne emailen eller brukernavnet eksisterer allerede");
-            assert.deepEqual(users.length, 4);
+            assert.deepEqual(model.inputs.register.error, "En bruker med denne emailen eller brukernavnet eksisterer allerede");
+            assert.deepEqual(model.users.length, 4);
         });
 
         QUnit.test("invalid Login", function (assert) {
-            let loggedInUser = null
-                
-            let emailOrUserName = 'per';
-            let password = '321';
 
-            let findUser = users.find(u => u.userEmail == emailOrUserName || u.userName == emailOrUserName && u.password == password);
+            let user = authenticateLoginData('feil@gmail.com', '123');
 
-            if(findUser) {
-                loggedInUser = findUser.userId;
-            }
-
-            assert.deepEqual(loggedInUser, null);
+            assert.deepEqual(user, undefined);
             
         });
 
 
         QUnit.test("validate Login", function (assert) {
-            let loggedInUser = null
-                
-            let emailOrUserName = 'per';
-            let password = '123';
 
-            let findUser = users.find(u => u.userEmail == emailOrUserName || u.userName == emailOrUserName && u.password == password);
-
-            if(findUser) {
-                loggedInUser = findUser.userId;
-            }
-
-            assert.deepEqual(loggedInUser, 1);
+            let user = authenticateLoginData('per@gmail.com', '123')
+ 
+            assert.deepEqual(user.userId, 1);
             
         });
 

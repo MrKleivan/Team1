@@ -27,10 +27,6 @@
     justify-content: center;
 }
 
-.inputBox > button {
-    margin-left: 50px;
-}
-
 .loginForm{
     display:flex;
     align-items: center;

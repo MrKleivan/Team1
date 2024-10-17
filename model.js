@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'home' // register , myProfile, home, matchProfile, chat, messages
+        currentPage: 'login' // register , myProfile, home, matchProfile, chat, messages
         , loggedInUser: 1
     },
 
@@ -17,7 +17,7 @@ let model = {
             userName: ''
             , userEmail: ''
             , password: ''
-            , approvePassword: ''
+            , confirmPassword: ''
             , firstName : ''
             , lastName : ''
             , error : ''
