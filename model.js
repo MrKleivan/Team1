@@ -158,6 +158,9 @@ let model = {
         , 'Klatre'
         , 'Spise'
         , 'Utforske'
+        , 'Trene'
+        , 'Jakte'
+        , 'synge'
     ],
     
     pictures: [

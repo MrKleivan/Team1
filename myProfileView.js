@@ -17,7 +17,7 @@ function updateViewMyProfile() {
 
     document.getElementById('app').innerHTML = /*HTML*/`
     <div class="header">
-    "<h1>Din katteprofil</h1>
+    <h1>Din katteprofil</h1>
     </div>
     <div id="myProfileContent">
     <div id="column1">
@@ -33,15 +33,10 @@ function updateViewMyProfile() {
     Race<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="race of your cat"><br>
     </div>
     </div>
-    <div id="noneColumnContent" style="display: flex; flex-direction: column; justify-content: center; align-items: stretch;">
-    Interests<br><select id='interestsSelection' multiple>
-    <option value="cuddle">cuddle</option>
-    <option value="sleep">sleep</option>
-    <option value="play">play</option>
-    <option value="eat">eat</option>
-    <option value="walk">walk</option>
-    </select><br>
-    </div>
+    Interests<br>
+    
+    <div id='interestsSelection'></div><br>
+    
     Add cat pictures
     <input type='file' id='imageInput' accept='image/*' onchange="readFileSelection(event)" style="display: none;" />
     <div id='divAddPictures'>
@@ -57,71 +52,16 @@ function updateViewMyProfile() {
     <button onclick="saveChanges()">Save</button><br>
     `;
     displayImages();
+    displayInterests();
 }
 
-clickedSequence = null;
-function openFilePicker(sequence) {
-    clickedSequence = sequence;
-    document.getElementById('imageInput').click();
-}
-
-function readFileSelection(event) {
-    const file = event.target.files[0];
-    if (!file)
-        return;
-    readImage(file);
-}
-function readImage(file) {
-    const reader = new FileReader();
-    reader.onload = function (loadEvent) {
-        processLoadedImage(loadEvent.target.result);
-    };
-    reader.readAsDataURL(file);
-}
-function processLoadedImage(pictureUrl) {
-    updateModelPictures(clickedSequence, pictureUrl);
-    displayImages();
-}
-function updateModelPictures(sequence, pictureUrl) {
-    let pictureIndex = model.pictures.findIndex(picture => picture.placeInSequence === sequence);
-    console.log(pictureIndex);
-    if (pictureIndex !== -1) {
-        model.pictures[pictureIndex].pictureUrl = pictureUrl;
-    } else {
-        model.pictures.push({ userId: loggedInUser, pictureUrl: pictureUrl, placeInSequence: sequence });
-        console.log(model.pictures);
+function displayInterests() {
+    let interests = model.interests;
+    let interestsSelection = document.getElementById('interestsSelection');
+    let buttonsHTML = ''; 
+    for (let i = 0; i < interests.length; i++) {
+        let interest = interests[i];
+        buttonsHTML += `<button class="interestButton">${interest}</button>`; 
     }
+    interestsSelection.innerHTML = buttonsHTML;
 }
-
-function displayImages() {
-    let totalPictures = 5;
-    let catPictures = model.pictures.filter(picture => picture.userId == loggedInUser);
-
-    for (let i = 0; i < totalPictures; i++) {
-        let divImageId = 'dragImageHere' + (i + 1);
-        let addImageToDiv = document.getElementById(divImageId);
-        let picture = catPictures.find(p => p.placeInSequence === (i + 1));
-        updateImageDiv(addImageToDiv, picture, i);
-        }
-    }
-function updateImageDiv(addImageToDiv, picture, i) {
-    if (addImageToDiv) {
-        if (picture) {
-            addImageToDiv.innerHTML = `
-                <div class="imageWrapper">
-                    <img src="${picture.pictureUrl}" alt="image" class="thumbnail" />
-                    <span class="cross" onclick="deleteImage(${i + 1}, event)">&times;</span>
-                </div>`;
-        } else {
-            addImageToDiv.innerHTML = '+';
-        }
-    }
-}
-function deleteImage(sequence, event) {
-    event.stopPropagation();
-    model.pictures = model.pictures.filter(picture => picture.placeInSequence !== sequence);
-    updateModelPictures(sequence, null);
-    displayImages();
-}
-displayImages();
-
