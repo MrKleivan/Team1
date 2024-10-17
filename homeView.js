@@ -11,7 +11,7 @@ function updateViewHome() {
             <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic(catPic)" />
             </div>
             <div id="homeProfile" style="width: 95%; height: 90%; border-radius: 40px; align-content: center; background-color: rgba(255, 255, 255, 0.5);">
-                <div class="profileView" onclick="navigateToPage('otherProfile')" style=" width: 90%; height: 90%; margin: auto; border-radius: 40px; background-image: url(${catPic[count].pictureUrl});background-size: cover;background-position: center; background-repeat: no-repeat;">
+                <div class="profileView" onclick="navigateToPage('otherProfile')" style=" width: 98%; height: 98%; margin: auto; border-radius: 40px; background-image: url(${catPic[count].pictureUrl});background-size: cover;background-position: center; background-repeat: no-repeat;">
                     <div style="height: 80%; padding: 20px;"><h1>${otherProfile[1].name}<h1></div>
                     <div style="text-align: start;"><h1 class="profileScript" >${otherProfile[1].description}<h1></div>
                 </div>
