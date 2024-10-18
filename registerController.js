@@ -1,31 +1,36 @@
 function createUser(){
-    let confirmPassword = document.getElementById("approvePasswordInput").value;
     let getInputEmail = document.getElementById("emailInput").value;
     let getInputUserName = document.getElementById("userNameInput").value;
     let getInputFirstName = document.getElementById("firstNameInput").value;
     let getInputLastName = document.getElementById("lastNameInput").value;
-    let getInputPassword = document.getElementById("passwordInput").value;
-    let findUser = model.users.find(u => u.userEmail == getInputEmail || u.userName == getInputUserName);
+    let getInputPassword = document.getElementById("passwordInput").value
+    let confirmPassword = document.getElementById("confirmPasswordInput").value;
+
+    authenticateInputData(getInputEmail, getInputUserName, getInputFirstName, getInputLastName, getInputPassword, confirmPassword)
+}
+
+function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputLastName, inputPassword, inputConfirmPassword){
+    let findUser = model.users.find(u => u.userEmail == inputEmail || u.userName == inputUserName);
     let user = {}
 
     user.userId = model.users.length+1;
-    user.userEmail = getInputEmail;
-    user.userName = getInputUserName;
-    user.firstName = getInputFirstName;
-    user.lastName = getInputLastName;
-    user.password = getInputPassword;
+    user.userEmail = inputEmail;
+    user.userName = inputUserName;
+    user.firstName = inputFirstName;
+    user.lastName = inputLastName;
+    user.password = inputPassword;
 
-    if(!getInputEmail || !getInputUserName || !getInputFirstName || !getInputLastName || !getInputPassword){
+    if(!inputEmail || !inputUserName || !inputFirstName || !inputLastName || !inputPassword){
         model.inputs.register.error = "Det er et tomt felt"; 
         updateView(); 
         return;
     }
-    if(!getInputEmail.match(/@gmail.com/)){        
+    if(!inputEmail.match(/@gmail.com/)){      
         model.inputs.register.error = "Vi tar kun @gmail.com brukere"; 
         updateView(); 
         return;
     }
-    if(user.password != confirmPassword){
+    if(user.password != inputConfirmPassword){
         model.inputs.register.error = "Ikke samme passord";
         updateView();
         return;
@@ -37,10 +42,6 @@ function createUser(){
     }
 
         model.users.push(user);
-        navigateToLogin();
-}
-
-function navigateToLogin(){
-    model.app.currentPage = "login";
-    updateView();
+        console.log(model.users)
+        navigateToPage("login")
 }
