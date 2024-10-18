@@ -20,7 +20,7 @@ function nextPic(counter, catPicture) {
 function createSvipeList(OtherUserId) {
     let myProfile = model.app.loggedInUser;
     let otherProfile = [];
-    if(model.inputs.home.svipeList < 1) {
+    if(OtherUserId == undefined && model.inputs.home.svipeList < 1) {
         for(let i = 0; i < model.users.length; i++) { 
             model.inputs.home.svipeList.push(model.users[i]);
             model.inputs.home.svipeList.push(model.cats[i]);
@@ -31,8 +31,8 @@ function createSvipeList(OtherUserId) {
         model.inputs.home.svipeList = model.inputs.home.svipeList.filter(user => user.userId != myProfile);
         otherProfile = model.inputs.home.svipeList;
         
-    } else {
-        model.inputs.home.svipeList = otherProfile.filter(user => user.userId != OtherUserId);
+    } else if(OtherUserId !== undefined) {
+        model.inputs.home.svipeList =  model.inputs.home.svipeList.filter(user => user.userId != OtherUserId);
         otherProfile = model.inputs.home.svipeList;
         
     } return otherProfile;
@@ -41,34 +41,29 @@ function createSvipeList(OtherUserId) {
 }
 
 function getOtherProfile(create) {
+    let otherProfile = [];
     if(create == true) {
-        let otherProfile = [];
         let otherProfileS = model.inputs.home.svipeList;
         let randomIndex = Math.ceil(Math.random() * otherProfileS.length);
         let profileId = otherProfileS[randomIndex].userId;
         
         otherProfile = otherProfileS.filter(user => user.userId == profileId);
-        return otherProfile;    
-    } else return;
+            
+        return otherProfile;
+    } else if(create == false) {return otherProfile;}
+    
 }
 
 function likeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: true});
-    otherProfileS = otherProfileS.filter(user => user.userId != otherUserProfile);
-    if(otherProfileS.length > 1) {
-        otherProfile = getOtherProfile();
-        catPic = otherProfile.filter(u => u.pictureUrl);
-    } 
+    createSvipeList(otherUserProfile);
+    getOtherProfile(false);
     updateView();
 }
 
 function notLikeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: false});
-    otherProfileS = otherProfileS.filter(user => user.userId != otherUserProfile);
-    if(otherProfileS.length > 1) {
-        otherProfile = getOtherProfile();
-        catPic = otherProfile.filter(u => u.pictureUrl);
-    } 
-    
+    createSvipeList(otherUserProfile)
+    getOtherProfile(false);
     updateView();
 }
