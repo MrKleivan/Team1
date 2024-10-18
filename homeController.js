@@ -47,8 +47,8 @@ function getOtherProfile() {
         model.inputs.home.watching = otherProfileS.filter(user => user.userId == profileId);
             
         return model.inputs.home.watching;
-    } else {return model.inputs.home.watching}
-    
+    } else if(model.inputs.home.watching > 1 ){model.inputs.home.svipeList = [] }
+    updateView();
 }
 
 function likeCat(myUserProfile, otherUserProfile) {

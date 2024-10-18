@@ -31,7 +31,7 @@ function updateViewHome() {
         <img style="height: 10vh" src="img/house-solid.svg" alt="home"  onclick="updateView()" />
         </div>
         `;
-    } else if (model.inputs.home.svipeList.length > 1){
+    } else if (model.inputs.home.svipeList.length > 3){
         html = /*HTML*/`
         
         <h1 style="font-size:3vh;text-align:center;color:purple;">Finn din kats elsker</h1>
@@ -55,8 +55,8 @@ function updateViewHome() {
         </div>
         <br>
         <div style="width: 90%; margin: auto; text-align: center;">
-            <button onclick="likeCat(${LoggedInnUserProfile}, otherProfile[0].userId)" style="width: 10vw; height: 4vh; border: none; margin-right: 40px; border-radius: 10px; background-color: rgba(255,255,255,0.7);">Liker</button>
-            <button onclick="notLikeCat(${LoggedInnUserProfile}, otherProfile[0].userId)" style="width: 10vw; height: 4vh; border: none; border-radius: 10px; background-color: rgba(255,255,255,0.7);">Liker ikke</button>
+            <button onclick="likeCat(${LoggedInnUserProfile}, ${otherProfile[1].userId})" style="width: 10vw; height: 4vh; border: none; margin-right: 40px; border-radius: 10px; background-color: rgba(255,255,255,0.7);">Liker</button>
+            <button onclick="notLikeCat(${LoggedInnUserProfile}, ${otherProfile[1].userId})" style="width: 10vw; height: 4vh; border: none; border-radius: 10px; background-color: rgba(255,255,255,0.7);">Liker ikke</button>
         </div>
         `;
     }
