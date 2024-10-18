@@ -7,22 +7,33 @@
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     <script src="https://code.jquery.com/qunit/qunit-2.19.4.js"></script>
-    <script src="../homeView.js"></script>
-    <script src="../homeController.js"></script>
+    <script src="/Team1/model.js"></script>
+    <script src="/Team1/homeView.js"></script>
+    <script src="/Team1/homeController.js"></script>
 
     <script>        
-                
     
-      
+
+    
+        function updateView(){}
         
         QUnit.test('Sjekker om lengden på otherProfiles er 18', function (assert) {
             // arrange
-            getOtherProfile();
+            createSvipeList();
 
             // act
 
             // assert
-            assert.deepEqual(otherProfiles.length == 18);
+            assert.deepEqual(otherProfileS.length, 18);
+        });
+        QUnit.test('Sjekker om lengden på otherProfiles er 17, vis userId 2 er logget inn', function (assert) {
+            // arrange
+            model.app.loggedInUser = 2;
+            // act
+            createSvipeList();
+
+            // assert
+            assert.deepEqual(otherProfileS.length, 17);
         });
 
 
