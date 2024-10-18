@@ -1,29 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>QUnit Example</title>
-    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
-</head>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.4.css">
+
 <body>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
-    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
-    <script src="/model.js"></script>
-    <script src="/homeView.js"></script>
-    <script src="/homeController.js"></script>
+    <script src="https://code.jquery.com/qunit/qunit-2.19.4.js"></script>
+    <script src="../homeView.js"></script>
+    <script src="../homeController.js"></script>
 
     <script>        
                 
     
       
-
-        function updateView(){};
-
+        
         QUnit.test('Sjekker om lengden på otherProfiles er 18', function (assert) {
             // arrange
-            function getOtherProfile();
+            getOtherProfile();
 
             // act
 
@@ -36,3 +30,5 @@
     </script>
 </body>
 </html>
+
+
