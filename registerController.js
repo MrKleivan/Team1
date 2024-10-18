@@ -20,7 +20,7 @@ function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputL
     user.lastName = inputLastName;
     user.password = inputPassword;
 
-    if(!inputEmail || !inputUserName || !inputFirstName || !inputLastName || !inputPassword){
+    if(!inputEmail || !inputUserName || !inputFirstName || !inputLastName || !inputPassword || !inputConfirmPassword){
         model.inputs.register.error = "Det er et tomt felt"; 
         updateView(); 
         return;
@@ -42,6 +42,5 @@ function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputL
     }
 
         model.users.push(user);
-        console.log(model.users)
         navigateToPage("login")
 }

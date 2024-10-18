@@ -13,8 +13,3 @@ function authenticateUser(){
 function authenticateLoginData(inputEmailOrUserName, inputPassword){
     return findUser = model.users.find(u => u.userEmail == inputEmailOrUserName || u.userName == inputEmailOrUserName && u.password == inputPassword);
 }
-
-function navigateToPage(page){
-    model.app.currentPage = page;
-    updateView();
-}
