@@ -7,19 +7,18 @@ function updateViewChat() {
 }
 
 function drawChatHtml(id){
-    let selectedChat = model.chatLog.find(({ chatId }) => chatId === id)
-    let selectedUser;
+    
     let currentUser = model.app.loggedInUser;
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
     let chatLogs = [];
     let html;
     
-    if(selectedChat.senderId !== currentUser){selectedUser = selectedChat.senderId}
-    else{selectedUser = selectedChat.recipientId}
-    let username = getUsernameFromId(selectedUser)
+    let selectedUserId = getSenderId(id, currentUser)
+
+    let username = getUsernameFromId(selectedUserId)
 
     model.chatLog.filter(log => {
-        if((log.senderId === currentUser && log.recipientId === selectedUser) || (log.senderId === selectedUser && log.recipientId === currentUser)){chatLogs.push(log)}
+        if((log.senderId === currentUser && log.recipientId === selectedUserId) || (log.senderId === selectedUserId && log.recipientId === currentUser)){chatLogs.push(log)}
     })
 
     html = `
@@ -40,4 +39,13 @@ function drawChatHtml(id){
     }
 
     return html
+}
+
+function getSenderId(id, currentUser){
+    let selectedChat = model.chatLog.find(({ chatId }) => chatId === id)
+
+    if(selectedChat.senderId !== currentUser){selectedUserId = selectedChat.senderId}
+    else{selectedUserId = selectedChat.recipientId}
+
+    return selectedUserId
 }
