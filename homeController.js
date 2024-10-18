@@ -1,20 +1,18 @@
 
+let count = 1;
 
-
-function privPic(counter) {
-    if(counter == 0) {
-        counter = counter;
-    } else {counter--}
-    count = counter;
-    updateViewHome(counter);
+function privPic() {
+    if(count == 0) {
+        return;
+    } else {count--}
+    updateView();
 }
 
-function nextPic(counter, catPicture) {
-    if(counter == catPicture.length - 1) {
-        counter = counter;
-    } else {counter++}
-    count = counter;
-    updateViewHome(counter);
+function nextPic(number) {
+    if(count == number - 1) {
+        return;
+    } else count++
+    updateView();
 }
 
 function createSvipeList(OtherUserId) {
@@ -40,30 +38,29 @@ function createSvipeList(OtherUserId) {
 
 }
 
-function getOtherProfile(create) {
-    let otherProfile = [];
-    if(create == true) {
+function getOtherProfile() {
+    if(model.inputs.home.watching < 1) {
         let otherProfileS = model.inputs.home.svipeList;
         let randomIndex = Math.ceil(Math.random() * otherProfileS.length);
         let profileId = otherProfileS[randomIndex].userId;
         
-        otherProfile = otherProfileS.filter(user => user.userId == profileId);
+        model.inputs.home.watching = otherProfileS.filter(user => user.userId == profileId);
             
-        return otherProfile;
-    } else if(create == false) {return otherProfile;}
+        return model.inputs.home.watching;
+    } else {return model.inputs.home.watching}
     
 }
 
 function likeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: true});
     createSvipeList(otherUserProfile);
-    getOtherProfile(false);
+    model.inputs.home.watching = [];
     updateView();
 }
 
 function notLikeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: false});
-    createSvipeList(otherUserProfile)
-    getOtherProfile(false);
+    createSvipeList(otherUserProfile);
+    model.inputs.home.watching = [];
     updateView();
 }
