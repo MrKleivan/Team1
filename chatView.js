@@ -8,18 +8,16 @@ function updateViewChat() {
 
 function drawChatHtml(id){
     
-    let currentUser = model.app.loggedInUser;
+    let currentUserId = model.app.loggedInUser;
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
-    let chatLogs = [];
     let html;
+
+    let selectedUserId = getSenderId(id, currentUserId)
     
-    let selectedUserId = getSenderId(id, currentUser)
-
     let username = getUsernameFromId(selectedUserId)
+    
+    let chatLogs = getChatLog(currentUserId, selectedUserId);
 
-    model.chatLog.filter(log => {
-        if((log.senderId === currentUser && log.recipientId === selectedUserId) || (log.senderId === selectedUserId && log.recipientId === currentUser)){chatLogs.push(log)}
-    })
 
     html = `
         <div style="text-align:center; font:50px bold;">${username.firstName}</div>
@@ -27,7 +25,7 @@ function drawChatHtml(id){
 
     for(log of chatLogs){
         let isSender = false;
-        if(log.senderId == currentUser){isSender = true}
+        if(log.senderId == currentUserId){isSender = true}
         let alignMessage = isSender ? 'right' : 'left';
 
         html += `
@@ -48,4 +46,14 @@ function getSenderId(id, currentUser){
     else{selectedUserId = selectedChat.recipientId}
 
     return selectedUserId
+}
+
+function getChatLog(currentUserId, selectedUserId){
+    let chatLogs = [];
+
+    model.chatLog.filter(log => {
+        if((log.senderId === currentUserId && log.recipientId === selectedUserId) || (log.senderId === selectedUserId && log.recipientId === currentUserId)){chatLogs.push(log)}
+    })
+
+    return chatLogs;
 }
