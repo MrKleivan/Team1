@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.4.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.19.4.js"></script>
+    <script src="../homeView.js"></script>
+    <script src="../homeController.js"></script>
+
+    <script>        
+                
+    
+      
+        
+        QUnit.test('Sjekker om lengden på otherProfiles er 18', function (assert) {
+            // arrange
+            getOtherProfile();
+
+            // act
+
+            // assert
+            assert.deepEqual(otherProfiles.length == 18);
+        });
+
+
+
+    </script>
+</body>
+</html>
+
+

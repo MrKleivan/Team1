@@ -158,6 +158,9 @@ let model = {
         , 'Klatre'
         , 'Spise'
         , 'Utforske'
+        , 'Trene'
+        , 'Jakte'
+        , 'synge'
     ],
     
     pictures: [
@@ -170,10 +173,10 @@ let model = {
         , {userId: 3, pictureUrl: 'img/greyCat1.jpg', placeInSequence: 1}
         , {userId: 3, pictureUrl: 'img/greyCat2.jpg', placeInSequence: 2}
         , {userId: 3, pictureUrl: 'img/greyCat3.jpg', placeInSequence: 3}
-        , {userId: 4, pictureUrl: 'img/browCat1.jpg', placeInSequence: 1}
-        , {userId: 4, pictureUrl: 'img/browCat2.jpg', placeInSequence: 2}
-        , {userId: 5, pictureUrl: 'img/browCat1a.jpg', placeInSequence: 1}
-        , {userId: 5, pictureUrl: 'img/browCat2a.jpg', placeInSequence: 2}
+        , {userId: 4, pictureUrl: 'img/brownCat1.jpg', placeInSequence: 1}
+        , {userId: 4, pictureUrl: 'img/brownCat2.jpg', placeInSequence: 2}
+        , {userId: 5, pictureUrl: 'img/brownCat1a.jpg', placeInSequence: 1}
+        , {userId: 5, pictureUrl: 'img/brownCat2a.jpg', placeInSequence: 2}
     ],
 
     //TODO: Tenk på navn likesUserId    
@@ -188,7 +191,7 @@ let model = {
       {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(14,32,0,0)), recipientId:2, chatId: 1}  
       , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1}   
       , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-9").setHours(15,47,0,0)), recipientId:1, chatId: 1}  
-      , {senderId: 2, message: 'Hei', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2}  
+      , {senderId: 2, message: 'Hei Pål', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2}  
       , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3}
     ],
 }

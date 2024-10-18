@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="/commonController.js"></script>
+    <script src="/chatView.js"></script>
+    <script src="/chatController.js"></script>
+    <script src="/messagesView.js"></script>
+    <script src="/messagesController.js"></script>
+
+    <script>        
+    //model
+    model = {
+        app : {
+            currentPage: 'messages',
+            loggedInUser: null,
+        },
+
+        users : [
+        {
+            userId: 1
+            , userName: 'per'
+            , userEmail: 'per@gmail.com'
+            , password: '123'
+            , firstName: 'Per'
+            , lastName: 'Nordman'
+        },
+        {
+            userId: 2
+            , userName: 'espen'
+            , userEmail: 'epsen@gmail.com'
+            , password: '123'
+            , firstName: 'Espen'
+            , lastName: 'Norman'
+        },
+        {
+            userId: 3
+            , userName: 'pål'
+            , userEmail: 'pållern@gmail.com'
+            , password: '321'
+            , firstName: 'Pål'
+            , lastName: 'Norman'
+        },
+        ],
+        inputs:{
+            chat: {
+                selectedChatId : null
+            },
+        },
+        chatLog: [
+            {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(14,32,0,0)), recipientId:2, chatId: 1}  
+            , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1}   
+            , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-9").setHours(15,47,0,0)), recipientId:1, chatId: 1}  
+            , {senderId: 2, message: 'Hei Pål', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2}  
+            , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3}
+        ],
+    }      
+    
+      
+
+        function updateView(){};
+
+        QUnit.test('Chat navn for chatId 1 logget inn som userId 1: Espen', function (assert) {
+            // arrange
+            model.app.loggedInUser = 1;
+            model.inputs.chat.selectedChatId = 1
+
+            let id = model.inputs.chat.selectedChatId;
+            let currentUser = model.app.loggedInUser;
+
+            // act
+            let selectedUserId = getSenderId(id, currentUser)
+            let username = getUsernameFromId(selectedUserId)
+
+            // assert
+            assert.deepEqual(username.firstName, 'Espen');
+        });
+
+        QUnit.test('Chat navn for chatId 1 logget inn som userId 2: Per', function (assert) {
+            // arrange
+            model.app.loggedInUser = 2;
+            model.inputs.chat.selectedChatId = 1
+
+            let id = model.inputs.chat.selectedChatId;
+            let currentUser = model.app.loggedInUser;
+
+            // act
+            let selectedUserId = getSenderId(id, currentUser)
+            let username = getUsernameFromId(selectedUserId)
+
+            // assert
+            assert.deepEqual(username.firstName, 'Per');
+        });
+
+
+
+    </script>
+</body>
+</html>
