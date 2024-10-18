@@ -4,11 +4,11 @@ function updateViewHome(count) {
     const LoggedInnUserProfile = model.app.loggedInUser;
     let otherProfileS = createSvipeList();
     let otherProfile = getOtherProfile(true);
-    let counter = count == true ? count : 0;
+    let counter = count == undefined ? 0 : count;
     
     let catPicture = model.pictures.filter(u => u.userId == otherProfile[0].userId);
     let html = '';
-    if(otherProfileS.length < 1) {
+    if(model.inputs.home.svipeList.length < 1) {
         html = /*HTML*/`<h1 style="font-size:3vh;text-align:center;color:purple;">Finn din kats elsker</h1>
         
         <div id="homeContent"  style="width: 100%; height: 80%; margin: auto;align-items: center; display: flex; align-content:center; text-align: center;">
@@ -27,7 +27,7 @@ function updateViewHome(count) {
         <img style="height: 10vh" src="img/house-solid.svg" alt="home"  onclick="updateView()" />
         </div>
         `;
-    } else if (otherProfileS.length > 1){
+    } else if (model.inputs.home.svipeList.length > 1){
         html = /*HTML*/`
         
         <h1 style="font-size:3vh;text-align:center;color:purple;">Finn din kats elsker</h1>
