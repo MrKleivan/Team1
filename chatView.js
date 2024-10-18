@@ -26,10 +26,10 @@ function drawChatHtml(id){
     for(log of chatLogs){
         let isSender = false;
         if(log.senderId == currentUserId){isSender = true}
-        let alignMessage = isSender ? 'right' : 'left';
+        let alignMessage = isSender ? 'senderBackground' : 'reciverBackground';
 
         html += `
-        <div style="text-align: ${alignMessage}">
+        <div class="${alignMessage}">
             ${log.message} <br />
             ${log.date.toLocaleString("no-NO", dateFormat)} <br /><br />
         </div>

@@ -43,3 +43,28 @@
     font-variant: normal;
     text-transform: none;
 }
+
+.senderBackground{
+    padding: 15px;
+    margin: 10px;
+    text-align: right;
+    width: auto;
+    height: auto;
+    border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    background: #5f88d9;
+}
+
+.reciverBackground{
+    padding: 15px;
+    margin: 10px;
+    text-align: right;
+    width: auto;
+    height: auto;
+    text-align: left;
+    border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    background: #999999;
+}
