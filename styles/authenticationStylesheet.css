@@ -4,6 +4,10 @@
     padding: 5px;
     padding-left: 10px;
     margin-bottom: 10px;
+    font-family: 'emoji';
+}
+.inputBox > label {
+    font-family: 'emoji';
 }
 .loginInput {
     border-radius: 2px;
@@ -13,6 +17,7 @@
     margin-bottom: 10px;
     margin-top: 5px;
     margin-left: -25px;
+    font-family: 'emoji';
 }
 
 #registrationForm{
@@ -25,6 +30,7 @@
     display:flex;
     text-align: center;
     justify-content: center;
+    font-family: 'emoji';
 }
 
 .loginForm{

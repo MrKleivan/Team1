@@ -15,7 +15,7 @@ let model = {
         },
         register: {
             userName: ''
-            , userEmail: ''
+            , userEmail: '' 
             , password: ''
             , confirmPassword: ''
             , firstName : ''
