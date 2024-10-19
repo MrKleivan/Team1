@@ -1,16 +1,5 @@
 
-// let myProfile = model.app.loggedInUser;
-// let otherProfile = [];    
-// let otherProfile = model.users.filter(user => user.userId != myProfile);
-    // let profileCount = Math.floor(Math.random() * otherProfile.length); 
-    // let otherCatProfile =  model.cats.filter(user => user.userId != myProfile);
-    // let catPicture = model.pictures.filter(user => user.userId != myProfile);
-
-let myProfile = model.app.loggedInUser;
-let otherProfileS = createSvipeList();
-let otherProfile = getOtherProfile();
-let catPic = otherProfile.filter(u => u.pictureUrl);
-let count = 0;
+let count = 1;
 
 function privPic() {
     if(count == 0) {
@@ -18,54 +7,60 @@ function privPic() {
     } else {count--}
     updateView();
 }
-function nextPic() {
-    if(count == catPic.length - 1) {
+
+function nextPic(number) {
+    if(count == number - 1) {
         return;
-    } else {count++}
+    } else count++
     updateView();
 }
 
-function createSvipeList() {
+function createSvipeList(OtherUserId) {
+    let myProfile = model.app.loggedInUser;
     let otherProfile = [];
-    for(let i = 0; i < model.users.length; i++) { 
-        otherProfile.push(model.users[i]);
-        otherProfile.push(model.cats[i]);
+    if(OtherUserId == undefined && model.inputs.home.svipeList < 1) {
+        for(let i = 0; i < model.users.length; i++) { 
+            model.inputs.home.svipeList.push(model.users[i]);
+            model.inputs.home.svipeList.push(model.cats[i]);
+            }
+        for(let i = 0; i < model.pictures.length; i++) {
+            model.inputs.home.svipeList.push(model.pictures[i])
         }
-    for(let i = 0; i < model.pictures.length; i++) {
-        otherProfile.push(model.pictures[i])
-    }
-    otherProfile = otherProfile.filter(user => user.userId != myProfile);
+        model.inputs.home.svipeList = model.inputs.home.svipeList.filter(user => user.userId != myProfile);
+        otherProfile = model.inputs.home.svipeList;
+        
+    } else if(OtherUserId !== undefined) {
+        model.inputs.home.svipeList =  model.inputs.home.svipeList.filter(user => user.userId != OtherUserId);
+        otherProfile = model.inputs.home.svipeList;
+        
+    } return otherProfile;
+    
 
-    return otherProfile;
 }
-function getOtherProfile() {
-    let otherProfile = [];
-    let randomIndex = Math.ceil(Math.random() * otherProfileS.length);
-    let profileId = otherProfileS[randomIndex].userId;
-    
-    otherProfile = otherProfileS.filter(user => user.userId == profileId);
-    
-    return otherProfile;
 
+function getOtherProfile() {
+    if(model.inputs.home.watching < 1) {
+        let otherProfileS = model.inputs.home.svipeList;
+        let randomIndex = Math.ceil(Math.random() * otherProfileS.length);
+        let profileId = otherProfileS[randomIndex].userId;
+        
+        model.inputs.home.watching = otherProfileS.filter(user => user.userId == profileId);
+            
+        return model.inputs.home.watching;
+    } else if(model.inputs.home.watching > 1 ){model.inputs.home.svipeList = [] }
+    updateView();
 }
 
 function likeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: true});
-    otherProfileS = otherProfileS.filter(user => user.userId != otherUserProfile);
-    if(otherProfileS.length > 1) {
-        otherProfile = getOtherProfile();
-        catPic = otherProfile.filter(u => u.pictureUrl);
-    } 
+    createSvipeList(otherUserProfile);
+    model.inputs.home.watching = [];
     updateView();
 }
 
 function notLikeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: false});
-    otherProfileS = otherProfileS.filter(user => user.userId != otherUserProfile);
-    if(otherProfileS.length > 1) {
-        otherProfile = getOtherProfile();
-        catPic = otherProfile.filter(u => u.pictureUrl);
-    } 
-    
+    createSvipeList(otherUserProfile);
+    model.inputs.home.watching = [];
     updateView();
 }
