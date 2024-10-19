@@ -148,6 +148,7 @@ let model = {
     chosenInterests: [
         {userId: 1, interest: 'Kose'}
         , {userId: 1, interest: 'Sove'}
+        , {userId: 2, interest: 'Sove'}
     ],
 
     //Select Values

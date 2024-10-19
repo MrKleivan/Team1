@@ -9,7 +9,6 @@ function saveChanges() {
     model.inputs.myProfile.color = document.getElementById('colorInput').value;
     model.inputs.myProfile.age = document.getElementById('ageInput').value;
     model.inputs.myProfile.race = document.getElementById('raceInput').value;
-    //model.inputs.myProfile.interests = document.getElementById('interestsSelection').value;
     model.inputs.myProfile.description = document.getElementById('descriptionInput').value;
 
 
@@ -89,11 +88,7 @@ function updateImageDiv(addImageToDiv, picture, i) {
 }
 function deleteImage(sequence, event) {
     event.stopPropagation(); 
-    console.log('model.pictures', model.pictures);
     model.pictures = model.pictures.filter(picture => picture.placeInSequence !== sequence);
-    console.log(model.pictures);
     displayImages();
 }
 displayImages();
-
-

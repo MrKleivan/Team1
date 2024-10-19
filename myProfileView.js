@@ -1,4 +1,5 @@
 let loggedInUser = model.app.loggedInUser;
+
 function updateViewMyProfile() {
     console.log(loggedInUser);
     let loggedUser = model.users.find(user => user.userId === loggedInUser);
@@ -10,9 +11,7 @@ function updateViewMyProfile() {
     let loggedPersonality = loggedCat.personality;
     let loggedColor = loggedCat.color;
     let loggedAge = loggedCat.age !== null ? loggedCat.age : '';
-    console.log(loggedAge)
     let loggedRace = loggedCat.race;
-    console.log(loggedRace)
     let loggedDescription = loggedCat.description;
 
     document.getElementById('app').innerHTML = /*HTML*/`
@@ -27,13 +26,13 @@ function updateViewMyProfile() {
     Cat Name<br><input id="catNameInput" type="text"value="${loggedCatName}" placeholder="write your cat name" ><br>
     </div>
     <div id="column2">
-    Personality<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder=" personality of your cat" ><br>
+    Personality<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder=" personality of your cat"><br>
     Color<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="color of your cat" ><br>
-    Age<br><input id="ageInput" type="number" value="${loggedAge}" placeholder="age of your cat" ><br>
+    Age<br><input id="ageInput" type="number" min= '0' value="${loggedAge}" placeholder="age of your cat" ><br>
     Race<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="race of your cat"><br>
     </div>
     </div>
-    Interests<br>
+    Selected Interests:<br>
     
     <div id='interestsSelection'></div><br>
     
@@ -56,12 +55,31 @@ function updateViewMyProfile() {
 }
 
 function displayInterests() {
+    let userId = model.app.loggedInUser;
     let interests = model.interests;
-    let interestsSelection = document.getElementById('interestsSelection');
-    let buttonsHTML = ''; 
+    let selectedInterestsArray = [];
+    for (let i = 0; i < model.chosenInterests.length; i++) {
+        if (model.chosenInterests[i].userId === userId) {
+            selectedInterestsArray.push(model.chosenInterests[i].interest);
+        } 
+    }
+    let buttonsHtml = '';
     for (let i = 0; i < interests.length; i++) {
         let interest = interests[i];
-        buttonsHTML += `<button class="interestButton">${interest}</button>`; 
+        let selected = selectedInterestsArray.includes(interest) ? 'selected' : '';
+        buttonsHtml += `<div class="interestButton ${selected}" onclick="selectInterest('${interest}')">${interest}</div>`;
     }
-    interestsSelection.innerHTML = buttonsHTML;
+    document.getElementById('interestsSelection').innerHTML = buttonsHtml
+}
+function selectInterest(interest) {
+    let userId = model.app.loggedInUser;
+    let index = model.chosenInterests.findIndex(item => item.userId === userId && item.interest === interest);
+    if (index === -1) {
+        model.chosenInterests.push({ userId: userId, interest: interest });
+        console.log("Chosen Interests:", model.chosenInterests);
+    } else {
+        model.chosenInterests = model.chosenInterests.filter(item => item.userId && item.interest !== interest);
+        console.log("Chosen Interests:", model.chosenInterests);
+    }
+    displayInterests();
 }
