@@ -1,15 +1,29 @@
 function updateViewChat() {
-    document.getElementById('app').innerHTML = /*HTML*/`
-    <div id="chatBox">
-        <div>
-            ${drawChatHtml(model.inputs.chat.selectedChatId)}
-        </div>
-        <div class="custom_input">
-            <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>    
-    `;
+    let selectedId = model.inputs.chat.selectedChatId
+    let isSavedChat = model.chatLog.some(({ chatId }) => chatId === selectedId);
+
+    if(isSavedChat == true){
+        document.getElementById('app').innerHTML = /*HTML*/`
+        <div id="chatBox">
+            <div>
+                ${drawChatHtml(selectedId)}
+            </div>
+            <div class="custom_input">
+                <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>    
+    `;}
+    else{
+        document.getElementById('app').innerHTML = /*HTML*/`
+        <div id="chatBox">
+            <div class="custom_input">
+                <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value">
+                <button onclick="createNewChat()">Send</button>
+            </div>
+        </div>    
+    `;        
+    }
 }
 
 function drawChatHtml(id){

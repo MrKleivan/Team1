@@ -20,7 +20,7 @@ function drawMatchesHtml(){
     for(let match of matches){
         let interactedUser = match.interactedUserId;
         let user = getUsernameFromId(interactedUser);
-        let chatId = getChatId(currentUser, interactedUser)
+        let chatId = getChatId(currentUser, interactedUser);
 
         html += /*html*/`
                 <div id="borderMessages">
@@ -28,7 +28,7 @@ function drawMatchesHtml(){
                     <br />
                     <div id="dateMessages">${match.date.toLocaleString("no-NO", dateFormat)}</div>
                     <button>Gå til profil</button>
-                    <button onclick="goToSelectedChat(${chatId})">Send melding</button>
+                    <button onclick="goToSelectedChat(${chatId}, ${interactedUser})">Send melding</button>
                 </div>
         `
     }

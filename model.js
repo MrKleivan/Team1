@@ -47,6 +47,7 @@ let model = {
         },
         chat: {
             selectedChatId : null
+            , selectedUserId: null
             , message: ''
         }
     },
