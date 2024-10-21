@@ -35,7 +35,6 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    padding: 20px;
     width: 80%;
     max-width: 800px;
     border-radius: 40px;
@@ -56,7 +55,13 @@
     padding-right: 20px;
     padding: 10px;
 }
-
+#column3 {
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+}
 .cross {
     display: flex;
     cursor: pointer;
@@ -88,10 +93,33 @@
 
 }
 .interestButton:hover {
-    background-color: rgb(101, 101, 101);
+    background-color: rgb(119, 119, 119);
+    border: 2px solid rgb(255, 255, 255);
     color: rgb(255, 255, 255);
 }
 .interestButton.selected {
-    border: 3px solid rgb(0, 0, 0);
-    background-color: #848484; color: white;
+    height: 30px;
+    width: auto;
+    background-color: #414141; color: white;
+}
+#saveButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    width: auto;
+    height: 25px;
+    border: 0;
+    margin-bottom: 15px;
+}
+
+#saveButton:hover {
+    background-color: rgb(119, 119, 119);
+    color: rgb(255, 255, 255);
+}
+#saveLayout  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
