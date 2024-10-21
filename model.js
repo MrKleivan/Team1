@@ -164,7 +164,7 @@ let model = {
         , 'Utforske'
         , 'Trene'
         , 'Jakte'
-        , 'synge'
+        , 'Synge'
     ],
     
     pictures: [
