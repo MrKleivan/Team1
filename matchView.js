@@ -15,18 +15,21 @@ function drawMatchesHtml(){
     let html = '';
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
 
-    let matches = interactedProfiles.filter(({ userId }) => userId == currentUser)
+    let matches = interactedProfiles.filter(({ userId, isLike }) => userId == currentUser && isLike == true)
 
     for(let match of matches){
         let interactedUser = match.interactedUserId;
         let user = getUsernameFromId(interactedUser);
+        let chatId = getChatId(currentUser, interactedUser)
 
-        html += `
+        html += /*html*/`
                 <div id="borderMessages">
                     <div id="userNameMessages">${user.firstName} ${user.lastName}</div>
                     <br />
                     <div id="dateMessages">${match.date.toLocaleString("no-NO", dateFormat)}</div>
-            </div>
+                    <button>Gå til profil</button>
+                    <button onclick="goToSelectedChat(${chatId})">Send melding</button>
+                </div>
         `
     }
 
