@@ -1,5 +1,5 @@
 
-let count = 1;
+let count = 0;
 
 function privPic() {
     if(count == 0) {
@@ -9,7 +9,7 @@ function privPic() {
 }
 
 function nextPic(number) {
-    if(count == number.length - 1) {
+    if(count == number - 1) {
         return;
     } else count++
     updateView();
@@ -18,7 +18,7 @@ function nextPic(number) {
 function createSvipeList(OtherUserId) {
     let myProfile = model.app.loggedInUser;
     let otherProfile = [];
-    if(model.inputs.home.svipeList.length < 1) {
+    if(model.inputs.home.svipeList.length < 1 && model.inputs.home.watching.length < 1) {
         for(let i = 0; i < model.users.length; i++) { 
             model.inputs.home.svipeList.push(model.users[i]);
             model.inputs.home.svipeList.push(model.cats[i]);
@@ -33,8 +33,8 @@ function createSvipeList(OtherUserId) {
         model.inputs.home.svipeList =  model.inputs.home.svipeList.filter(user => user.userId != OtherUserId);
         otherProfile = model.inputs.home.svipeList;
         
-    } else {
-        return;
+    } if(model.inputs.home.svipeList.length < 1 && model.inputs.home.watching.length > 1){
+        otherProfile = [];
     } 
     
     return otherProfile;
@@ -43,7 +43,7 @@ function createSvipeList(OtherUserId) {
 }
 
 function getOtherProfile() {
-    if(model.inputs.home.watching.length < 1) {
+    if(model.inputs.home.watching.length < 1 && model.inputs.home.svipeList.length > 1) {
         let otherProfileS = model.inputs.home.svipeList;
         let randomIndex = Math.ceil(Math.random() * otherProfileS.length);
         let profileId = otherProfileS[randomIndex].userId;
