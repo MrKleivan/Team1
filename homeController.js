@@ -18,7 +18,7 @@ function nextPic(number) {
 function createSvipeList(OtherUserId) {
     let myProfile = model.app.loggedInUser;
     let otherProfile = [];
-    if(model.inputs.home.svipeList.length < 1 && model.inputs.home.watching.length < 1) {
+    if(model.app.inputs.home.isTrue == false) {
         for(let i = 0; i < model.users.length; i++) { 
             model.inputs.home.svipeList.push(model.users[i]);
             model.inputs.home.svipeList.push(model.cats[i]);
@@ -30,13 +30,14 @@ function createSvipeList(OtherUserId) {
         otherProfile = model.inputs.home.svipeList;
         
         
-    } if(OtherUserId !== undefined && model.inputs.home.svipeList.length > 1) {
+    } 
+    if(OtherUserId !== undefined && model.app.inputs.home.isTrue == true) {
         model.inputs.home.svipeList =  model.inputs.home.svipeList.filter(user => user.userId != OtherUserId);
         otherProfile = model.inputs.home.svipeList;
-        
-    } if(model.inputs.home.svipeList.length < 1 && model.inputs.home.watching.length > 1){
-        otherProfile = [];
-    } 
+    }
+    if(model.app.inputs.home.isTrue == false && OtherUserId == undefined) {
+        otherProfile = model.inputs.home.svipeList;
+    }
     
     return otherProfile;
     

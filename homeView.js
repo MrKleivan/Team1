@@ -31,7 +31,7 @@ function updateViewHome() {
         <img style="height: 10vh" src="img/house-solid.svg" alt="home"  onclick="updateView()" />
         </div>
         `;
-    } else if (model.inputs.home.svipeList.length > 3){
+    } else if (model.inputs.home.svipeList.length > 1){
         html = /*HTML*/`
         
         <h1 style="font-size:3vh;text-align:center;color:purple;">Finn din kats elsker</h1>
