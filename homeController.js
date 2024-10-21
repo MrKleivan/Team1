@@ -18,7 +18,7 @@ function nextPic(number) {
 function createSvipeList(OtherUserId) {
     let myProfile = model.app.loggedInUser;
     let otherProfile = [];
-    if(model.inputs.home.svipeList.length < 1 && model.inputs.home.watching.length < 1) {
+    if(model.app.inputs.home.isTrue == false) {
         for(let i = 0; i < model.users.length; i++) { 
             model.inputs.home.svipeList.push(model.users[i]);
             model.inputs.home.svipeList.push(model.cats[i]);
@@ -29,13 +29,15 @@ function createSvipeList(OtherUserId) {
         model.inputs.home.svipeList = model.inputs.home.svipeList.filter(user => user.userId != myProfile);
         otherProfile = model.inputs.home.svipeList;
         
-    } if(OtherUserId !== undefined && model.inputs.home.svipeList.length > 1) {
+        
+    } 
+    if(OtherUserId !== undefined && model.app.inputs.home.isTrue == true) {
         model.inputs.home.svipeList =  model.inputs.home.svipeList.filter(user => user.userId != OtherUserId);
         otherProfile = model.inputs.home.svipeList;
-        
-    } if(model.inputs.home.svipeList.length < 1 && model.inputs.home.watching.length > 1){
-        otherProfile = [];
-    } 
+    }
+    if(model.app.inputs.home.isTrue == false && OtherUserId == undefined) {
+        otherProfile = model.inputs.home.svipeList;
+    }
     
     return otherProfile;
     
@@ -51,8 +53,9 @@ function getOtherProfile() {
         model.inputs.home.watching = otherProfileS.filter(user => user.userId == profileId);
             
         return model.inputs.home.watching;
-    } else if(model.inputs.home.watching.length > 1 ){return model.inputs.home.watching;}
-    updateView();
+    } if(model.inputs.home.watching.length > 1 && model.inputs.home.svipeList.length > 1){return model.inputs.home.watching;}
+    if(model.inputs.home.watching.length > 1 && model.inputs.home.svipeList.length < 1) {model.inputs.home.watching = []; return model.inputs.home.watching;}
+
 }
 
 function likeCat(myUserProfile, otherUserProfile) {

@@ -37,8 +37,7 @@ function messagesByUserId(){
     let currentUser = model.app.loggedInUser;
     let chat = model.chatLog;
     let messages = chat.filter(message => message.recipientId === currentUser || message.senderId === currentUser)
-    
-    messages.sort((a,b) => a.date.getDate() - b.date.getDate());
+    messages.sort((a,b) => b.date.getDate() - a.date.getDate());
     messagesByChatId = removeDuplicateMessages(messages)
 
     return messagesByChatId;
