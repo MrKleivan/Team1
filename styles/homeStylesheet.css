@@ -47,12 +47,29 @@
 .profileViewBottom {
     height: 20%;
     padding: 15px;
-    width: min-content;
+    width: 40%;
+    font-size: 70%;
 }
 
 .profileViewBottom > h1 {
     width: auto;
+    text-align: center;
     border: 1px solid black;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.6);
+}
+
+.homeContentLikeButtons {
+    width: 90%; 
+    margin: auto; 
+    text-align: center;
+}
+.homeContentLikeButtons > button {
+    width: 12vw; 
+    height: 4vh; 
+    border: none; 
+    margin-right: 10%;
+    margin-left: 10%; 
+    border-radius: 20px; 
+    background-color: rgba(255,55,55,0.7);
 }

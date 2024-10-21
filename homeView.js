@@ -54,9 +54,9 @@ function updateViewHome() {
             ${createPictureCircle(catPicture)}
         </div>
         <br>
-        <div  id="likeButtons" style="width: 90%; margin: auto; text-align: center;">
-            <button onclick="likeCat(${LoggedInnUserProfile}, ${otherProfile[1].userId})" style="width: 10vw; height: 4vh; border: none; margin-right: 40px; border-radius: 10px; background-color: rgba(255,255,255,0.7);">Liker</button>
-            <button onclick="notLikeCat(${LoggedInnUserProfile}, ${otherProfile[1].userId})" style="width: 10vw; height: 4vh; border: none; border-radius: 10px; background-color: rgba(255,255,255,0.7);">Liker ikke</button>
+        <div  class="homeContentLikeButtons">
+            <button onclick="likeCat(${LoggedInnUserProfile}, ${otherProfile[1].userId})">Liker</button>
+            <button onclick="notLikeCat(${LoggedInnUserProfile}, ${otherProfile[1].userId})">Liker ikke</button>
         </div>
         `;
     }
