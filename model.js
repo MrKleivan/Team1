@@ -194,7 +194,7 @@ let model = {
     chatLog: [
       {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(14,32,0,0)), recipientId:2, chatId: 1}  
       , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1}   
-      , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-9").setHours(15,47,0,0)), recipientId:1, chatId: 1}  
+      , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-15").setHours(15,47,0,0)), recipientId:1, chatId: 1}  
       , {senderId: 2, message: 'Hei Pål', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2}  
       , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3}
     ],
