@@ -36,11 +36,8 @@ function drawMessagesHtml(){
 function messagesByUserId(){
     let currentUser = model.app.loggedInUser;
     let chat = model.chatLog;
-    console.log(chat)
     let messages = chat.filter(message => message.recipientId === currentUser || message.senderId === currentUser)
-    console.log(messages)
     messages.sort((a,b) => b.date.getDate() - a.date.getDate());
-    console.log(messages)
     messagesByChatId = removeDuplicateMessages(messages)
 
     return messagesByChatId;
