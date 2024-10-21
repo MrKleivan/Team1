@@ -4,30 +4,51 @@
     width: 90%;
     height: 80%;
     align-items: center;
+    align-content: center;
     margin: auto;
-    background-color: aliceblue;
 }
 
+.homeContentTopp {
+    width: 100%;
+    text-align: center;
+}
 .homeContentSide {
     width: 10%;
-    height: 95%;
-    align-items: center;
+    height: 50%;
     align-content: center;
     text-align: center;
-    background-color: rgba(255, 255, 55, 0.9);
+    border-radius: 10px;
+    background-color: rgba(220, 20, 20, 0.2);
+    transition: 0.9s;
+}
+
+.homeContentSide:hover {
+    box-shadow: 10px 10px 50px 0px grey;
+    cursor: pointer;
+    background-color: rgba(220, 20, 20, 0.5);
 }
 .homeContentCenter {
-    width: 80%;
-    height: 95%;
-    align-items: center;
-    background-color: red;
+    width: 78%;
+    height: 90%;
+    margin: auto;
+    align-content: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px grey;
+    background-color: rgba(220, 20, 20, 0.2);
+    transition: 0.9s;
+}
 
+.homeContentCenter:hover {
+    box-shadow: 10px 10px 50px 0px grey;
+    cursor: pointer;
+    background-color: rgba(220, 20, 20, 0.5);
 }
 
 .profileView {
-    width: 96%;
+    width: 95%;
     height: 95%;
     margin: auto;
+    border-radius: 10px;
     background-size: cover;
     background-position: center;
 }
