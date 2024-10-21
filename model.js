@@ -43,7 +43,7 @@ let model = {
             , placeInSequence: 1
             , svipeList: [] 
             , watching: []
-            , itTrue: false
+            , isTrue: false
         },
         chat: {
             selectedChatId : null
