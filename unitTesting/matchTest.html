@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="/commonController.js"></script>
+    <script src="/chatView.js"></script>
+    <script src="/chatController.js"></script>
+    <script src="/messagesView.js"></script>
+    <script src="/messagesController.js"></script>
+
+    <script>        
+    //model
+    model = {
+        app : {
+            currentPage: 'messages',
+            loggedInUser: null,
+        },
+
+        users : [
+        {
+            userId: 1
+            , userName: 'per'
+            , userEmail: 'per@gmail.com'
+            , password: '123'
+            , firstName: 'Per'
+            , lastName: 'Nordman'
+        },
+        {
+            userId: 2
+            , userName: 'espen'
+            , userEmail: 'epsen@gmail.com'
+            , password: '123'
+            , firstName: 'Espen'
+            , lastName: 'Norman'
+        },
+        {
+            userId: 3
+            , userName: 'pål'
+            , userEmail: 'pållern@gmail.com'
+            , password: '321'
+            , firstName: 'Pål'
+            , lastName: 'Norman'
+        },
+        ],
+        inputs:{
+            chat: {
+                selectedChatId : null
+            },
+        },
+        interactedProfiles: [
+        //Assign dates when liked
+        {userId: 1, interactedUserId: 2, date: null, isLike: true} 
+        , {userId: 2, interactedUserId: 1, date: null,isLike: true} 
+        , {userId: 3, interactedUserId: 1, date: null,isLike: false}  
+    ],
+    }      
+    
+      
+
+        function updateView(){};
+
+
+
+
+    </script>
+</body>
+</html>
