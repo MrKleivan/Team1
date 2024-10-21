@@ -42,8 +42,8 @@ function updateViewHome() {
             </div>
             <div class="homeContentCenter">
                 <div class="profileView" style="background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});" onclick="navigateToPage('otherProfile')">
-                    <div class="profileViewTopp"><h1>${otherProfile[1].name}<h1></div>
-                    <div class="profileViewBottom"><h2>${otherProfile[1].description}<h2></div>
+                    <div class="profileViewTopp"><h1>${otherProfile[1].name}</h1></div>
+                    <div class="profileViewBottom"><h1>${otherProfile[1].description}</h1></div>
                 </div>
             </div>
             <div class="homeContentSide">
