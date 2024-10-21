@@ -12,21 +12,21 @@ function updateViewHome() {
     
 
     if(model.inputs.home.watching.length < 1) {
-        html = /*HTML*/`<h1 style="font-size:3vh;text-align:center;color:purple;">Finn din kats elsker</h1>
+        html = /*HTML*/`<h1>Finn din kats elsker</h1>
         
-        <div id="homeContent"  style="width: 100%; height: 80%; margin: auto;align-items: center; display: flex; align-content:center; text-align: center;">
-            <div style="width: 10%; height: 95%; align-content:center;" >
+        <div class="homeContent" >
+            <div class="homeContentSide">
             </div>
-            <div id="homeProfile" style="width: 95%; height: 90%; border-radius: 40px; align-content: center; background-color: rgba(255, 255, 255, 0.5);">
-                <div class="profileView" onclick="navigateToPage('otherProfile')" style=" width: 98%; height: 98%; margin: auto; border-radius: 40px;background-color: rgba(255,255,255,0.5)">
-                    <div style="height: 80%; padding: 20px;"><h1>Vent for mer<h1></div>
-                    <div style="text-align: start;"><h1 class="profileScript">?<h1></div>
+            <div class="homeContentCenter">
+                <div class="profileView" onclick="navigateToPage('otherProfile')">
+                    <div class="profileViewTopp" ><h1>Vent for mer<h1></div>
+                    <div class="profileViewBottom"><h1>?<h1></div>
                 </div>
             </div>
-            <div style="width: 10%; height: 10%; align-content:center;">
+            <div class="homeContentSide">
             </div>
         </div>
-        <div style="text-align: center;">
+        <div class="homeFooter">
         <img style="height: 10vh" src="img/house-solid.svg" alt="home"  onclick="updateView()" />
         </div>
         `;
@@ -34,19 +34,19 @@ function updateViewHome() {
         let catPicture = model.pictures.filter(u => u.userId === model.inputs.home.watching[1].userId);
         html = /*HTML*/`
         
-        <h1 style="font-size:3vh;text-align:center;color:purple;">Finn din kats elsker</h1>
+        <h1>Finn din kats elsker</h1>
         
-        <div id="homeContent"  style="width: 100%; height: 80%; margin: auto;align-items: center; display: flex; align-content:center; text-align: center;">
-            <div class="pictureSvipe" style="width: 10%; height: 95%; align-content:center;" >
+        <div class="homeContent">
+            <div class="homeContentSide">
             <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
             </div>
-            <div id="homeProfile" style="width: 95%; height: 90%; border-radius: 40px; align-content: center; background-color: rgba(255, 255, 255, 0.5);">
-                <div class="profileView" onclick="navigateToPage('otherProfile')" style=" width: 98%; height: 98%; margin: auto; border-radius: 40px; background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});background-size: cover;background-position: center; background-repeat: no-repeat;">
-                    <div style="height: 80%; padding: 20px;"><h1>${otherProfile[1].name}<h1></div>
-                    <div style="text-align: start;"><h1 class="profileScript" >${otherProfile[1].description}<h1></div>
+            <div class="homeContentCenter">
+                <div class="profileView" style="background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});" onclick="navigateToPage('otherProfile')">
+                    <div class="profileViewTopp"><h1>${otherProfile[1].name}<h1></div>
+                    <div class="profileViewBottom"><h2>${otherProfile[1].description}<h2></div>
                 </div>
             </div>
-            <div class="pictureSvipe" style="width: 10%; height: 10%; align-content:center;">
+            <div class="homeContentSide">
             <img style="height: 5vh" src="img/rightArrow.svg" alt="Right arrow"  onclick="nextPic()" />
             </div>
         </div>
