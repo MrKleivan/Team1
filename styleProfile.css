@@ -10,13 +10,14 @@
     object-fit: cover;
     border-radius: 15px;
     cursor: pointer;
+    
 }
 
 .imageDisplay {
     display: flex;
     height: 100px;
     width: 100px;
-    border: 2px solid rgb(255, 255, 255);
+    border: 1px solid rgb(138, 138, 138);
     border-radius: 15px;
     margin: 10px;
     cursor: pointer;
@@ -71,10 +72,11 @@
     margin-top: 10px;
     background-color: rgb(255, 255, 255);
     border-radius: 40px;
+    border: 1px solid rgb(138, 138, 138);  
 }
 
 .cross:hover {
-    background-color: rgb(101, 101, 101);
+    background-color:  rgb(255, 153, 153);;
     color: rgb(255, 255, 255);
 }
 
@@ -86,40 +88,64 @@
     width: auto;
     height: 20px;
     margin: 5px;
-    border: 0;
+    border: 1px solid rgb(138, 138, 138);
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
-
-
+    transition: all 0.3s ease;
 }
 .interestButton:hover {
-    background-color: rgb(119, 119, 119);
-    border: 2px solid rgb(255, 255, 255);
+    background-color:  rgb(255, 153, 153);;
     color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
 }
 .interestButton.selected {
     height: 30px;
     width: auto;
-    background-color: #414141; color: white;
+    background: linear-gradient(135deg, rgb(247, 65, 65), rgb(255, 127, 127)); 
+    color: white;
+    border: 1px solid rgb(247, 65, 65);
+    transition: all 0.3s ease;
 }
 #saveButton{
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    padding: 10px;
+    padding: 10px 20px;
     width: auto;
     height: 25px;
-    border: 0;
+    border: 1px solid rgb(138, 138, 138);
     margin-bottom: 15px;
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: rgb(255, 255, 255);
 }
 
 #saveButton:hover {
-    background-color: rgb(119, 119, 119);
+    background-color:  rgb(255, 153, 153);;
     color: rgb(255, 255, 255);
+
 }
 #saveLayout  {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    width: auto;
+    height: 15px;
+    border: 1px solid rgb(138, 138, 138);
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+input:focus {
+    background-color: rgb(255, 243, 240);
+    border-color: rgb(247, 65, 65); 
+    outline: none; /* Remove default outline */
 }

@@ -20,8 +20,8 @@ function updateViewMyProfile() {
     </div>
     <div id="myProfileContent">
     <div id="column1">
-    First Name:<br><input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="first name"><br>
-    Last Name:<br><input id="lastNameInput" type="text"  value="${loggedUserLastName}" placeholder="last name" ><br>
+    First Name*<br><input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="first name"><br>
+    Last Name*<br><input id="lastNameInput" type="text"  value="${loggedUserLastName}" placeholder="last name" ><br>
     Favorite Food:<br><input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="your cat's favorite food"><br>
     Cat Name:<br><input id="catNameInput" type="text"value="${loggedCatName}" placeholder="write your cat name" ><br>
     </div>

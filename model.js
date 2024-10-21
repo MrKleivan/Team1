@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'messages' // register , myProfile, home, match, chat, messages
+        currentPage: 'home' // register , myProfile, home, match, chat, messages
         , loggedInUser: 1
     },
 
@@ -43,6 +43,7 @@ let model = {
             , placeInSequence: 1
             , svipeList: [] 
             , watching: []
+            , isTrue: false
         },
         chat: {
             selectedChatId : null
