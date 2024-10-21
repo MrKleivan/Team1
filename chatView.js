@@ -1,8 +1,14 @@
 function updateViewChat() {
     document.getElementById('app').innerHTML = /*HTML*/`
+    <div id="chatBox">
         <div>
             ${drawChatHtml(model.inputs.chat.selectedChatId)}
         </div>
+        <div class="custom_input">
+            <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>    
     `;
 }
 

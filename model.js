@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'home' // register , myProfile, home, matchProfile, chat, messages
+        currentPage: 'messages' // register , myProfile, home, matchProfile, chat, messages
         , loggedInUser: 1
     },
 
@@ -46,6 +46,7 @@ let model = {
         },
         chat: {
             selectedChatId : null
+            , message: ''
         }
     },
 
@@ -163,7 +164,7 @@ let model = {
         , 'Utforske'
         , 'Trene'
         , 'Jakte'
-        , 'synge'
+        , 'Synge'
     ],
     
     pictures: [

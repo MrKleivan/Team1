@@ -20,23 +20,29 @@ function updateViewMyProfile() {
     </div>
     <div id="myProfileContent">
     <div id="column1">
-    First Name<br><input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="first name"><br>
-    Last Name<br><input id="lastNameInput" type="text"  value="${loggedUserLastName}" placeholder="last name" ><br>
-    Favorite Food<br><input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="your cat's favorite food"><br>
-    Cat Name<br><input id="catNameInput" type="text"value="${loggedCatName}" placeholder="write your cat name" ><br>
+    First Name:<br><input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="first name"><br>
+    Last Name:<br><input id="lastNameInput" type="text"  value="${loggedUserLastName}" placeholder="last name" ><br>
+    Favorite Food:<br><input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="your cat's favorite food"><br>
+    Cat Name:<br><input id="catNameInput" type="text"value="${loggedCatName}" placeholder="write your cat name" ><br>
     </div>
     <div id="column2">
-    Personality<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder=" personality of your cat"><br>
-    Color<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="color of your cat" ><br>
-    Age<br><input id="ageInput" type="number" min= '0' value="${loggedAge}" placeholder="age of your cat" ><br>
-    Race<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="race of your cat"><br>
+    Personality:<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder=" personality of your cat"><br>
+    Color:<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="color of your cat" ><br>
+    Age:<br><input id="ageInput" type="number" min= '0' value="${loggedAge}" placeholder="age of your cat" ><br>
+    Race:<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="race of your cat"><br>
     </div>
+    </div>
+    <div id="column3">
+    Description:<br><input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="describe your cat"><br>
+    </div>
+    <div id="saveLayout">
+    <button onclick="saveChanges()" id="saveButton">Save</button><br>
     </div>
     Selected Interests:<br>
     
     <div id='interestsSelection'></div><br>
     
-    Add cat pictures
+    Add cat picture:<br>
     <input type='file' id='imageInput' accept='image/*' onchange="readFileSelection(event)" style="display: none;" />
     <div id='divAddPictures'>
     
@@ -47,8 +53,6 @@ function updateViewMyProfile() {
     <div id="dragImageHere5" class="imageDisplay" onclick="openFilePicker(5)">+</div>
     </div><br>
     
-    Description<br><input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="describe your cat"><br>
-    <button onclick="saveChanges()">Save</button><br>
     `;
     displayImages();
     displayInterests();

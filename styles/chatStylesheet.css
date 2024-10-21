@@ -1,0 +1,35 @@
+#chatBox{
+    display: flexbox;
+}
+
+
+.custom_input {
+	display: flex;
+	align-items: center;
+	position: relative;
+	max-width: fit-content;
+}
+
+.input {
+	font-size: 18px;
+	padding: 5px 10px;
+	width: fit-content;
+	padding-right: 17px;
+	outline: none;
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #C4D1EB;
+	border-radius: 5px;
+	box-shadow: 3px 3px 2px 0px #E2E2E2;
+	transition: .3s ease;
+}
+
+.input:focus {
+	background: #F2F2F2;
+	border: 1px solid #5A7EC7;
+	border-radius: 10px;
+}
+
+.input::placeholder {
+	color: #DDDDDD;
+}
