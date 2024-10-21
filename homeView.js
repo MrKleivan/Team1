@@ -12,7 +12,7 @@ function updateViewHome() {
     
 
     if(model.inputs.home.watching.length < 1) {
-        html = /*HTML*/`<h1>Finn din kats elsker</h1>
+        html = /*HTML*/`
         
         <div class="homeContent" >
             <div class="homeContentSide">
@@ -34,8 +34,8 @@ function updateViewHome() {
         let catPicture = model.pictures.filter(u => u.userId === model.inputs.home.watching[1].userId);
         html = /*HTML*/`
         
-        <h1>Finn din kats elsker</h1>
         
+        <div class="homeContentTopp"><h1>Finn din kats kjærlighet</h1></div>
         <div class="homeContent">
             <div class="homeContentSide">
             <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
