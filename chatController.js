@@ -5,6 +5,7 @@ function sendMessage(){
 
     let chatId = getChatId(currentUserId, selectedUserId)
 
+    if(text === ''){return}
     newMessage = {
         senderId: currentUserId
         , message: text
