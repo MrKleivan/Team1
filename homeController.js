@@ -1,17 +1,16 @@
 
-let count = 0;
 
 function privPic() {
-    if(count == 0) {
+    if(model.inputs.home.placeInSequence == 0) {
         return;
-    } else {count--}
+    } else {model.inputs.home.placeInSequence--}
     updateView();
 }
 
 function nextPic(number) {
-    if(count == number - 1) {
+    if(model.inputs.home.placeInSequence == number - 1) {
         return;
-    } else count++
+    } else model.inputs.home.placeInSequence++
     updateView();
 }
 
