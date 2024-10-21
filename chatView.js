@@ -57,3 +57,25 @@ function getChatLog(currentUserId, selectedUserId){
 
     return chatLogs;
 }
+
+function getChatId(currentUserId, selectedUserId){
+    let chats = model.chatLog;
+    let chatId;
+
+    isInSystem = chats.some(({ senderId, recipientId }) => (senderId === currentUserId && recipientId === selectedUserId) || (senderId === selectedUserId && recipientId === currentUserId));
+
+    if(isInSystem == true){
+        currentChat = chats.find(({ senderId, recipientId }) => (senderId === currentUserId && recipientId === selectedUserId) || (senderId === selectedUserId && recipientId === currentUserId));
+
+        chatId = currentChat.chatId;
+    }
+    else{
+        let maxObj = chats.reduce(function(max, obj) {
+            return obj.chatId > max.chatId? obj : max;
+        });
+        
+        chatId = maxObj.chatId + 1;
+    }
+
+    return chatId;
+}
