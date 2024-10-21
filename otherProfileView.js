@@ -37,8 +37,8 @@ function updateViewOtherProfile() {
 
     <div id="myProfileContent">
     <div id="column1">
-    First Name*<br><p id="firstName">${loggedUserFirstName}</p><br>
-    Last Name*<br><p id="lastName">${loggedUserLastName}</p><br>
+    First Name<br><p id="firstName">${loggedUserFirstName}</p><br>
+    Last Name<br><p id="lastName">${loggedUserLastName}</p><br>
     Favorite Food:<br><p id="favouriteFood">${loggedFavouriteFood}</p><br>
     Cat Name:<br><p id="catName">${loggedCatName}</p><br>
     </div>
