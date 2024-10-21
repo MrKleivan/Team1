@@ -25,7 +25,7 @@
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            
+
         }
 
         #footer {
@@ -34,6 +34,41 @@
             padding: 10px;
             margin: auto;
             /* background-color: rgba(236, 236, 236, 0.9); */
+        }
+
+        #header {
+            width: 70vw;
+            height: 6vh;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 30px
+        }
+
+        img {
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .buttonForIcon {
+            height: 50px;
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:  rgb(247, 65, 65);
+            border-radius: 50%;
+        }
+
+        .image {
+            filter: invert(100%);
+        }
+
+        .left-icons,
+        .right-icons {
+            display: flex;
+            gap: 5px;
         }
     </style>
 
@@ -59,14 +94,26 @@
 
 </head>
 
-<body>            
+<body>
     <div id="header">
-        <img style="height: 30px" src="img/house-solid.svg" alt="Home Icon"  onclick="navigateToPage('home')" />
-        <img style="height: 30px" src="img/comments-solid.svg" alt="Messages Icon"  onclick="navigateToPage('messages')" />
-        <img style="height: 30px" src="img/hand-holding-heart-solid.svg" alt="Matches Icon"  onclick="navigateToPage('home')" />
-        <div style="text-align: right; margin-right: 30px;">
-            <img style="height: 30px;" src="img/user-solid.svg" alt="Profile Icon"  onclick="navigateToPage('myProfile')" />
-            <img style="height: 30px;" src="img/right-to-bracket-solid.svg" alt="Log out Icon"  onclick="logOutUser()" />
+        <div class="left-icons">
+            <span class="buttonForIcon">
+                <img class='image' src="img/house-solid.svg" alt="Home Icon" onclick="navigateToPage('home')" />
+            </span>
+            <span class="buttonForIcon">
+                <img class='image' src="img/comments-solid.svg" alt="Messages Icon" onclick="navigateToPage('messages')" />
+            </span>
+            <span class="buttonForIcon">
+                <img class='image' src="img/hand-holding-heart-solid.svg" alt="Matches Icon" onclick="navigateToPage('home')" />
+            </span>
+        </div>
+        <div class="right-icons">
+            <span class="buttonForIcon">
+                <img class='image' src="img/user-solid.svg" alt="Profile Icon" onclick="navigateToPage('myProfile')" />
+            </span>
+            <span class="buttonForIcon">
+                <img class='image' src="img/right-to-bracket-solid.svg" alt="Log out Icon" onclick="logOutUser()" />
+            </span>
         </div>
     </div>
     <div id="app"></div>
