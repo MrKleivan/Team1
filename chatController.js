@@ -15,5 +15,6 @@ function sendMessage(){
 
     model.chatLog.push(newMessage)
 
+    model.inputs.chat.message = ''
     updateView();
 }
