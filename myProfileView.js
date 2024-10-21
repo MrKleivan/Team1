@@ -1,8 +1,9 @@
-let loggedInUser = model.app.loggedInUser;
 
 function updateViewMyProfile() {
+    let loggedInUser = model.app.loggedInUser !== null ? model.app.loggedInUser : 1;
     console.log(loggedInUser);
     let loggedUser = model.users.find(user => user.userId === loggedInUser);
+    console.log(loggedUser);
     let loggedUserLastName = loggedUser.lastName;
     let loggedUserFirstName = loggedUser.firstName;
     let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
@@ -58,6 +59,20 @@ function updateViewMyProfile() {
     displayInterests();
 }
 
+function updateImageDiv(addImageToDiv, picture, i) {
+    if (addImageToDiv) {
+        if (picture) {
+            addImageToDiv.innerHTML = `
+                <div class="imageWrapper">
+                    <img src="${picture.pictureUrl}" alt="image" class="thumbnail" />
+                    <span class="cross" onclick="deleteImage(${i + 1}, event)">&times;</span>
+                </div>`;
+        } else {
+            addImageToDiv.innerHTML = '+';
+        }
+    }
+}
+
 function displayInterests() {
     let userId = model.app.loggedInUser;
     let interests = model.interests;
@@ -75,15 +90,15 @@ function displayInterests() {
     }
     document.getElementById('interestsSelection').innerHTML = buttonsHtml
 }
-function selectInterest(interest) {
-    let userId = model.app.loggedInUser;
-    let index = model.chosenInterests.findIndex(item => item.userId === userId && item.interest === interest);
-    if (index === -1) {
-        model.chosenInterests.push({ userId: userId, interest: interest });
-        console.log("Chosen Interests:", model.chosenInterests);
-    } else {
-        model.chosenInterests = model.chosenInterests.filter(item => item.userId && item.interest !== interest);
-        console.log("Chosen Interests:", model.chosenInterests);
+function displayImages() {
+    let totalPictures = 5;
+    let loggedInUser = model.app.loggedInUser;
+    let catPictures = model.pictures.filter(picture => picture.userId == loggedInUser);
+
+    for (let i = 0; i < totalPictures; i++) {
+        let divImageId = 'dragImageHere' + (i + 1);
+        let addImageToDiv = document.getElementById(divImageId);
+        let picture = catPictures.find(p => p.placeInSequence === (i + 1));
+        updateImageDiv(addImageToDiv, picture, i);
+        }
     }
-    displayInterests();
-}

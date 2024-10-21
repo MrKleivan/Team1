@@ -1,6 +1,9 @@
-let loggedUser = model.users.find(user => user.userId === loggedInUser);
-let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
+
 function saveChanges() {
+    let loggedInUser = model.app.loggedInUser;
+    console.log(loggedInUser);
+    let loggedUser = model.users.find(user => user.userId === loggedInUser);
+    let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
     model.inputs.myProfile.firstName = document.getElementById('firstNameInput').value;
     model.inputs.myProfile.lastName = document.getElementById('lastNameInput').value;
     model.inputs.myProfile.favouriteFood = document.getElementById('favouriteFoodInput').value;
@@ -50,6 +53,7 @@ function processLoadedImage(pictureUrl) {
     displayImages();
 }
 function updateModelPictures(sequence, pictureUrl) {
+    let loggedInUser = model.app.loggedInUser;
     let userId = loggedInUser;
     let pictureIndex = model.pictures.findIndex(picture => picture.userId === userId && picture.placeInSequence === sequence);
     console.log(pictureIndex);
@@ -62,33 +66,22 @@ function updateModelPictures(sequence, pictureUrl) {
     }
 }
 
-function displayImages() {
-    let totalPictures = 5;
-    let catPictures = model.pictures.filter(picture => picture.userId == loggedInUser);
-
-    for (let i = 0; i < totalPictures; i++) {
-        let divImageId = 'dragImageHere' + (i + 1);
-        let addImageToDiv = document.getElementById(divImageId);
-        let picture = catPictures.find(p => p.placeInSequence === (i + 1));
-        updateImageDiv(addImageToDiv, picture, i);
-        }
-    }
-function updateImageDiv(addImageToDiv, picture, i) {
-    if (addImageToDiv) {
-        if (picture) {
-            addImageToDiv.innerHTML = `
-                <div class="imageWrapper">
-                    <img src="${picture.pictureUrl}" alt="image" class="thumbnail" />
-                    <span class="cross" onclick="deleteImage(${i + 1}, event)">&times;</span>
-                </div>`;
-        } else {
-            addImageToDiv.innerHTML = '+';
-        }
-    }
-}
 function deleteImage(sequence, event) {
     event.stopPropagation(); 
     model.pictures = model.pictures.filter(picture => picture.placeInSequence !== sequence);
     displayImages();
+}
+
+function selectInterest(interest) {
+    let userId = model.app.loggedInUser;
+    let index = model.chosenInterests.findIndex(item => item.userId === userId && item.interest === interest);
+    if (index === -1) {
+        model.chosenInterests.push({ userId: userId, interest: interest });
+        console.log("Chosen Interests:", model.chosenInterests);
+    } else {
+        model.chosenInterests = model.chosenInterests.filter(item => item.userId && item.interest !== interest);
+        console.log("Chosen Interests:", model.chosenInterests);
+    }
+    displayInterests();
 }
 displayImages();
