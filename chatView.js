@@ -13,17 +13,16 @@ function updateViewChat() {
 }
 
 function drawChatHtml(id){
-    
     let currentUserId = model.app.loggedInUser;
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
     let html;
-
+    
     let selectedUserId = getSenderId(id, currentUserId)
     
     let username = getUsernameFromId(selectedUserId)
     
     let chatLogs = getChatLog(currentUserId, selectedUserId);
-
+    
 
     html = `
         <div style="text-align:center; font:50px bold;">${username.firstName}</div>

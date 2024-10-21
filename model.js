@@ -191,6 +191,7 @@ let model = {
         , {userId: 1, interactedUserId: 3, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), isLike: true} 
         , {userId: 2, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true} 
         , {userId: 3, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: false}  
+        , {userId: 1, interactedUserId: 5, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true}  
     ],
  
     chatLog: [
