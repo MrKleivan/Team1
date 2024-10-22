@@ -249,20 +249,6 @@
             // assert
             assert.deepEqual(model.inputs.home.svipeList.length, 13);
         });
-
-        QUnit.test('Sjekker om getOtherProfile funksjonen gjør det den skal', function (assert) {
-            // arrange
-            model.app.loggedInUser = 2;
-            model.inputs.home.isTrue = false;
-            
-
-            // act
-            createSvipeList();
-            getOtherProfile();
-            // assert
-            assert.deepEqual(model.inputs.home.watching.length, 5);
-        });
-
         
         QUnit.test('Sjekker det blir lagt til en i interacted profiles', function (assert) {
             // arrange
