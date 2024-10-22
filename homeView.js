@@ -5,13 +5,13 @@ function updateViewHome() {
     let html = '';
     
     const loggedInnUserProfile = model.app.loggedInUser;
-    let otherProfileS = createSvipeList();
+    createSvipeList();
    
     let otherProfile = getOtherProfile();
     
     
 
-    if(model.inputs.home.watching.length < 1) {
+    if(model.inputs.home.svipeList.length < 1) {
         html = /*HTML*/`
         
         <div class="homeContent" >
@@ -30,7 +30,7 @@ function updateViewHome() {
             <img src="img/house-solid.svg" alt="home" />
         </div>
         `;
-    } if (model.inputs.home.watching.length > 1){
+    } if (model.inputs.home.svipeList.length > 1){
         let catPicture = model.pictures.filter(u => u.userId === model.inputs.home.watching[1].userId);
         let number = catPicture.length;
         html = /*HTML*/`
@@ -56,8 +56,8 @@ function updateViewHome() {
         </div>
         <br>
         <div  class="homeContentLikeButtons">
-            <button onclick="likeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker</button>
-            <button onclick="notLikeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker ikke</button>
+            <button class="likeButton" onclick="likeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker</button>
+            <button class="likeButton" onclick="notLikeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker ikke</button>
         </div>
         `;
     }

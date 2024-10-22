@@ -127,7 +127,7 @@
     margin: auto; 
     text-align: center;
 }
-.homeContentLikeButtons > button {
+.likeButton {
     width: 12vw; 
     height: 4vh; 
     border: none; 
@@ -137,7 +137,13 @@
     color: snow;
     font-weight: bold;
     border-radius: 20px; 
-    background-color: rgba(255,55,55,0.7);
+    background-color: rgba(220, 20, 20, 0.2);
+}
+
+.likeButton:hover {
+    box-shadow: 10px 10px 20px 0px lightgray;
+    cursor: pointer;
+    background-color: rgba(220, 20, 20, 0.5);
 }
 
 .homeContentLikeButtonsNoneSvipe {
