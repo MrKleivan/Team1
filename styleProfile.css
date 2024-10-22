@@ -1,3 +1,7 @@
+.headerText {
+    display: flex;
+    justify-content: center;
+}
 #result {
     display: flex;
     gap: 10px;
@@ -15,7 +19,6 @@
 
 .imageDisplay {
     display: flex;
-    height: 100px;
     width: 100px;
     border: 1px solid rgb(138, 138, 138);
     border-radius: 15px;
@@ -40,28 +43,53 @@
     max-width: 800px;
     border-radius: 40px;
 }
-
+#column0 {
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
+}
 #column1 {
     flex: 1;
     display: flex;
     flex-direction: column;
     padding-left: 20px;
-    padding: 10px;
-}
-
-#column2 {
+    margin: 10px;
+} #column2 {
     flex: 1;
     display: flex;
     flex-direction: column;
     padding-right: 20px;
-    padding: 10px;
+    margin: 10px;
 }
 #column3 {
     flex-direction: column;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
+}
+#column4 {
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#column5 {
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
 }
 .cross {
     display: flex;
@@ -78,6 +106,11 @@
 .cross:hover {
     background-color:  rgb(255, 153, 153);;
     color: rgb(255, 255, 255);
+}
+
+#interestsSelection {
+    justify-content: center;
+    align-items: center;
 }
 
 .interestButton {
@@ -140,12 +173,11 @@ input {
     width: auto;
     height: 15px;
     border: 1px solid rgb(138, 138, 138);
-    margin-bottom: 15px;
     border-radius: 5px;
 }
 
 input:focus {
     background-color: rgb(255, 243, 240);
     border-color: rgb(247, 65, 65); 
-    outline: none; /* Remove default outline */
+    outline: none;
 }
