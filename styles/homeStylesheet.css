@@ -132,7 +132,10 @@
     height: 4vh; 
     border: none; 
     margin-right: 10%;
-    margin-left: 10%; 
+    margin-left: 10%;
+    font-size: 2vw; 
+    color: snow;
+    font-weight: bold;
     border-radius: 20px; 
     background-color: rgba(255,55,55,0.7);
 }
