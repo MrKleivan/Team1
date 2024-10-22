@@ -7,13 +7,13 @@ function updateViewMyProfile() {
     let loggedUserLastName = loggedUser.lastName;
     let loggedUserFirstName = loggedUser.firstName;
     let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
-    let loggedFavouriteFood = loggedCat.favouriteFood;
-    let loggedCatName = loggedCat.name;
-    let loggedPersonality = loggedCat.personality;
-    let loggedColor = loggedCat.color;
-    let loggedAge = loggedCat.age !== null ? loggedCat.age : '';
-    let loggedRace = loggedCat.race;
-    let loggedDescription = loggedCat.description;
+    let loggedFavouriteFood = loggedCat?.favouriteFood || '';
+    let loggedCatName = loggedCat?.name || '';
+    let loggedPersonality = loggedCat?.personality || '';
+    let loggedColor = loggedCat?.color || '';
+    let loggedAge = loggedCat?.age || '';
+    let loggedRace = loggedCat?.race || '';
+    let loggedDescription = loggedCat?.description || '';
 
     document.getElementById('app').innerHTML = /*HTML*/`
     <div class="header">
