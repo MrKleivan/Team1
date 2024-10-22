@@ -1,7 +1,7 @@
 let model = {
     app: {
-        currentPage: 'login' // register , myProfile, home, match, chat, messages
-        , loggedInUser: null
+        currentPage: 'home' // register , myProfile, home, match, chat, messages
+        , loggedInUser: 1
     },
 
 

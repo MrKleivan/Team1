@@ -56,8 +56,8 @@ function updateViewHome() {
         </div>
         <br>
         <div  class="homeContentLikeButtons">
-            <button class="likeButton" onclick="likeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker</button>
-            <button class="likeButton" onclick="notLikeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker ikke</button>
+            <button id="likeButton" onclick="likeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker</button>
+            <button id="likeButton" onclick="notLikeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker ikke</button>
         </div>
         `;
     }

@@ -127,21 +127,21 @@
     margin: auto; 
     text-align: center;
 }
-.likeButton {
-    width: 12vw; 
-    height: 4vh; 
+#likeButton {
+    width: 15vw;
+    height: 5vh; 
     border: none; 
     margin-right: 10%;
     margin-left: 10%;
-    font-size: 2vh; 
+    font-size: 1vh; 
     color: snow;
     font-weight: bold;
     border-radius: 20px; 
     background-color: rgba(220, 20, 20, 0.5);
-    transition: 0.9s;
+    transition: 0.5s;
 }
 
-.likeButton:hover {
+#likeButton:hover {
     cursor: pointer;
     background-color: rgba(220, 20, 20, 0.8);
     box-shadow: 5px 5px 20px 0px lightgray;
