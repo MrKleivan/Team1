@@ -12,8 +12,19 @@ function saveChanges() {
     model.inputs.myProfile.age = document.getElementById('ageInput').value;
     model.inputs.myProfile.race = document.getElementById('raceInput').value;
     model.inputs.myProfile.description = document.getElementById('descriptionInput').value;
-
-
+    if (!loggedCat) {
+        loggedCat = {
+            userId: loggedInUser,
+            favouriteFood: '',
+            name: '',
+            personality: '',
+            color: '',
+            age: '',
+            race: '',
+            description: ''
+        };
+        model.cats.push(loggedCat);
+    }
     loggedUser.firstName = model.inputs.myProfile.firstName;
     loggedUser.lastName = model.inputs.myProfile.lastName;
     loggedCat.favouriteFood = model.inputs.myProfile.favouriteFood;
