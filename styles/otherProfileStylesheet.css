@@ -8,14 +8,6 @@
     margin: auto;
 }
 
-.homeContentTopp {
-    width: 90%;
-    height: 2%;
-    margin: auto;
-    padding: 0;
-    text-align: center;
-}
-
 .homeContentSide {
     width: 10%;
     height: 50%;
@@ -147,5 +139,21 @@
 }
 
 .homeFooter > img {
-    height: ;
+}
+
+
+#selectedProfileColumn1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+}
+
+#selectedProfileColumn2 {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }

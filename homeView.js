@@ -64,6 +64,7 @@ function updateViewHome() {
 
     document.getElementById('app').innerHTML = html;
     
+    model.inputs.home.isTrue = false;
 }
 
 function createPictureCircle(catPicture) {

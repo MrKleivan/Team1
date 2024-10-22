@@ -10,13 +10,12 @@
     
     <script src="/Team1/homeView.js"></script>
     <script src="/Team1/homeController.js"></script>
-    <script src="/Team1/commonController.js"></script>
 
     <script>        
     let model = {
     app: {
         currentPage: 'home' // register , myProfile, home, match, chat, messages
-        , loggedInUser: ''
+        , loggedInUser: null
     },
 
 
@@ -55,13 +54,14 @@
         home: {
             userId: null
             , isLike: false
-            , placeInSequence: 1
+            , placeInSequence: 0
             , svipeList: [] 
             , watching: []
             , isTrue: false
         },
         chat: {
             selectedChatId : null
+            , selectedUserId: null
             , message: ''
         }
     },
@@ -203,9 +203,8 @@
     interactedProfiles: [
         //Assign dates when liked
         {userId: 1, interactedUserId: 2, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), isLike: true} 
-        , {userId: 1, interactedUserId: 3, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), isLike: true} 
         , {userId: 2, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true} 
-        , {userId: 3, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: false}  
+        , {userId: 3, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true}  
     ],
  
     chatLog: [
@@ -218,43 +217,66 @@
 }
     
 
+    function updateView(){}
     
         
-        QUnit.test('Sjekker om lengden på svipelisen er 18', function (assert) {
+        QUnit.test('Sjekker om lengden på svipelisen er 13 om man er logget in som userid1', function (assert) {
             // arrange
+
             model.app.loggedInUser = 1;
+            model.inputs.home.isTrue = false;
             
 
             // act
             createSvipeList();
+            
 
             // assert
-            assert.deepEqual(model.inputs.home.svipeList.length, 18);
+            assert.deepEqual(model.inputs.home.svipeList.length, 13);
+        });
+
+        QUnit.test('Sjekker om lengden på svipelisen er 13 om man er logget in som userid1', function (assert) {
+            // arrange
+
+            model.app.loggedInUser = 2;
+            model.inputs.home.isTrue = false;
+            
+
+            // act
+            createSvipeList();
+            
+
+            // assert
+            assert.deepEqual(model.inputs.home.svipeList.length, 13);
+        });
+
+        QUnit.test('Sjekker om getOtherProfile funksjonen gjør det den skal', function (assert) {
+            // arrange
+            model.app.loggedInUser = 2;
+            model.inputs.home.isTrue = false;
+            
+
+            // act
+            createSvipeList();
+            getOtherProfile();
+            
+
+            // assert
+            assert.deepEqual(model.inputs.home.watching.length, 5 );
         });
 
         
-        QUnit.test('Sjekker om lengden på svipelisen er 17, vis userId 2 er logget inn', function (assert) {
-            // arrange
-            model.inputs.home.isTrue = false;
-            model.inputs.home.svipeList = [];
-            model.app.loggedInUser = 2;
-            // act
-            createSvipeList();
-
-            // assert
-            assert.deepEqual(model.inputs.home.svipeList.length, 17);
-        });
         QUnit.test('Sjekker det blir lagt til en i interacted profiles', function (assert) {
             // arrange
+            model.interactedProfiles = [];
             model.inputs.home.isTrue = false;
             model.inputs.home.svipeList = [];
             model.app.loggedInUser = 1;
             // act
             createSvipeList();
             likeCat(1, 2);
-
             // assert
-            assert.deepEqual(model.interactedProfiles.length, 4);
+            assert.deepEqual(model.interactedProfiles.length, 1);
         });
 
 
