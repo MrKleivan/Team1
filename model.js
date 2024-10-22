@@ -1,6 +1,6 @@
 let model = {
     app: {
-        currentPage: 'login' // register , myProfile, home, match, chat, messages
+        currentPage: 'home' // register , myProfile, home, match, chat, messages
         , loggedInUser: 1
     },
 
@@ -40,7 +40,7 @@ let model = {
         home: {
             userId: null
             , isLike: false
-            , placeInSequence: 1
+            , placeInSequence: 0
             , svipeList: [] 
             , watching: []
             , isTrue: false
@@ -189,10 +189,8 @@ let model = {
     interactedProfiles: [
         //Assign dates when liked
         {userId: 1, interactedUserId: 2, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), isLike: true} 
-        , {userId: 1, interactedUserId: 3, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), isLike: true} 
         , {userId: 2, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true} 
         , {userId: 3, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true}  
-        , {userId: 1, interactedUserId: 5, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true}  
     ],
  
     chatLog: [
