@@ -20,7 +20,6 @@ function drawMatchesHtml(){
     for(let find of matches){
         let interactedUser = find.interactedUserId;
         let isBothMatched = interactedProfiles.filter(({ userId, interactedUserId, isLike }) => userId == interactedUser && interactedUserId == currentUser && isLike == true);
-        console.log(isBothMatched)
         for(let match of isBothMatched){
         let user = getUsernameFromId(interactedUser);
         let chatId = getChatId(currentUser, interactedUser);
