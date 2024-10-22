@@ -115,7 +115,7 @@
         // view
         updateView();
         function updateView() {
-            drawNavigationButtons()
+            drawNavigationButtons();
             let page = model.app.currentPage;
             if (page == 'login') { updateViewLogin(); }
             if (page == 'register') { updateViewRegister(); }
@@ -129,8 +129,6 @@
 
         }
 
-        // controller
-        
         function drawNavigationButtons(){
             if(model.app.loggedInUser != null){
                 document.getElementById("header").innerHTML = `
@@ -163,6 +161,8 @@
             `
             }
         }
+        // controller
+        
 
     </script>
 
