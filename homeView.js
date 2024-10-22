@@ -38,7 +38,7 @@ function updateViewHome() {
         <div class="homeContentTopp"><h1>Finn din kats kjærlighet</h1></div>
         <div class="homeContent">
             <div class="homeContentSide">
-            <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
+                <img src="img/leftArrow2.svg" alt="Left arrow"  onclick="privPic()" />
             </div>
             <div class="homeContentCenter">
                 <div class="profileView" style="background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});" onclick="navigateToPage('otherProfile')">
@@ -47,7 +47,7 @@ function updateViewHome() {
                 </div>
             </div>
             <div class="homeContentSide">
-            <img style="height: 5vh" src="img/rightArrow.svg" alt="Right arrow"  onclick="nextPic()" />
+                <img src="img/rightArrow2.svg" alt="Right arrow"  onclick="nextPic()" />
             </div>
         </div>
         <div style="text-align: center;">

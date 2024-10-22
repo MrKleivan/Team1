@@ -244,6 +244,18 @@
             // assert
             assert.deepEqual(model.inputs.home.svipeList.length, 17);
         });
+        QUnit.test('Sjekker det blir lagt til en i interacted profiles', function (assert) {
+            // arrange
+            model.inputs.home.isTrue = false;
+            model.inputs.home.svipeList = [];
+            model.app.loggedInUser = 1;
+            // act
+            createSvipeList();
+            likeCat(1, 2);
+
+            // assert
+            assert.deepEqual(model.interactedProfiles.length, 4);
+        });
 
 
 
