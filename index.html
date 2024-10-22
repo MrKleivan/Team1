@@ -135,13 +135,15 @@
         function updateView() {
             let page = model.app.currentPage;
             if (page == 'login') { updateViewLogin(); }
-            if (page == 'home') { updateViewHome(); }
-            if (page == 'messages') { updateViewMessages(); }
-            if (page == 'chat') { updateViewChat(); }
             if (page == 'register') { updateViewRegister(); }
-            if (page == 'myProfile') { updateViewMyProfile(); }
-            if (page == 'match') { updateViewMyMatch(); }
-            if (page == 'otherProfile') { updateViewOtherProfile(); }
+            if (model.app.loggedInUser != null){
+                if (page == 'home') { updateViewHome(); }
+                if (page == 'messages') { updateViewMessages(); }
+                if (page == 'chat') { updateViewChat(); }
+                if (page == 'myProfile') { updateViewMyProfile(); }
+                if (page == 'match') { updateViewMyMatch(); }
+                if (page == 'otherProfile') { updateViewOtherProfile(); }
+            }
 
         }
 
