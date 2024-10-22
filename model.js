@@ -49,6 +49,9 @@ let model = {
             selectedChatId : null
             , selectedUserId: null
             , message: ''
+        },
+        otherProfile: {
+            selectedUserId : null,
         }
     },
 

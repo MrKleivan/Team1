@@ -29,7 +29,7 @@ function drawMatchesHtml(){
                     <div id="userNameMessages">${user.firstName} ${user.lastName}</div>
                     <br />
                     <div id="dateMessages">${match.date.toLocaleString("no-NO", dateFormat)}</div>
-                    <button onclick="navigateToPage('otherProfile')">Gå til profil</button>
+                    <button onclick="navigateToPage('otherProfile', ${interactedUser})">Gå til profil</button>
                     <button onclick="goToSelectedChat(${chatId}, ${interactedUser})">Send melding</button>
                 </div>
         `}
