@@ -102,25 +102,7 @@
 
 <body>
     <div id="header">
-        <div class="left-icons">
-            <span class="buttonForIcon">
-                <img class='image' src="img/house-solid.svg" alt="Home Icon" onclick="navigateToPage('home')" />
-            </span>
-            <span class="buttonForIcon">
-                <img class='image' src="img/comments-solid.svg" alt="Messages Icon" onclick="navigateToPage('messages')" />
-            </span>
-            <span class="buttonForIcon">
-                <img class='image' src="img/hand-holding-heart-solid.svg" alt="Matches Icon" onclick="navigateToPage('match')" />
-            </span>
-        </div>
-        <div class="right-icons">
-            <span class="buttonForIcon">
-                <img class='image' src="img/user-solid.svg" alt="Profile Icon" onclick="navigateToPage('myProfile')" />
-            </span>
-            <span class="buttonForIcon">
-                <img class='image' src="img/right-to-bracket-solid.svg" alt="Log out Icon" onclick="logOutUser()" />
-            </span>
-        </div>
+        
     </div>
     <div id="app"></div>
     <div id="footer"></div>
@@ -133,21 +115,54 @@
         // view
         updateView();
         function updateView() {
+            drawNavigationButtons();
             let page = model.app.currentPage;
             if (page == 'login') { updateViewLogin(); }
             if (page == 'register') { updateViewRegister(); }
-            if (model.app.loggedInUser != null){
-                if (page == 'home') { updateViewHome(); }
-                if (page == 'messages') { updateViewMessages(); }
-                if (page == 'chat') { updateViewChat(); }
-                if (page == 'myProfile') { updateViewMyProfile(); }
-                if (page == 'match') { updateViewMyMatch(); }
-                if (page == 'otherProfile') { updateViewOtherProfile(); }
-            }
+            if (page == 'home') { updateViewHome(); }
+            if (page == 'messages') { updateViewMessages(); }
+            if (page == 'chat') { updateViewChat(); }
+            if (page == 'myProfile') { updateViewMyProfile(); }
+            if (page == 'match') { updateViewMyMatch(); }
+            if (page == 'otherProfile') { updateViewOtherProfile(); }
+
 
         }
 
+        function drawNavigationButtons(){
+            if(model.app.loggedInUser != null){
+                document.getElementById("header").innerHTML = `
+                <div class="left-icons">
+                    <span class="buttonForIcon">
+                        <img class='image' src="img/house-solid.svg" alt="Home Icon" onclick="navigateToPage('home')" />
+                    </span>
+                    <span class="buttonForIcon">
+                        <img class='image' src="img/comments-solid.svg" alt="Messages Icon" onclick="navigateToPage('messages')" />
+                    </span>
+                    <span class="buttonForIcon">
+                        <img class='image' src="img/hand-holding-heart-solid.svg" alt="Matches Icon" onclick="navigateToPage('match')" />
+                    </span>
+                </div>
+                <div class="right-icons">
+                    <span class="buttonForIcon">
+                        <img class='image' src="img/user-solid.svg" alt="Profile Icon" onclick="navigateToPage('myProfile')" />
+                    </span>
+                    <span class="buttonForIcon">
+                        <img class='image' src="img/right-to-bracket-solid.svg" alt="Log out Icon" onclick="logOutUser()" />
+                    </span>
+                </div>
+            `}
+            else{
+                document.getElementById("header").innerHTML = `
+                    <span class="buttonForIcon">
+                        <img class='image' src="img/right-to-bracket-solid.svg" alt="Log out Icon" onclick="logOutUser()" />
+                    </span>
+                </div>
+            `
+            }
+        }
         // controller
+        
 
     </script>
 

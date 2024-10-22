@@ -14,7 +14,7 @@
     margin: auto;
     padding: 0;
     text-align: center;
-    font-size: 2vw;
+    font-size: 2vh;
 }
 
 .homeContentSide {
@@ -44,7 +44,7 @@
     text-align: center;
     border-radius: 10px;
     background-color: rgba(220, 20, 20, 0.2);
-    transition: 0.9s;
+    transition: 0.7s;
 }
 
 .homeContentCenter {
@@ -55,7 +55,7 @@
     border-radius: 10px;
     box-shadow: 5px 5px 10px 0px grey;
     background-color: rgba(220, 20, 20, 0.2);
-    transition: 0.9s;
+    transition: 0.7s;
 }
 
 .homeContentCenter:hover {
@@ -72,7 +72,7 @@
     border-radius: 10px;
     box-shadow: 5px 5px 10px 0px grey;
     background-color: rgba(220, 20, 20, 0.2);
-    transition: 0.9s;
+    transition: 0.7s;
 }
 
 .profileView {
@@ -88,7 +88,7 @@
     height: 95%;
     margin: auto;
     border-radius: 10px;
-    background-image: url(/Team1/img/cat1.jfif);
+    background-image: url(img/cat1.jfif);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -101,7 +101,7 @@
 }
 
 .profileViewTopp > h1 {
-    font-size: 4vw;
+    font-size: 4vh;
     border: 1px solid black;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.6);
@@ -116,7 +116,7 @@
 .profileViewBottom > h1 {
     width: auto;
     text-align: center;
-    font-size: 3vw;
+    font-size: 3vh;
     border: 1px solid black;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.6);
@@ -127,23 +127,24 @@
     margin: auto; 
     text-align: center;
 }
-.likeButton {
-    width: 12vw; 
-    height: 4vh; 
+#likeButton {
+    width: 15vw;
+    height: 5vh; 
     border: none; 
     margin-right: 10%;
     margin-left: 10%;
-    font-size: 2vw; 
+    font-size: 1vh; 
     color: snow;
     font-weight: bold;
     border-radius: 20px; 
-    background-color: rgba(220, 20, 20, 0.2);
+    background-color: rgba(220, 20, 20, 0.5);
+    transition: 0.5s;
 }
 
-.likeButton:hover {
-    box-shadow: 10px 10px 20px 0px lightgray;
+#likeButton:hover {
     cursor: pointer;
-    background-color: rgba(220, 20, 20, 0.5);
+    background-color: rgba(220, 20, 20, 0.8);
+    box-shadow: 5px 5px 20px 0px lightgray;
 }
 
 .homeContentLikeButtonsNoneSvipe {
@@ -155,9 +156,16 @@
     padding: 10px;
     border-radius: 20px;
     background-color: rgba(220, 20, 20, 0.2);
+    transition: 0.5s;
 }
 
 .homeContentLikeButtonsNoneSvipe > img {
     height: 3vh;
     margin: auto;
+}
+
+.homeContentLikeButtonsNoneSvipe:hover {
+    cursor: pointer;
+    background-color: rgba(220, 20, 20, 0.8);
+    box-shadow: 5px 5px 20px 0px lightgray;
 }
