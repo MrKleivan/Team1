@@ -1,19 +1,17 @@
 
 function updateViewMyProfile() {
     let loggedInUser = model.app.loggedInUser !== null ? model.app.loggedInUser : 1;
-    console.log(loggedInUser);
     let loggedUser = model.users.find(user => user.userId === loggedInUser);
-    console.log(loggedUser);
     let loggedUserLastName = loggedUser.lastName;
     let loggedUserFirstName = loggedUser.firstName;
     let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
-    let loggedFavouriteFood = loggedCat.favouriteFood;
-    let loggedCatName = loggedCat.name;
-    let loggedPersonality = loggedCat.personality;
-    let loggedColor = loggedCat.color;
-    let loggedAge = loggedCat.age !== null ? loggedCat.age : '';
-    let loggedRace = loggedCat.race;
-    let loggedDescription = loggedCat.description;
+    let loggedFavouriteFood = loggedCat?.favouriteFood || '';
+    let loggedCatName = loggedCat?.name || '';
+    let loggedPersonality = loggedCat?.personality || '';
+    let loggedColor = loggedCat?.color || '';
+    let loggedAge = loggedCat?.age || '';
+    let loggedRace = loggedCat?.race || '';
+    let loggedDescription = loggedCat?.description || '';
 
     document.getElementById('app').innerHTML = /*HTML*/`
     <div class="header">
