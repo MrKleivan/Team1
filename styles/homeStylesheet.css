@@ -88,9 +88,9 @@
     height: 95%;
     margin: auto;
     border-radius: 10px;
-    background-image: url(/img/cat1.jfif);
+    background-image: url(/Team1/img/cat1.jfif);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 30vw;
     background-position: center;
 }
 
@@ -116,6 +116,7 @@
     width: auto;
     text-align: left;
     font-size: 3vh;
+    padding-left: 10px;
     border: 1px solid black;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.6);
