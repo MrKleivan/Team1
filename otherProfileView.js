@@ -19,17 +19,17 @@ function updateViewOtherProfile() {
     <div style="text-align: center;" class="header">
     <h1>${selectedCatName} sin profil</h1>
     </div>
-    <div class="homeContent">
-        <div class="homeContentSide">
+    <div class="selectedHomeContent">
+        <div class="selectedHomeContentSide">
         <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
         </div>
-        <div class="homeContentCenter">
-            <div class="profileView" style="background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});">
-            <div class="profileViewTopp"></div>
-            <div class="profileViewBottom"></div>
+        <div class="selectedHomeContentCenter">
+            <div class="selectedProfileView" style="background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});">
+            <div class="selectedProfileViewTopp"></div>
+            <div class="selectedProfileViewBottom"></div>
         </div>
         </div>
-        <div class="homeContentSide">
+        <div class="selectedHomeContentSide">
         <img style="height: 5vh" src="img/rightArrow.svg" alt="Right arrow"  onclick="nextPic()" />
         </div>
     </div>
@@ -61,7 +61,7 @@ function updateViewOtherProfile() {
 }
 
 function displayChosenInterests() {
-    let userId = model.inputs.home.watching[0].userId;
+    let userId = model.inputs.otherProfile.selectedUserId;
     let chosenInterests = model.chosenInterests.filter(u => u.userId === userId);
     let interestHTML = '';
     for (let i = 0; i < chosenInterests.length; i++) {

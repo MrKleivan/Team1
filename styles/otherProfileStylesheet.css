@@ -1,5 +1,5 @@
 
-.homeContent {
+.selectedHomeContent {
     display: flex;
     width: 90%;
     height: 80%;
@@ -8,7 +8,7 @@
     margin: auto;
 }
 
-.homeContentSide {
+.selectedHomeContentSide {
     width: 10%;
     height: 50%;
     align-content: center;
@@ -18,17 +18,17 @@
     transition: 0.9s;
 }
 
-.homeContentSide img {
+.selectedHomeContentSide img {
     height: 100px;
 }
 
-.homeContentSide:hover {
+.selectedHomeContentSide:hover {
     box-shadow: 10px 10px 50px 0px grey;
     cursor: pointer;
     background-color: rgba(220, 20, 20, 0.5);
 }
 
-.homeContentSideNoneSvipe {
+.selectedHomeContentSideNoneSvipe {
     width: 10%;
     height: 50%;
     align-content: center;
@@ -38,7 +38,7 @@
     transition: 0.9s;
 }
 
-.homeContentCenter {
+.selectedHomeContentCenter {
     width: 78%;
     height: 90%;
     margin: auto;
@@ -49,13 +49,13 @@
     transition: 0.9s;
 }
 
-.homeContentCenter:hover {
+.selectedContentCenter:hover {
     box-shadow: 10px 10px 50px 0px grey;
     cursor: pointer;
     background-color: rgba(220, 20, 20, 0.5);
 }
 
-.homeContentCenterNoneSvipe {
+.selectedHomeContentCenterNoneSvipe {
     width: 78%;
     height: 90%;
     margin: auto;
@@ -66,7 +66,7 @@
     transition: 0.9s;
 }
 
-.profileView {
+.selectedProfileView {
     width: 95%;
     height: 95%;
     margin: auto;
@@ -74,7 +74,7 @@
     background-size: cover;
     background-position: center;
 }
-.profileViewNoneSvipe {
+.selectedProfileViewNoneSvipe {
     width: 95%;
     height: 95%;
     margin: auto;
@@ -85,26 +85,26 @@
     background-position: center;
 }
 
-.profileViewTopp {
+.selectedProfileViewTopp {
     height: 80%;
     padding: 15px;
     text-align: center;
 }
 
-.profileViewTopp > h1 {
+.selectedProfileViewTopp > h1 {
     border: 1px solid black;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-.profileViewBottom {
+.selectedProfileViewBottom {
     height: 20%;
     padding: 15px;
     width: 40%;
     font-size: 70%;
 }
 
-.profileViewBottom > h1 {
+.selectedProfileViewBottom > h1 {
     width: auto;
     text-align: center;
     border: 1px solid black;
@@ -142,7 +142,7 @@
 }
 
 
-#selectedProfileColumn1 {
+#selectedselectedProfileColumn1 {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -150,14 +150,14 @@
     text-align: center;
 }
 
-#selectedProfileColumn2 {
+#selectedselectedProfileColumn2 {
     flex: 1;
     text-align: center;
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
-#selectedProfileColumn3 {
+#selectedselectedProfileColumn3 {
     display:flex;
     text-align: center;
     justify-content: center;
