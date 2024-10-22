@@ -32,6 +32,7 @@ function updateViewHome() {
         `;
     } if (model.inputs.home.watching.length > 1){
         let catPicture = model.pictures.filter(u => u.userId === model.inputs.home.watching[1].userId);
+        let number = catPicture.length;
         html = /*HTML*/`
         
         
@@ -47,7 +48,7 @@ function updateViewHome() {
                 </div>
             </div>
             <div class="homeContentSide">
-                <img src="img/rightArrow2.svg" alt="Right arrow"  onclick="nextPic()" />
+                <img src="img/rightArrow2.svg" alt="Right arrow"  onclick="nextPic(${number})" />
             </div>
         </div>
         <div style="text-align: center;">
