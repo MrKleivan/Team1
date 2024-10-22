@@ -43,7 +43,7 @@ let model = {
             , placeInSequence: 0
             , svipeList: [] 
             , watching: []
-            , isTrue: false
+            , isTrue: false //??
         },
         chat: {
             selectedChatId : null
@@ -153,7 +153,10 @@ let model = {
     chosenInterests: [
         {userId: 1, interest: 'Kose'}
         , {userId: 1, interest: 'Sove'}
-        , {userId: 2, interest: 'Sove'}
+        , {userId: 2, interest: 'Synge'}
+        , {userId: 3, interest: 'Jakte'}
+        , {userId: 4, interest: 'Trene'}
+        , {userId: 5, interest: 'Leke'}
     ],
 
     //Select Values
