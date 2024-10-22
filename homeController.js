@@ -14,9 +14,9 @@ function nextPic(number) {
     updateView();
 }
 
-function createSvipeList(OtherUserId) {
+function createSvipeList() {
+    
     const myProfile = model.app.loggedInUser;
-    let otherProfile = [];
     if(model.inputs.home.isTrue == false) {
         for(let i = 0; i < model.users.length; i++) { 
             model.inputs.home.svipeList.push(model.users[i]);
@@ -36,15 +36,8 @@ function createSvipeList(OtherUserId) {
         }
         otherProfile = model.inputs.home.svipeList;
         model.inputs.home.isTrue = true;
-    } 
-    if(model.inputs.home.isTrue == true && OtherUserId !== undefined) {
-        model.inputs.home.svipeList =  model.inputs.home.svipeList.filter(user => user.userId != OtherUserId);
-        otherProfile = model.inputs.home.svipeList;
-    }
-    if(model.inputs.home.isTrue == true && OtherUserId == undefined) {
-        
-        otherProfile = model.inputs.home.svipeList;
-    }
+    } else {otherProfile = model.inputs.home.svipeList;}
+    
     
     return otherProfile;
 }
@@ -71,16 +64,16 @@ function getOtherProfile() {
 
 function likeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: true});
-    createSvipeList(otherUserProfile);
     model.inputs.home.watching = [];
     model.inputs.home.placeInSequence = 0;
+    model.inputs.home.isTrue = false;
     updateView();
 }
 
 function notLikeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: false});
-    createSvipeList(otherUserProfile);
     model.inputs.home.watching = [];
     model.inputs.home.placeInSequence = 0;
+    model.inputs.home.isTrue = false;
     updateView();
 }

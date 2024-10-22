@@ -8,6 +8,14 @@
     margin: auto;
 }
 
+.homeContentTopp {
+    width: 90%;
+    height: 2%;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+}
+
 .homeContentSide {
     width: 10%;
     height: 50%;
