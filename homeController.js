@@ -10,7 +10,7 @@ function privPic() {
 function nextPic(number) {
     if(model.inputs.home.placeInSequence == number - 1) {
         return;
-    } else model.inputs.home.placeInSequence++
+    } else model.inputs.home.placeInSequence++;
     updateView();
 }
 

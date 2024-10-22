@@ -21,6 +21,9 @@
     background-color: rgba(220, 20, 20, 0.2);
     transition: 0.9s;
 }
+.homeContentSide img {
+    height: 100px;
+}
 
 .homeContentSide:hover {
     box-shadow: 10px 10px 50px 0px grey;
