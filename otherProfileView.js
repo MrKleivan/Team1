@@ -12,7 +12,7 @@ function updateViewOtherProfile() {
     let loggedAge = selectedCat.age !== null ? selectedCat.age : 'Ikke angitt';
     let loggedRace = selectedCat.race;
     let loggedDescription = selectedCat.description;
-    let chatId = getChatId(model.app.loggedInUser, selectedProfile)
+    let chatId = getChatId(model.app.loggedInUser, selectedProfile);
 
     document.getElementById('app').innerHTML = /*HTML*/`
     
