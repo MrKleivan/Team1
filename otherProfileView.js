@@ -1,25 +1,25 @@
 function updateViewOtherProfile() {
-    let catPicture = model.pictures.filter(u => u.userId === model.inputs.home.watching[1].userId);
-    let selectedProfile = model.inputs.home.watching[0];
-    let loggedUserLastName = selectedProfile.lastName;
-    let loggedUserFirstName = selectedProfile.firstName;
-    let loggedCat = model.cats.find(cat => cat.userId === selectedProfile.userId);
-    let loggedFavouriteFood = loggedCat.favouriteFood;
-    let loggedCatName = loggedCat.name;
-    let loggedPersonality = loggedCat.personality;
-    let loggedColor = loggedCat.color;
-    let loggedAge = loggedCat.age !== null ? loggedCat.age : 'Ikke angitt';
-    let loggedRace = loggedCat.race;
-    let loggedDescription = loggedCat.description;
-    let chatId = getChatId(model.app.loggedInUser, selectedProfile.userId);
-    let interactedUser = selectedProfile.userId;
+    let catPicture = model.pictures.filter(u => u.userId === model.inputs.otherProfile.selectedUserId);
+    let selectedProfile = model.inputs.otherProfile.selectedUserId;
+    let selectedCat = model.cats.find(cat => cat.userId === selectedProfile);
+    let selectedUser = model.users.find(u => u.userId === selectedProfile);
+    let loggedUserLastName = selectedUser.lastName;
+    let loggedUserFirstName = selectedUser.firstName;
+    let loggedFavouriteFood = selectedCat.favouriteFood;
+    let selectedCatName = selectedCat.name;
+    let loggedPersonality = selectedCat.personality;
+    let loggedColor = selectedCat.color;
+    let loggedAge = selectedCat.age !== null ? selectedCat.age : 'Ikke angitt';
+    let loggedRace = selectedCat.race;
+    let loggedDescription = selectedCat.description;
+    let chatId = getChatId(model.app.loggedInUser, selectedProfile)
 
     document.getElementById('app').innerHTML = /*HTML*/`
     
     <div class="header">
     <h1>Din katteprofil</h1>
     </div>
-    <button onclick="goToSelectedChat(${chatId}, ${interactedUser})">Send melding</button>
+    <button onclick="goToSelectedChat(${chatId}, ${selectedProfile})">Send melding</button>
     <div class="homeContent">
         <div class="homeContentSide">
         <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
@@ -43,7 +43,7 @@ function updateViewOtherProfile() {
     Eier fornavn<br><p id="firstName">${loggedUserFirstName}</p><br>
     Eier etternavn<br><p id="lastName">${loggedUserLastName}</p><br>
     Favoritt mat:<br><p id="favouriteFood">${loggedFavouriteFood}</p><br>
-    Kattens navn:<br><p id="catName">${loggedCatName}</p><br>
+    Kattens navn:<br><p id="catName">${selectedCatName}</p><br>
     Beskrivelse:<br><p>${loggedDescription}</p><br>
     </div>
     <div id="selectedProfileColumn2">
@@ -63,7 +63,6 @@ function displayChosenInterests() {
     let interestHTML = '';
     for (let i = 0; i < chosenInterests.length; i++) {
         let chosenInterest = chosenInterests[i];
-        let selected = chosenInterests.includes(chosenInterest) ? 'selected' : '';
         interestHTML += `${chosenInterest.interest}`;
     }
     return interestHTML;
