@@ -15,7 +15,7 @@ function nextPic(number) {
 }
 
 function createSvipeList(OtherUserId) {
-    let myProfile = model.app.loggedInUser;
+    const myProfile = model.app.loggedInUser;
     let otherProfile = [];
     if(model.inputs.home.isTrue == false) {
         for(let i = 0; i < model.users.length; i++) { 
@@ -26,8 +26,15 @@ function createSvipeList(OtherUserId) {
             model.inputs.home.svipeList.push(model.pictures[i])
         }
         model.inputs.home.svipeList = model.inputs.home.svipeList.filter(user => user.userId != myProfile);
-        otherProfile = model.inputs.home.svipeList;
         
+
+        let checkForUser = model.interactedProfiles.filter(user => user.userId == myProfile)
+        checkForUser = checkForUser.filter(user => user.interactedUserId);
+
+        for(let i = 0; i < checkForUser.length; i++) {
+            model.inputs.home.svipeList = model.inputs.home.svipeList.filter(user => user.userId != checkForUser[i].interactedUserId)
+        }
+        otherProfile = model.inputs.home.svipeList;
         model.inputs.home.isTrue = true;
     } 
     if(model.inputs.home.isTrue == true && OtherUserId !== undefined) {
@@ -66,6 +73,7 @@ function likeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: true});
     createSvipeList(otherUserProfile);
     model.inputs.home.watching = [];
+    model.inputs.home.placeInSequence = 0;
     updateView();
 }
 
@@ -73,5 +81,6 @@ function notLikeCat(myUserProfile, otherUserProfile) {
     model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: false});
     createSvipeList(otherUserProfile);
     model.inputs.home.watching = [];
+    model.inputs.home.placeInSequence = 0;
     updateView();
 }

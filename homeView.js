@@ -15,19 +15,19 @@ function updateViewHome() {
         html = /*HTML*/`
         
         <div class="homeContent" >
-            <div class="homeContentSide">
+            <div class="homeContentSideNoneSvipe">
             </div>
-            <div class="homeContentCenter">
-                <div class="profileView" onclick="navigateToPage('otherProfile')">
-                    <div class="profileViewTopp" ><h1>Vent for mer<h1></div>
-                    <div class="profileViewBottom"><h1>?<h1></div>
+            <div class="homeContentCenterNoneSvipe">
+                <div class="profileViewNoneSvipe">
+                    <div class="profileViewTopp" ><h1>Du har sveipet gjennon</h1></div>
+                    <div class="profileViewBottom"><h1>Vent for fler</h1></div>
                 </div>
             </div>
-            <div class="homeContentSide">
+            <div class="homeContentSideNoneSvipe">
             </div>
         </div>
-        <div class="homeFooter">
-        <img style="height: 10vh" src="img/house-solid.svg" alt="home"  onclick="updateView()" />
+        <div class="homeFooter" onclick="updateView()">
+        <img src="img/house-solid.svg" alt="home" />
         </div>
         `;
     } if (model.inputs.home.watching.length > 1){
