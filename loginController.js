@@ -6,7 +6,7 @@ function authenticateUser(){
 
     if(findUser) {
         model.app.loggedInUser = findUser.userId;
-        navigateToPage('home')
+        navigateToPage('myProfile')
     }
 }
 
