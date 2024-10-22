@@ -17,8 +17,11 @@ function drawMatchesHtml(){
 
     let matches = interactedProfiles.filter(({ userId, isLike }) => userId == currentUser && isLike == true)
 
-    for(let match of matches){
-        let interactedUser = match.interactedUserId;
+    for(let find of matches){
+        let interactedUser = find.interactedUserId;
+        let isBothMatched = interactedProfiles.filter(({ userId, interactedUserId, isLike }) => userId == interactedUser && interactedUserId == currentUser && isLike == true);
+        console.log(isBothMatched)
+        for(let match of isBothMatched){
         let user = getUsernameFromId(interactedUser);
         let chatId = getChatId(currentUser, interactedUser);
 
@@ -30,9 +33,7 @@ function drawMatchesHtml(){
                     <button>Gå til profil</button>
                     <button onclick="goToSelectedChat(${chatId}, ${interactedUser})">Send melding</button>
                 </div>
-        `
+        `}
     }
-
-
     return html;
 }
