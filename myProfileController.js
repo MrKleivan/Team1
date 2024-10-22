@@ -1,7 +1,6 @@
 
 function saveChanges() {
     let loggedInUser = model.app.loggedInUser;
-    console.log(loggedInUser);
     let loggedUser = model.users.find(user => user.userId === loggedInUser);
     let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
     model.inputs.myProfile.firstName = document.getElementById('firstNameInput').value;
@@ -26,7 +25,6 @@ function saveChanges() {
     loggedCat.description = model.inputs.myProfile.description;
     alert('Profile data saved successfully!');
     updateViewMyProfile();
-    console.log(model); 
 }
 
 lickedSequence = null;
@@ -79,7 +77,6 @@ function selectInterest(interest) {
     if (index === -1) {
         if (selectedInterestsArray.length < 3) {
             model.chosenInterests.push({ userId: userId, interest: interest });
-            console.log("Chosen Interests:", model.chosenInterests);
         } else {
             alert("You can select up to 3 interests.");
         }

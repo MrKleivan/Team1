@@ -1,9 +1,7 @@
 
 function updateViewMyProfile() {
     let loggedInUser = model.app.loggedInUser !== null ? model.app.loggedInUser : 1;
-    console.log(loggedInUser);
     let loggedUser = model.users.find(user => user.userId === loggedInUser);
-    console.log(loggedUser);
     let loggedUserLastName = loggedUser.lastName;
     let loggedUserFirstName = loggedUser.firstName;
     let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
