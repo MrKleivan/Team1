@@ -12,13 +12,13 @@ function updateViewOtherProfile() {
     let loggedAge = selectedCat.age !== null ? selectedCat.age : 'Ikke angitt';
     let loggedRace = selectedCat.race;
     let loggedDescription = selectedCat.description;
+    let chatId = getChatId(model.app.loggedInUser, selectedProfile);
 
     document.getElementById('app').innerHTML = /*HTML*/`
     
-    <div class="header">
-    <h1>Din katteprofil</h1>
+    <div style="text-align: center;" class="header">
+    <h1>${selectedCatName} sin profil</h1>
     </div>
-        
     <div class="homeContent">
         <div class="homeContentSide">
         <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
@@ -37,6 +37,10 @@ function updateViewOtherProfile() {
     </div>
     <br>
 
+    <div id="selectedProfileColumn3">
+    <button onclick="goToSelectedChat(${chatId}, ${selectedProfile})">Send melding</button>
+    </div>
+    
     <div id="myProfileContent">
     <div id="selectedProfileColumn1">
     Eier fornavn<br><p id="firstName">${loggedUserFirstName}</p><br>

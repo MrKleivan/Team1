@@ -157,3 +157,8 @@
     flex-direction: column;
     padding: 10px;
 }
+#selectedProfileColumn3 {
+    display:flex;
+    text-align: center;
+    justify-content: center;
+}
