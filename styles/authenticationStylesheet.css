@@ -9,6 +9,7 @@
 .inputBox > label {
     font-family: 'emoji';
 }
+
 .loginInput {
     border-radius: 2px;
     border: 1px solid grey;
@@ -17,10 +18,14 @@
     margin-bottom: 10px;
     margin-top: 5px;
     margin-left: -25px;
-    font-family: 'emoji';
 }
 
 #registrationForm{
+    display:flex;
+    text-align: center;
+    justify-content: center;
+}
+#errorText{
     display:flex;
     text-align: center;
     justify-content: center;

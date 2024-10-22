@@ -28,8 +28,8 @@ function updateViewRegister() {
         <input id="confirmPasswordInput" type="password" placeholder="Skriv inn passord på nytt" oninput="model.inputs.register.confirmPassword = this.value">
         <br>
         <button type="submit" onclick="createUser()">Registrer</button>
-        <h2>${model.inputs.register.error}</h2>
         </div>
-    </div>
+        </div>
+        <h2 id="errorText">${model.inputs.register.error}</h2>
         `;
 }
