@@ -7,6 +7,9 @@ function createUser(){
     let confirmPassword = document.getElementById("confirmPasswordInput").value;
 
     authenticateInputData(getInputEmail, getInputUserName, getInputFirstName, getInputLastName, getInputPassword, confirmPassword)
+
+    model.users.push(user);
+    navigateToPage('home');
 }
 
 function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputLastName, inputPassword, inputConfirmPassword){
@@ -41,6 +44,5 @@ function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputL
         return;
     }
 
-        model.users.push(user);
-        navigateToPage("login")
+
 }

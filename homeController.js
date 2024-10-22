@@ -40,8 +40,6 @@ function createSvipeList(OtherUserId) {
     }
     
     return otherProfile;
-    
-
 }
 
 function getOtherProfile() {
