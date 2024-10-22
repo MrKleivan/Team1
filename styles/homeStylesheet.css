@@ -14,6 +14,7 @@
     margin: auto;
     padding: 0;
     text-align: center;
+    font-size: 2vw;
 }
 
 .homeContentSide {
@@ -100,21 +101,22 @@
 }
 
 .profileViewTopp > h1 {
+    font-size: 4vw;
     border: 1px solid black;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.6);
 }
 
 .profileViewBottom {
+    width: 40vw;
     height: 20%;
     padding: 15px;
-    width: 40%;
-    font-size: 70%;
 }
 
 .profileViewBottom > h1 {
     width: auto;
     text-align: center;
+    font-size: 3vw;
     border: 1px solid black;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.6);
@@ -143,7 +145,7 @@
     font-size: 5vh;
     padding: 10px;
     border-radius: 20px;
-    background-color: rgba(220, 20, 20, 0.5);
+    background-color: rgba(220, 20, 20, 0.2);
 }
 
 .homeContentLikeButtonsNoneSvipe > img {

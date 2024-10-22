@@ -4,7 +4,7 @@
 function updateViewHome() {
     let html = '';
     
-    const LoggedInnUserProfile = model.app.loggedInUser;
+    const loggedInnUserProfile = model.app.loggedInUser;
     let otherProfileS = createSvipeList();
    
     let otherProfile = getOtherProfile();
@@ -56,8 +56,8 @@ function updateViewHome() {
         </div>
         <br>
         <div  class="homeContentLikeButtons">
-            <button onclick="likeCat(${LoggedInnUserProfile}, ${otherProfile[1].userId})">Liker</button>
-            <button onclick="notLikeCat(${LoggedInnUserProfile}, ${otherProfile[1].userId})">Liker ikke</button>
+            <button onclick="likeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker</button>
+            <button onclick="notLikeCat(${loggedInnUserProfile}, ${otherProfile[1].userId})">Liker ikke</button>
         </div>
         `;
     }
