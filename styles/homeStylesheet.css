@@ -88,7 +88,7 @@
     height: 95%;
     margin: auto;
     border-radius: 10px;
-    background-image: url(img/cat1.jfif);
+    background-image: url(/img/cat1.jfif);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
