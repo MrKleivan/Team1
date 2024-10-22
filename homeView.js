@@ -26,8 +26,8 @@ function updateViewHome() {
             <div class="homeContentSideNoneSvipe">
             </div>
         </div>
-        <div class="homeFooter" onclick="updateView()">
-        <img src="img/house-solid.svg" alt="home" />
+        <div class="homeContentLikeButtonsNoneSvipe" onclick="updateView()">
+            <img src="img/house-solid.svg" alt="home" />
         </div>
         `;
     } if (model.inputs.home.watching.length > 1){

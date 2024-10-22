@@ -135,17 +135,18 @@
     background-color: rgba(255,55,55,0.7);
 }
 
-.homeFooter {
-    width: 12%;
-    height: 6%;
+.homeContentLikeButtonsNoneSvipe {
+    width: 40%;
+    height: 5%;
     margin: auto;
-    align-items: center;
     text-align: center;
     font-size: 5vh;
-    border-radius: 50%;
+    padding: 10px;
+    border-radius: 20px;
     background-color: rgba(220, 20, 20, 0.5);
 }
 
-.homeFooter > img {
-    height: ;
+.homeContentLikeButtonsNoneSvipe > img {
+    height: 3vh;
+    margin: auto;
 }
