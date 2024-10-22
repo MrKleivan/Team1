@@ -11,13 +11,15 @@ function updateViewOtherProfile() {
     let loggedAge = loggedCat.age !== null ? loggedCat.age : 'Ikke angitt';
     let loggedRace = loggedCat.race;
     let loggedDescription = loggedCat.description;
+    let chatId = getChatId(model.app.loggedInUser, selectedProfile.userId);
+    let interactedUser = selectedProfile.userId;
 
     document.getElementById('app').innerHTML = /*HTML*/`
     
     <div class="header">
     <h1>Din katteprofil</h1>
     </div>
-        
+    <button onclick="goToSelectedChat(${chatId}, ${interactedUser})">Send melding</button>
     <div class="homeContent">
         <div class="homeContentSide">
         <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
