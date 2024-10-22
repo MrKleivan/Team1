@@ -18,6 +18,7 @@ function createSvipeList() {
     
     const myProfile = model.app.loggedInUser;
     if(model.inputs.home.isTrue == false) {
+        model.inputs.home.svipeList = [];
         for(let i = 0; i < model.users.length; i++) { 
             model.inputs.home.svipeList.push(model.users[i]);
             model.inputs.home.svipeList.push(model.cats[i]);
