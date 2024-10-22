@@ -42,7 +42,7 @@ function updateViewHome() {
                 <img src="img/leftArrow2.svg" alt="Left arrow" />
             </div>
             <div class="homeContentCenter">
-                <div class="profileView" style="background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});" onclick="navigateToPage('otherProfile')">
+                <div class="profileView" style="background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});" onclick="navigateToPage('otherProfile', ${model.inputs.home.watching[1].userId})">
                     <div class="profileViewTopp"><h1>${otherProfile[1].name}</h1></div>
                     <div class="profileViewBottom"><h1>${otherProfile[1].description}</h1></div>
                 </div>
