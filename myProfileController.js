@@ -74,10 +74,15 @@ function deleteImage(sequence, event) {
 
 function selectInterest(interest) {
     let userId = model.app.loggedInUser;
+    let selectedInterestsArray = model.chosenInterests.filter(item => item.userId === userId);
     let index = model.chosenInterests.findIndex(item => item.userId === userId && item.interest === interest);
     if (index === -1) {
-        model.chosenInterests.push({ userId: userId, interest: interest });
-        console.log("Chosen Interests:", model.chosenInterests);
+        if (selectedInterestsArray.length < 3) {
+            model.chosenInterests.push({ userId: userId, interest: interest });
+            console.log("Chosen Interests:", model.chosenInterests);
+        } else {
+            alert("You can select up to 3 interests.");
+        }
     } else {
         model.chosenInterests = model.chosenInterests.filter(item => item.userId && item.interest !== interest);
         console.log("Chosen Interests:", model.chosenInterests);

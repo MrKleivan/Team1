@@ -17,33 +17,36 @@ function updateViewMyProfile() {
 
     document.getElementById('app').innerHTML = /*HTML*/`
     <div class="header">
-    <h1>Din katteprofil</h1>
+    <h1 class='headerText'>Din katteprofil</h1>
     </div>
+    <div id="column0">
     <div id="myProfileContent">
     <div id="column1">
-    First Name*<br><input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="first name"><br>
-    Last Name*<br><input id="lastNameInput" type="text"  value="${loggedUserLastName}" placeholder="last name" ><br>
-    Favorite Food:<br><input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="your cat's favorite food"><br>
-    Cat Name:<br><input id="catNameInput" type="text"value="${loggedCatName}" placeholder="write your cat name" ><br>
+    Fornavn*<br><input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="Fornavn"><br>
+    Etternavn*<br><input id="lastNameInput" type="text"  value="${loggedUserLastName}" placeholder="Etternavn" ><br>
+    Favorittmat:<br><input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="Kattens favorittmat"><br>
+    Kattens navn:<br><input id="catNameInput" type="text"value="${loggedCatName}" placeholder="Skriv inn kattenavnet ditt" ><br>
     </div>
     <div id="column2">
-    Personality:<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder=" personality of your cat"><br>
-    Color:<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="color of your cat" ><br>
-    Age:<br><input id="ageInput" type="number" min= '0' value="${loggedAge}" placeholder="age of your cat" ><br>
-    Race:<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="race of your cat"><br>
+    Personlighet:<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder="Personligheten til katten din"><br>
+    Farge:<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="Fargen på katten din" ><br>
+    Alder:<br><input id="ageInput" type="number" min= '0' value="${loggedAge}" placeholder="Alderen på katten din" ><br>
+    Rase:<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="Rasen til katten dint"><br>
+    </div>
     </div>
     </div>
     <div id="column3">
-    Description:<br><input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="describe your cat"><br>
+    Beskrivelse:<br><input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="Beskriv katten din"><br>
     </div>
     <div id="saveLayout">
-    <button onclick="saveChanges()" id="saveButton">Save</button><br>
+    <button onclick="saveChanges()" id="saveButton">Lagre</button><br>
     </div>
-    Selected Interests:<br>
-    
+    <div id='column4'><br>
+    Velg interessene:<br>
     <div id='interestsSelection'></div><br>
-    
-    Add cat picture:<br>
+    </div>
+    <div id='column5'>
+    Legg til kattebilder:<br>
     <input type='file' id='imageInput' accept='image/*' onchange="readFileSelection(event)" style="display: none;" />
     <div id='divAddPictures'>
     
@@ -52,6 +55,7 @@ function updateViewMyProfile() {
     <div id="dragImageHere3" class="imageDisplay" onclick="openFilePicker(3)">+</div>
     <div id="dragImageHere4" class="imageDisplay" onclick="openFilePicker(4)">+</div>
     <div id="dragImageHere5" class="imageDisplay" onclick="openFilePicker(5)">+</div>
+    </div>
     </div><br>
     
     `;
