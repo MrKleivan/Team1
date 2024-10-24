@@ -15,13 +15,25 @@ function drawMessagesHtml(){
     let messages = messagesByUserId();
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
 
-    for(chat of messages){
+    for(let chat of messages){
         let user = '';
+        let interactedUser;
         let chatId = chat.chatId;
-        if(chat.senderId == currentUser){user = getUsernameFromId(chat.recipientId)}
-        else{user = getUsernameFromId(chat.senderId)}
+        if(chat.senderId == currentUser){
+            user = getUsernameFromId(chat.recipientId);
+            interactedUser = chat.recipientId;
+        }
+        else{
+            user = getUsernameFromId(chat.senderId);
+            interactedUser = chat.senderId;
+        }
+
+        
+        let cat = model.cats.find(({ userId }) => userId === interactedUser);
+
         html += `
             <div id="borderMessages" onclick="goToSelectedChat(${chatId})">
+                <div id="catNameMessages">${cat.name}</div>
                 <div id="userNameMessages">${user.firstName} ${user.lastName}</div>
                 <br />
                 <div id="messageFormatMessages">${chat.message}<br /></div>

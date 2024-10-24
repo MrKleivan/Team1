@@ -23,9 +23,11 @@ function drawMatchesHtml(){
         for(let match of isBothMatched){
         let user = getUsernameFromId(interactedUser);
         let chatId = getChatId(currentUser, interactedUser);
+        let cat = model.cats.find(({ userId }) => userId === interactedUser);
 
         html += /*html*/`
                 <div id="borderMessages">
+                    <div id="catNameMessages">${cat.name}</div>
                     <div id="userNameMessages">${user.firstName} ${user.lastName}</div>
                     <br />
                     <div id="dateMessages">${match.date.toLocaleString("no-NO", dateFormat)}</div>

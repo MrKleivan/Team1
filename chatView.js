@@ -32,14 +32,16 @@ function drawChatHtml(id){
     let html;
     
     let selectedUserId = getSenderId(id, currentUserId)
-    
+    let cat = model.cats.find(({ userId }) => userId === selectedUserId);
+
     let username = getUsernameFromId(selectedUserId)
     
     let chatLogs = getChatLog(currentUserId, selectedUserId);
     
 
     html = `
-        <div style="text-align:center; font:50px bold;">${username.firstName}</div>
+        <div id="catNameMessages" style="text-align:center">${cat.name}</div>
+        <div id="userNameMessages" style="text-align:center">${username.firstName}</div>
     `
 
     for(log of chatLogs){
