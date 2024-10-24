@@ -44,6 +44,5 @@ function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputL
     
     model.users.push(user);
     model.inputs.register.error = "";
-    console.log(model.users);
     navigateToPage('login');
 }

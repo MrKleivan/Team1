@@ -14,6 +14,7 @@ function updateViewLogin() {
         <button onclick="authenticateUser()" style="margin-left:-5px">Logg inn</button>
         <button onclick="navigateToPage('register')">Registrer</button>
         </div>
-    </div>
+        </div>
+        <h2 id="errorText">${model.inputs.login.error}</h2>   
         `;
 }
