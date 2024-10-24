@@ -1,48 +1,59 @@
-function createUser(){
-    let getInputEmail = document.getElementById("emailInput").value;
-    let getInputUserName = document.getElementById("userNameInput").value;
-    let getInputFirstName = document.getElementById("firstNameInput").value;
-    let getInputLastName = document.getElementById("lastNameInput").value;
-    let getInputPassword = document.getElementById("passwordInput").value
-    let confirmPassword = document.getElementById("confirmPasswordInput").value;
+    function createUser(){
+        getRegisterInputData();
+        if(!isEmptyInputs(registerInputDataObj.getInputEmail, registerInputDataObj.getInputUserName, registerInputDataObj.getInputFirstName, registerInputDataObj.getInputLastName, registerInputDataObj.getInputPassword, registerInputDataObj.getconfirmPassword)) return;
+        setUserData(model.users.length+1,registerInputDataObj.getInputEmail, registerInputDataObj.getInputUserName, registerInputDataObj.getInputFirstName, registerInputDataObj.getInputLastName, registerInputDataObj.getInputPassword);
 
-    authenticateInputData(getInputEmail, getInputUserName, getInputFirstName, getInputLastName, getInputPassword, confirmPassword)
- 
-}
+        model.users.push(registeredUser);
+        model.inputs.register.error = "";
+        navigateToPage('login');
+    }
 
-function authenticateInputData(inputEmail, inputUserName, inputFirstName, inputLastName, inputPassword, inputConfirmPassword){
-    let findUser = model.users.find(u => u.userEmail == inputEmail || u.userName == inputUserName);
-    let user = {}
+    function setUserData(userID, inputEmail, inputUserName, inputFirstName, inputLastName, inputPassword){
+        return registeredUser = {
+        userId : userID,
+        userEmail : inputEmail,
+        userName : inputUserName,
+        firstName : inputFirstName,
+        lastName : inputLastName,
+        password : inputPassword,
+        }
+    }
 
-    user.userId = model.users.length+1;
-    user.userEmail = inputEmail;
-    user.userName = inputUserName;
-    user.firstName = inputFirstName;
-    user.lastName = inputLastName;
-    user.password = inputPassword;
+    function getRegisterInputData(){
+        return registerInputDataObj = {
+            getInputEmail : document.getElementById("emailInput").value,
+            getInputUserName : document.getElementById("userNameInput").value,
+            getInputFirstName : document.getElementById("firstNameInput").value,
+            getInputLastName : document.getElementById("lastNameInput").value,
+            getInputPassword : document.getElementById("passwordInput").value,
+            getconfirmPassword : document.getElementById("confirmPasswordInput").value,
+        }
+    }
 
-    if(!inputEmail || !inputUserName || !inputFirstName || !inputLastName || !inputPassword || !inputConfirmPassword){
-        model.inputs.register.error = "Det er et tomt felt"; 
-        updateView(); 
-        return;
+    function isEmptyInputs(inputEmail, inputUserName, inputFirstName, inputLastName, inputPassword, inputConfirmPassword){
+        let findUser = model.users.find(u => u.userEmail == inputEmail || u.userName == inputUserName);
+
+        if(!inputEmail || !inputUserName || !inputFirstName || !inputLastName || !inputPassword || !inputConfirmPassword){
+            model.inputs.register.error = "Det er et tomt felt"; 
+            updateView(); 
+            return false;
+        }
+        if(!inputEmail.match(/@gmail.com/)){      
+            model.inputs.register.error = "Vi tar kun @gmail.com brukere"; 
+            updateView(); 
+            return false;
+        }
+        if(inputPassword != inputConfirmPassword){
+            model.inputs.register.error = "Ikke samme passord";
+            updateView();
+            return false;
+        }
+        if(findUser){
+            model.inputs.register.error = "En bruker med denne emailen eller brukernavnet eksisterer allerede";
+            updateView();
+            return false;
+        }
+
+        return true;
+
     }
-    if(!inputEmail.match(/@gmail.com/)){      
-        model.inputs.register.error = "Vi tar kun @gmail.com brukere"; 
-        updateView(); 
-        return;
-    }
-    if(user.password != inputConfirmPassword){
-        model.inputs.register.error = "Ikke samme passord";
-        updateView();
-        return;
-    }
-    if(findUser){
-        model.inputs.register.error = "En bruker med denne emailen eller brukernavnet eksisterer allerede";
-        updateView();
-        return;
-    }
-    
-    model.users.push(user);
-    model.inputs.register.error = "";
-    navigateToPage('login');
-}
