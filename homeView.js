@@ -19,8 +19,8 @@ function updateViewHome() {
             </div>
             <div class="homeContentCenterNoneSvipe">
                 <div class="profileViewNoneSvipe">
-                    <div class="profileViewTopp" ><h1>Du har sveipet gjennon</h1></div>
-                    <div class="profileViewBottom"><h1>Vent for fler</h1></div>
+                    <div class="profileViewTopp" ><h1>Du har sveipet gjennon alle katteprofilene</h1></div>
+                    <div class="profileViewBottom"><h1>Venligst vent på flere brukere</h1></div>
                 </div>
             </div>
             <div class="homeContentSideNoneSvipe">
