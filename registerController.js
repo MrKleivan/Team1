@@ -1,6 +1,6 @@
     function createUser(){
         getRegisterInputData();
-        if(!isEmptyInputs(registerInputDataObj.getInputEmail, registerInputDataObj.getInputUserName, registerInputDataObj.getInputFirstName, registerInputDataObj.getInputLastName, registerInputDataObj.getInputPassword, registerInputDataObj.getconfirmPassword)) return;
+        if(!isValidInputs(registerInputDataObj.getInputEmail, registerInputDataObj.getInputUserName, registerInputDataObj.getInputFirstName, registerInputDataObj.getInputLastName, registerInputDataObj.getInputPassword, registerInputDataObj.getconfirmPassword)) return;
         setUserData(model.users.length+1,registerInputDataObj.getInputEmail, registerInputDataObj.getInputUserName, registerInputDataObj.getInputFirstName, registerInputDataObj.getInputLastName, registerInputDataObj.getInputPassword);
 
         model.users.push(registeredUser);
@@ -30,7 +30,7 @@
         }
     }
 
-    function isEmptyInputs(inputEmail, inputUserName, inputFirstName, inputLastName, inputPassword, inputConfirmPassword){
+    function isValidInputs(inputEmail, inputUserName, inputFirstName, inputLastName, inputPassword, inputConfirmPassword){
         let findUser = model.users.find(u => u.userEmail == inputEmail || u.userName == inputUserName);
 
         if(!inputEmail || !inputUserName || !inputFirstName || !inputLastName || !inputPassword || !inputConfirmPassword){
@@ -53,7 +53,5 @@
             updateView();
             return false;
         }
-
         return true;
-
     }
