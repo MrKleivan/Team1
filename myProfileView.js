@@ -1,7 +1,8 @@
 
 function updateViewMyProfile() {
-    let loggedInUser = model.app.loggedInUser !== null ? model.app.loggedInUser : 1;
+    let loggedInUser = model.app.loggedInUser;
     let loggedUser = model.users.find(user => user.userId === loggedInUser);
+    console.log(loggedUser);
     let loggedUserLastName = loggedUser.lastName;
     let loggedUserFirstName = loggedUser.firstName;
     let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
@@ -12,7 +13,6 @@ function updateViewMyProfile() {
     let loggedAge = loggedCat?.age || '';
     let loggedRace = loggedCat?.race || '';
     let loggedDescription = loggedCat?.description || '';
-    console.log(model.pictures);
 
     document.getElementById('app').innerHTML = /*HTML*/`
     <div class="header">

@@ -78,7 +78,7 @@ function updateModelPictures(sequence, pictureUrl) {
     }
 }
 function deleteImage(sequence, event) {
-    event.stopPropagation(); 
+    event.stopPropagation();
     let loggedInUser = model.app.loggedInUser;
     let userId = loggedInUser;
     let totalPictures = model.pictures.filter(picture => picture.userId === userId).length;
@@ -86,12 +86,11 @@ function deleteImage(sequence, event) {
         alert('You must have at least one picture!');
         return;
     }
-   console.log(totalPictures);
-    model.pictures = model.pictures.filter(picture => picture.userId === userId && picture.placeInSequence !== sequence);
+    model.pictures = model.pictures.filter(picture => picture.userId !== userId || picture.placeInSequence !== sequence);
     totalPictures--;
+    console.log(totalPictures);
     displayImages();
 }
-
 function selectInterest(interest) {
     let userId = model.app.loggedInUser;
     let selectedInterestsArray = model.chosenInterests.filter(item => item.userId === userId);
