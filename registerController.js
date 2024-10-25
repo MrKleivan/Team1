@@ -4,8 +4,9 @@
         setUserData(model.users.length+1,registerInputDataObj.getInputEmail, registerInputDataObj.getInputUserName, registerInputDataObj.getInputFirstName, registerInputDataObj.getInputLastName, registerInputDataObj.getInputPassword);
 
         model.users.push(registeredUser);
+        model.app.loggedInUser = registeredUser.userId;
         model.inputs.register.error = "";
-        navigateToPage('login');
+        navigateToPage('myProfile');
     }
 
     function setUserData(userID, inputEmail, inputUserName, inputFirstName, inputLastName, inputPassword){
