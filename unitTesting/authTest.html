@@ -57,39 +57,53 @@
     <script src="/loginView.js"></script>
 
     <script>        
-      
+      function getRegisterInputData(){
+        return registerInputDataObj = {}
+      }
       function navigateToPage(){}
 
         function updateView(){};
 
+        function getRegisterInputData(){
+            return registerInputDataObj = {
+            getInputEmail : 'tommy@gmail.com',
+            getInputUserName : '123',
+            getInputFirstName : '123',
+            getInputLastName : '123',
+            getInputPassword : '123',
+            getconfirmPassword : '123',
+                }
+            }
+
         QUnit.test("validate Registration", function (assert) {
-
-            authenticateInputData('tommy@gmail.com', 'Tommy', 'Tommy', 'Mai', '123', '123');
-
+            createUser()
             assert.deepEqual(model.users.length, 4);
             
         });
 
-        QUnit.test("Registration check for empty fields", function (assert) {
-
-            authenticateInputData('hei@gmail.com', 'Hei', '', 'Mai', '123', '123');
-
+        QUnit.test("Registration is inputs empty", function (assert) {
+            isEmptyInputs('tommy@gmail.com', '', '123', '123', '123', '123');
             assert.deepEqual(model.inputs.register.error, "Det er et tomt felt");
+            assert.deepEqual(isEmptyInputs(), false);
             
         });
 
-        QUnit.test("Registration check mismatched passwords", function (assert) {
-            
-            authenticateInputData('hei@gmail.com', 'Hei', 'Hei', 'Mai', '123', '321');
+        QUnit.test("Registration is mail valid", function (assert) {
+            isEmptyInputs('tommy', '123', '123', '123', '123', '123');
+            assert.deepEqual(model.inputs.register.error, "Vi tar kun @gmail.com brukere");
+            assert.deepEqual(isEmptyInputs(), false);
+        });
+
+        QUnit.test("Registration is passwords same", function (assert) {
+            isEmptyInputs('tommy@gmail.com', '123', '123', '123', '123', '321');
             assert.deepEqual(model.inputs.register.error, "Ikke samme passord");
             
         });
-
-        QUnit.test("Registration check for duplicate users", function (assert) {
-
-            authenticateInputData('tommy@gmail.com', 'Tommy', 'Tommy', 'Mai', '123', '123');
-
+        QUnit.test("Registration check for empty fields", function (assert) {
+            isEmptyInputs('tommy@gmail.com', '123', '123', '123', '123', '123');
+            console.log(model.users)
             assert.deepEqual(model.inputs.register.error, "En bruker med denne emailen eller brukernavnet eksisterer allerede");
+            
         });
 
         QUnit.test("invalid Login", function (assert) {
