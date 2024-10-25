@@ -19,7 +19,7 @@ function updateViewHome() {
             </div>
             <div class="homeContentCenterNoneSvipe">
                 <div class="profileViewNoneSvipe">
-                    <div class="profileViewTopp" ><h1>Du har sveipet gjennon alle katteprofilene</h1></div>
+                    <div class="profileViewTopp" ><h1>Du har sveipet gjennom alle katteprofilene</h1></div>
                     <div class="profileViewBottom"><h1>Venligst vent på flere brukere</h1></div>
                 </div>
             </div>
@@ -31,8 +31,9 @@ function updateViewHome() {
         </div>
         `;
     } if (model.inputs.home.svipeList.length > 1){
-        let catPicture = model.pictures.filter(u => u.userId === model.inputs.home.watching[1].userId);
+        let catPicture = model.pictures.filter(u => u.userId === model.inputs.home.watching[1].userId) || '';
         let number = catPicture.length;
+        let displaydPicture = catPicture[model.inputs.home.placeInSequence].pictureUrl || `/img/nofoto.jpeg`;
         html = /*HTML*/`
         
         
