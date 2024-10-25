@@ -12,6 +12,7 @@ function updateViewMyProfile() {
     let loggedAge = loggedCat?.age || '';
     let loggedRace = loggedCat?.race || '';
     let loggedDescription = loggedCat?.description || '';
+    console.log(model.pictures);
 
     document.getElementById('app').innerHTML = /*HTML*/`
     <div class="header">

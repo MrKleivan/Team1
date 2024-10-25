@@ -77,7 +77,9 @@ function updateModelPictures(sequence, pictureUrl) {
 
 function deleteImage(sequence, event) {
     event.stopPropagation(); 
-    model.pictures = model.pictures.filter(picture => picture.placeInSequence !== sequence);
+    let loggedInUser = model.app.loggedInUser;
+    let userId = loggedInUser;
+    model.pictures = model.pictures.filter(picture => picture.userId === userId && picture.placeInSequence !== sequence);
     displayImages();
 }
 
