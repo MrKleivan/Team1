@@ -38,7 +38,8 @@ function saveChanges() {
     updateViewMyProfile();
 }
 
-lickedSequence = null;
+let totalPictures = 0;
+clickedSequence = null;
 function openFilePicker(sequence) {
     clickedSequence = sequence;
     document.getElementById('imageInput').click();
@@ -69,17 +70,25 @@ function updateModelPictures(sequence, pictureUrl) {
     if (pictureIndex !== -1) {
         model.pictures[pictureIndex].pictureUrl = pictureUrl;
         console.log('Updated', model.pictures);
+        totalPictures++;
     } else {
         model.pictures.push({ userId: loggedInUser, pictureUrl: pictureUrl, placeInSequence: sequence });
-        console.log("added new",model.pictures);
+        console.log("added new", model.pictures);
+        totalPictures++;
     }
 }
-
 function deleteImage(sequence, event) {
     event.stopPropagation(); 
     let loggedInUser = model.app.loggedInUser;
     let userId = loggedInUser;
+    let totalPictures = model.pictures.filter(picture => picture.userId === userId).length;
+    if (totalPictures === 1) {
+        alert('You must have at least one picture!');
+        return;
+    }
+   console.log(totalPictures);
     model.pictures = model.pictures.filter(picture => picture.userId === userId && picture.placeInSequence !== sequence);
+    totalPictures--;
     displayImages();
 }
 
