@@ -11,3 +11,14 @@ function logOutUser(){
 
     updateView();
 }
+
+function countNotifications(arr){
+    let count = 0;
+
+    for(let item of arr){
+        if(item.isSeen == false){
+            count++
+        }else{continue}
+    }
+    return count;
+}

@@ -15,6 +15,19 @@ function goToSelectedChat(selectedChatId, selectedUserId){
     model.inputs.chat.selectedChatId = selectedChatId;
     model.inputs.chat.selectedUserId = selectedUserId;
     model.app.currentPage = 'chat';
+    setChatAsSeen();
 
     updateView();
+}
+
+function setChatAsSeen(){
+    let selectedChatId = model.inputs.chat.selectedChatId;
+    let currentUserId = model.app.loggedInUser;
+    let currentChat = model.chatLog;
+    currentChat = currentChat.filter(chat => chat.chatId === selectedChatId && chat.recipientId === currentUserId)
+    console.log(currentChat)
+    for(chat of currentChat){
+        chat.isSeen = true;
+        console.log(chat)
+    }
 }

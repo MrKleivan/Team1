@@ -56,49 +56,89 @@
             },
         },
         chatLog: [
-            {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(14,32,0,0)), recipientId:2, chatId: 1}  
-            , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1}   
-            , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-9").setHours(15,47,0,0)), recipientId:1, chatId: 1}  
-            , {senderId: 2, message: 'Hei Pål', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2}  
-            , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3}
-        ],
+      {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(10,32,0,0)), recipientId:2, chatId: 1, isSeen: false}  
+      , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1, isSeen: false}   
+      , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-15").setHours(15,47,0,0)), recipientId:1, chatId: 1, isSeen: false}  
+      , {senderId: 2, message: 'Hei Pål', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2, isSeen: false}  
+      , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3, isSeen: false}
+    ],
     }      
     
       
 
         function updateView(){};
 
-        QUnit.test('Chat navn for chatId 1 logget inn som userId 1: Espen', function (assert) {
+        QUnit.test('Login userId 1 notification count: 1', function (assert) {
             // arrange
             model.app.loggedInUser = 1;
-            model.inputs.chat.selectedChatId = 1
-
-            let id = model.inputs.chat.selectedChatId;
-            let currentUser = model.app.loggedInUser;
-
+            model.chatLog = [
+                {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(10,32,0,0)), recipientId:2, chatId: 1, isSeen: false}  
+                , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1, isSeen: false}   
+                , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-15").setHours(15,47,0,0)), recipientId:1, chatId: 1, isSeen: false}  
+                , {senderId: 2, message: 'Hei Pål', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2, isSeen: false}  
+                , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3, isSeen: false}
+            ]
             // act
-            let selectedUserId = getSenderId(id, currentUser)
-            let username = getUsernameFromId(selectedUserId)
+            let notificationCount = countNotifications(messagesByUserId())
 
             // assert
-            assert.deepEqual(username.firstName, 'Espen');
+            assert.deepEqual(notificationCount, 1);
         });
 
-        QUnit.test('Chat navn for chatId 1 logget inn som userId 2: Per', function (assert) {
+        QUnit.test('Login userId 2 notification count: 2', function (assert) {
             // arrange
             model.app.loggedInUser = 2;
-            model.inputs.chat.selectedChatId = 1
-
-            let id = model.inputs.chat.selectedChatId;
-            let currentUser = model.app.loggedInUser;
-
+            model.chatLog = [
+                {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(10,32,0,0)), recipientId:2, chatId: 1, isSeen: false}  
+                , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1, isSeen: false}   
+                , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-15").setHours(15,47,0,0)), recipientId:1, chatId: 1, isSeen: false}  
+                , {senderId: 2, message: 'Hei Pål', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2, isSeen: false}  
+                , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3, isSeen: false}
+            ]
             // act
-            let selectedUserId = getSenderId(id, currentUser)
-            let username = getUsernameFromId(selectedUserId)
+            let notificationCount = countNotifications(messagesByUserId())
 
             // assert
-            assert.deepEqual(username.firstName, 'Per');
+            assert.deepEqual(notificationCount, 2);
         });
+
+        QUnit.test('Login userId 3 notification count: 2', function (assert) {
+            // arrange
+            model.app.loggedInUser = 3;
+            model.chatLog = [
+                {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(10,32,0,0)), recipientId:2, chatId: 1, isSeen: false}  
+                , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1, isSeen: false}   
+                , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-15").setHours(15,47,0,0)), recipientId:1, chatId: 1, isSeen: false}  
+                , {senderId: 2, message: 'Hei Pål', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2, isSeen: false}  
+                , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3, isSeen: false}
+            ]
+            // act
+            let notificationCount = countNotifications(messagesByUserId())
+
+            // assert
+            assert.deepEqual(notificationCount, 2);
+        });
+
+        QUnit.test('userId 1 opened chatId 1 notification count: 0', function (assert) {
+            // arrange
+            model.app.loggedInUser = 1;
+            model.chatLog = [
+                {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(10,32,0,0)), recipientId:2, chatId: 1, isSeen: false}  
+                , {senderId: 1, message: 'Hvordan går det?', date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), recipientId:2, chatId: 1, isSeen: false}   
+                , {senderId: 2, message: 'Hallo, det går bra!', date: new Date(new Date("2024-10-15").setHours(15,47,0,0)), recipientId:1, chatId: 1, isSeen: false}  
+                , {senderId: 2, message: 'Hei Pål', date: new Date(new Date("2024-9-14").setHours(9,30,0,0)), recipientId:3, chatId: 2, isSeen: false}  
+                , {senderId: 1, message: 'Hei', date: new Date(new Date("2024-10-14").setHours(22,10,0,0)), recipientId:3, chatId: 3, isSeen: false}
+            ]
+            goToSelectedChat(1)
+            // act
+            let notificationCount = countNotifications(messagesByUserId())
+
+
+            // assert
+            assert.deepEqual(notificationCount, 0);
+        });
+
+
 
     </script>
 </body>

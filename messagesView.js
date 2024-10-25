@@ -12,7 +12,7 @@ function updateViewMessages(){
 function drawMessagesHtml(){
     let currentUser = model.app.loggedInUser;
     let html = '';
-    let messages = messagesByUserId();
+    let messages = messagesByUserId(true);
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
 
     for(let chat of messages){
@@ -45,13 +45,17 @@ function drawMessagesHtml(){
     return html;
 }
 
-function messagesByUserId(){
+function messagesByUserId(removeDublicates){
     let currentUser = model.app.loggedInUser;
     let chat = model.chatLog;
     let messages = chat.filter(message => message.recipientId === currentUser || message.senderId === currentUser)
     messages.sort((a,b) => b.date.getDate() - a.date.getDate());
     messages.sort((a,b) => b.date.getTime() - a.date.getTime());
-    messagesByChatId = removeDuplicateMessages(messages)
+    if(removeDublicates == true){messagesByChatId = removeDuplicateMessages(messages)}
+    else{
+        messages = messages.filter(message => message.senderId !== currentUser)
+        return messages
+    }
 
     return messagesByChatId;
 }

@@ -131,11 +131,13 @@
 
         function drawNavigationButtons(){
             if(model.app.loggedInUser != null){
+                let messagesNotifications = countNotifications(messagesByUserId())
                 document.getElementById("header").innerHTML = `
                 <div class="left-icons">
                     <span class="buttonForIcon">
                         <img class='image' src="img/house-solid.svg" alt="Home Icon" onclick="navigateToPage('home')" />
                     </span>
+                    <div class="numberCircle">${messagesNotifications}</div>
                     <span class="buttonForIcon">
                         <img class='image' src="img/comments-solid.svg" alt="Messages Icon" onclick="navigateToPage('messages')" />
                     </span>
