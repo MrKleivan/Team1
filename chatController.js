@@ -12,6 +12,7 @@ function sendMessage(){
         , date: new Date()
         , recipientId: selectedUserId
         , chatId
+        , isSeen: false
     }
 
     model.chatLog.push(newMessage)
@@ -34,6 +35,7 @@ function createNewChat(){
         , date: new Date()
         , recipientId: selectedUserId
         , chatId
+        , isSeen: false
     }
 
     model.chatLog.push(newMessage)

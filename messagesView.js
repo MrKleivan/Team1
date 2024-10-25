@@ -10,12 +10,14 @@ function updateViewMessages(){
 }
 
 function drawMessagesHtml(){
+    let removeDublicates = true;
     let currentUser = model.app.loggedInUser;
     let html = '';
-    let messages = messagesByUserId(true);
+    let messages = messagesByUserId(removeDublicates);
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
 
     for(let chat of messages){
+        let recivedMessages = messagesByUserId(); 
         let user = '';
         let interactedUser;
         let chatId = chat.chatId;
@@ -27,12 +29,18 @@ function drawMessagesHtml(){
             user = getUsernameFromId(chat.senderId);
             interactedUser = chat.senderId;
         }
-
+        let notificationsHTML = '';
+        recivedMessages = recivedMessages.filter(log => log.recipientId === currentUser && log.chatId === chatId);
+        let notifications = countNotifications(recivedMessages);
+        if(notifications !== 0){
+            notificationsHTML = `<div class="numberCircle">${notifications}</div>`;
+        }
         
         let cat = model.cats.find(({ userId }) => userId === interactedUser);
 
         html += `
             <div id="borderMessages" onclick="goToSelectedChat(${chatId})">
+                ${notificationsHTML}
                 <div id="catNameMessages">${cat.name}</div>
                 <div id="userNameMessages">${user.firstName} ${user.lastName}</div>
                 <br />

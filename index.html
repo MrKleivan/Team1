@@ -60,17 +60,46 @@
             background-color:  rgb(247, 65, 65);
             border-radius: 50%;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .left-icons,
+        .right-icons {
+            display: flex;
+            gap: 5px;
+        }
+        .numberCircle {
+            display: flex;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            /* padding: 8px; */
+            background: #fff;
+            border: 2px solid #66666694;
+            color: #666666;
+            justify-content: center;
+            align-items: center;
+
+            font: 13px;
         }
 
         .image {
             filter: invert(100%);
         }
 
-        .left-icons,
-        .right-icons {
-            display: flex;
-            gap: 5px;
+        
+        #container {
+            position: relative;
         }
+        .notificationStyleImg{
+            position: absolute;
+
+        }
+        .notificationStyleDiv{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
     </style>
     
     <script src="model.js"></script>
@@ -132,15 +161,29 @@
         function drawNavigationButtons(){
             if(model.app.loggedInUser != null){
                 let messagesNotifications = countNotifications(messagesByUserId())
+                let messagesNotificationsHtml = '';
+
+                if(messagesNotifications > 9){
+                    messagesNotificationsHtml = `
+                     <div class="numberCircle notificationStyleDiv">+9</div>
+                    `; 
+                }else if(messagesNotifications > 0){
+                    messagesNotificationsHtml = `
+                     <div class="numberCircle notificationStyleDiv">${messagesNotifications}</div>
+                    `; 
+                }
+
                 document.getElementById("header").innerHTML = `
                 <div class="left-icons">
                     <span class="buttonForIcon">
                         <img class='image' src="img/house-solid.svg" alt="Home Icon" onclick="navigateToPage('home')" />
                     </span>
-                    <div class="numberCircle">${messagesNotifications}</div>
-                    <span class="buttonForIcon">
-                        <img class='image' src="img/comments-solid.svg" alt="Messages Icon" onclick="navigateToPage('messages')" />
-                    </span>
+                    <div id="container">
+                        <span class="buttonForIcon">
+                            <img class='image notificationStyleImg' src="img/comments-solid.svg" alt="Messages Icon" onclick="navigateToPage('messages')" />
+                            ${messagesNotificationsHtml}
+                            </span>
+                    </div>
                     <span class="buttonForIcon">
                         <img class='image' src="img/hand-holding-heart-solid.svg" alt="Matches Icon" onclick="navigateToPage('match')" />
                     </span>

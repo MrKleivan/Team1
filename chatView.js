@@ -9,7 +9,7 @@ function updateViewChat() {
                 ${drawChatHtml(selectedId)}
             </div>
             <div class="custom_input">
-                <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value">
+                <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value" onkeydown="if(event.code === 'Enter') sendMessage()">
                 <button onclick="sendMessage()">Send</button>
             </div>
         </div>    
@@ -18,8 +18,8 @@ function updateViewChat() {
         document.getElementById('app').innerHTML = /*HTML*/`
         <div id="chatBox">
             <div class="custom_input">
-                <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value">
-                <button onclick="createNewChat()">Send</button>
+                <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value" onkeydown="if(event.code === 'Enter') createNewChat()">
+                <button  onclick="createNewChat()">Send</button>
             </div>
         </div>    
     `;        
@@ -30,6 +30,7 @@ function drawChatHtml(id){
     let currentUserId = model.app.loggedInUser;
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
     let html;
+    let chatHtml = '';
     
     let selectedUserId = getSenderId(id, currentUserId)
     let cat = model.cats.find(({ userId }) => userId === selectedUserId);
@@ -39,23 +40,26 @@ function drawChatHtml(id){
     let chatLogs = getChatLog(currentUserId, selectedUserId);
     
 
-    html = `
-        <div id="catNameMessages" style="text-align:center">${cat.name}</div>
-        <div id="userNameMessages" style="text-align:center">${username.firstName}</div>
-    `
-
     for(log of chatLogs){
         let isSender = false;
         if(log.senderId == currentUserId){isSender = true}
         let alignMessage = isSender ? 'senderBackground' : 'reciverBackground';
 
-        html += `
+        chatHtml += `
         <div class="${alignMessage}">
             ${log.message} <br />
             ${log.date.toLocaleString("no-NO", dateFormat)} <br /><br />
         </div>
         `;
     }
+    
+    html = `
+        <div id="catNameMessages" style="text-align:center">${cat.name}</div>
+        <div id="userNameMessages" style="text-align:center">${username.firstName}</div>
+        <div class="chatBox">
+            ${chatHtml}
+        </div>
+    `
 
     return html
 }
