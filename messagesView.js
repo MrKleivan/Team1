@@ -17,9 +17,8 @@ function drawMessagesHtml(){
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
 
     for(let chat of messages){
-        let recivedMessages = messagesByUserId(); 
-        let user = '';
         let interactedUser;
+        let user = '';
         let chatId = chat.chatId;
         if(chat.senderId == currentUser){
             user = getUsernameFromId(chat.recipientId);
@@ -29,8 +28,10 @@ function drawMessagesHtml(){
             user = getUsernameFromId(chat.senderId);
             interactedUser = chat.senderId;
         }
+
         let notificationsHTML = '';
-        recivedMessages = recivedMessages.filter(log => log.recipientId === currentUser && log.chatId === chatId);
+        let recivedMessages = getRecivedMessages(currentUser, interactedUser)
+
         let notifications = countNotifications(recivedMessages);
         if(notifications !== 0){
             notificationsHTML = `<div class="numberCircle">${notifications}</div>`;
@@ -57,11 +58,14 @@ function messagesByUserId(removeDublicates){
     let currentUser = model.app.loggedInUser;
     let chat = model.chatLog;
     let messages = chat.filter(message => message.recipientId === currentUser || message.senderId === currentUser)
-    messages.sort((a,b) => b.date.getDate() - a.date.getDate());
-    messages.sort((a,b) => b.date.getTime() - a.date.getTime());
-    if(removeDublicates == true){messagesByChatId = removeDuplicateMessages(messages)}
+
+    if(removeDublicates == true){
+        messages.sort((a,b) => b.date.getDate() - a.date.getDate());
+        messages.sort((a,b) => b.date.getTime() - a.date.getTime());
+        messagesByChatId = removeDuplicateMessages(messages)
+    }
     else{
-        messages = messages.filter(message => message.senderId !== currentUser)
+        // messages = messages.filter(message => message.senderId !== currentUser)
         return messages
     }
 
@@ -83,4 +87,14 @@ function getUsernameFromId(id){
     let user = users.filter(a => a.userId === id)
     
     return user.pop();
+}
+
+function getRecivedMessages(currentUser, interactedUser){
+    let recivedMessages = getChatLog(currentUser ,interactedUser); 
+    
+    // recivedMessages = recivedMessages.filter(log => log.recipientId === currentUser && log.chatId === chatId);
+    let removeIndex = recivedMessages.findLastIndex(({ senderId }) => senderId === currentUser);
+    recivedMessages = recivedMessages.slice(removeIndex + 1)
+
+    return recivedMessages
 }
