@@ -33,7 +33,7 @@ function updateViewHome() {
     } if (model.inputs.home.svipeList.length > 1){
         let catPicture = model.pictures.filter(u => u.userId === model.inputs.home.watching[1].userId) || '';
         let number = catPicture.length;
-        let displaydPicture = catPicture[model.inputs.home.placeInSequence].pictureUrl || `/img/nofoto.jpeg`;
+        let displaydPicture = '';
         html = /*HTML*/`
         
         
@@ -43,7 +43,7 @@ function updateViewHome() {
                 <img src="img/leftArrow2.svg" alt="Left arrow" />
             </div>
             <div class="homeContentCenter">
-                <div class="profileView" style="background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});" onclick="navigateToPage('otherProfile', ${model.inputs.home.watching[1].userId})">
+                <div class="profileView" style="background-image: url(${displaydPicture = catPicture.length > 0  ? catPicture[model.inputs.home.placeInSequence].pictureUrl : 'img/nofoto.jpeg'});" onclick="navigateToPage('otherProfile', ${model.inputs.home.watching[1].userId})">
                     <div class="profileViewTopp"><h1>${otherProfile[1].name}</h1></div>
                     <div class="profileViewBottom"><h1>${otherProfile[1].description}</h1></div>
                 </div>
