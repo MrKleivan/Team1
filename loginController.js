@@ -4,13 +4,11 @@ function authenticateUser(){
     let foundUser = authenticateLoginData(inputDataObj.emailOrUserName, inputDataObj.password);
 
     if(foundUser) {
-        console.log(foundUser)
         let userId = findUser.userId
         loginInput.error = "";
         setLoggedInUserId(userId);
         navigationAfterLogin(userId);
     }else{
-        console.log(foundUser)
         loginInput.error = "Brukernavn eller passord er feil"
         updateView()
     }
