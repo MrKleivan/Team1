@@ -5,7 +5,7 @@ function updateViewRegister() {
         <h1>Registrer</h1>
         <label>Email:</label>
         <br>
-        <input id="emailInput" type="email" value="${model.inputs.register.userEmail}" placeholder="example@gmail.com" oninput="model.inputs.register.userEmail = this.value" onkeydown="isValidInputs()">
+        <input id="emailInput" type="email" value="${model.inputs.register.userEmail}" placeholder="example@gmail.com" oninput="model.inputs.register.userEmail = this.value">
         <br>
         <label>Brukernavn:</label>
         <br>
