@@ -22,3 +22,17 @@ function countNotifications(arr){
     }
     return count;
 }
+
+function loginPer(){
+    model.app.loggedInUser = 1;
+    model.app.currentPage = 'messages';
+
+    updateView();
+}
+
+function loginEspen(){
+    model.app.loggedInUser = 2;
+    model.app.currentPage = 'messages';
+
+    updateView();
+}
