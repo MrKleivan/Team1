@@ -19,18 +19,20 @@ function updateViewMyProfile() {
     <h1 class='headerText'>Din katteprofil</h1>
     </div>
     <div id="column0">
-    <div id="myProfileContent">
-    <div id="column1">
+    <div id="column3">
     Fornavn*<br><input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="Fornavn"><br>
     Etternavn*<br><input id="lastNameInput" type="text"  value="${loggedUserLastName}" placeholder="Etternavn" ><br>
-    Favorittmat:<br><input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="Kattens favorittmat"><br>
+    </div>
+    <div id="myProfileContent">
+    <div id="column1">
+    Kattens personlighet:<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder="Personligheten til katten din"><br>
+    Kattens favorittmat:<br><input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="Kattens favorittmat"><br>
     Kattens navn:<br><input id="catNameInput" type="text"value="${loggedCatName}" placeholder="Skriv inn kattenavnet ditt" ><br>
     </div>
     <div id="column2">
-    Personlighet:<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder="Personligheten til katten din"><br>
-    Farge:<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="Fargen på katten din" ><br>
-    Alder:<br><input id="ageInput" type="number" min= '0' value="${loggedAge}" placeholder="Alderen på katten din" ><br>
-    Rase:<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="Rasen til katten dint"><br>
+    Kattens farge:<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="Fargen på katten din" ><br>
+    Kattens alder:<br><input id="ageInput" type="number" min= '0' value="${loggedAge}" placeholder="Alderen på katten din" ><br>
+    Kattens rase:<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="Rasen til katten dint"><br>
     </div>
     </div>
     </div>
