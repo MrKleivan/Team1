@@ -1,7 +1,7 @@
 let model = {
     app: {
-        currentPage: 'login' // register , myProfile, home, match, chat, messages
-        , loggedInUser: null
+        currentPage: 'home' // register , myProfile, home, match, chat, messages
+        , loggedInUser: 1
     },
 
 
@@ -193,11 +193,11 @@ let model = {
     //TODO: Tenk på navn likesUserId    
     interactedProfiles: [
         //Assign dates when liked
-        {userId: 1, interactedUserId: 2, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), isLike: true} 
-        , {userId: 2, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true} 
-        , {userId: 3, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true}  
-        , {userId: 4, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true}  
-        , {userId: 5, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true}    
+        {userId: 1, interactedUserId: 2, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)), isLike: true, isSeen: false} 
+        , {userId: 2, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true, isSeen: false} 
+        , {userId: 3, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true, isSeen: false}  
+        , {userId: 4, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true, isSeen: false}  
+        , {userId: 5, interactedUserId: 1, date: new Date(new Date("2024-10-14").setHours(14,33,0,0)),isLike: true, isSeen: false}
     ],
  
     chatLog: [
