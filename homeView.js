@@ -32,7 +32,6 @@ function updateViewHome() {
         `;
     } if (model.inputs.home.svipeList.length > 1){
         let catPicture = model.pictures.filter(u => u.userId === model.inputs.home.watching[1].userId) || '';
-        let number = catPicture.length;
         let displaydPicture = '';
         html = /*HTML*/`
         
@@ -48,7 +47,7 @@ function updateViewHome() {
                     <div class="profileViewBottom"><h1>${otherProfile[1].description}</h1></div>
                 </div>
             </div>
-            <div class="homeContentSide" onclick="nextPic(${number})">
+            <div class="homeContentSide" onclick="nextPic(${catPicture.length})">
                 <img src="img/rightArrow2.svg" alt="Right arrow"/>
             </div>
         </div>

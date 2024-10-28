@@ -280,7 +280,7 @@
             assert.deepEqual(model.inputs.home.placeInSequence, 0);
         });
 
-        QUnit.test('Sjekker om forige bilde(privPic()) funker som tenkt vis den er på første bildet', function (assert) {
+        QUnit.test('Sjekker om nextPic endrer legger til en ', function (assert) {
             // arrange
             model.inputs.home.placeInSequence = 0
             // act
@@ -295,6 +295,14 @@
             model.inputs.home.placeInSequence = 1
             // act
             nextPic();
+            // assert
+            assert.deepEqual(model.inputs.home.placeInSequence, 2);
+        });
+        QUnit.test('Sjekker om forige bilde(privPic()) funker som tenkt vis den er på første bildet', function (assert) {
+            // arrange
+            model.inputs.home.placeInSequence = 2
+            // act
+            nextPic(3);
             // assert
             assert.deepEqual(model.inputs.home.placeInSequence, 2);
         });

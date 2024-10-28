@@ -88,8 +88,12 @@ function deleteImage(sequence, event) {
     }
     model.pictures = model.pictures.filter(picture => picture.userId !== userId || picture.placeInSequence !== sequence);
     totalPictures--;
-    console.log(totalPictures);
-    displayImages();
+    let userPictures = model.pictures.filter(picture => picture.userId === userId);
+    userPictures.forEach((picture, index) => {
+        picture.placeInSequence = index + 1;
+        console.log(totalPictures);
+        displayImages();
+    });
 }
 function selectInterest(interest) {
     let userId = model.app.loggedInUser;
