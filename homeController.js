@@ -55,7 +55,7 @@ function getOtherProfile() {
 }
 
 function likeCat(myUserProfile, otherUserProfile) {
-    model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: true});
+    model.interactedProfiles.push({userId: myUserProfile, interactedUserId: otherUserProfile, date: new Date(), isLike: true, isSeen: false});
     model.inputs.home.watching = [];
     model.inputs.home.placeInSequence = 0;
     model.inputs.home.isTrue = false;

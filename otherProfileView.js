@@ -1,4 +1,5 @@
 function updateViewOtherProfile() {
+    let otherProfile = getOtherProfile();
     let catPicture = model.pictures.filter(u => u.userId === model.inputs.otherProfile.selectedUserId);
     let selectedProfile = model.inputs.otherProfile.selectedUserId;
     let selectedCat = model.cats.find(cat => cat.userId === selectedProfile);
@@ -25,8 +26,8 @@ function updateViewOtherProfile() {
         </div>
         <div class="selectedHomeContentCenter">
             <div class="profileView" style="background-image: url(${displaydPicture = catPicture.length > 0  ? catPicture[model.inputs.home.placeInSequence].pictureUrl : '/img/nofoto.jpg'});">
-                <div class="selectedProfileViewTopp"><h1>${otherProfile[1].name}</h1></div>
-                <div class="selectedProfileViewBottom"><h1>${otherProfile[1].description}</h1></div>
+            <div class="selectedProfileViewTopp"></div>
+            <div class="selectedProfileViewBottom"></div>
                 <div class="selectedProfileViewBottomButton" onclick="goToSelectedChat(${chatId}, ${selectedProfile})"><h1>Send melding</h1></div>
             </div>
         </div>
