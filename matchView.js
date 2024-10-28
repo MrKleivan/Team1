@@ -23,7 +23,6 @@ function drawMatchesHtml(){
         let isBothMatched = interactedProfiles.filter(({ userId, interactedUserId, isLike }) => userId == interactedUser && interactedUserId == currentUser && isLike == true);
         for(let match of isBothMatched){
         match.isSeen = true;
-        console.log(isBothMatched)
         let user = getUsernameFromId(interactedUser);
         let chatId = getChatId(currentUser, interactedUser);
         let cat = model.cats.find(({ userId }) => userId === interactedUser);
