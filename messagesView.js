@@ -14,6 +14,7 @@ function drawMessagesHtml(){
     let currentUser = model.app.loggedInUser;
     let html = '';
     let messages = messagesByUserId(removeDublicates);
+    messages.sort((a,b) => b.date.getDate() - a.date.getDate());
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
 
     for(let chat of messages){

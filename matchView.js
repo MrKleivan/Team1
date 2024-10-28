@@ -16,6 +16,7 @@ function drawMatchesHtml(){
     let dateFormat = {weekday: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric'};
 
     let matches = interactedProfiles.filter(({ userId, isLike }) => userId == currentUser && isLike == true)
+    matches.sort((a,b) => b.date.getDate() - a.date.getDate());
 
     for(let find of matches){
         let interactedUser = find.interactedUserId;
