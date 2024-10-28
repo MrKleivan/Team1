@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
 }
+
 #result {
     display: flex;
     gap: 10px;
@@ -14,7 +15,7 @@
     object-fit: cover;
     border-radius: 15px;
     cursor: pointer;
-    
+
 }
 
 .imageDisplay {
@@ -44,34 +45,40 @@
     max-width: 800px;
     border-radius: 40px;
 }
+
 #column0 {
-    display: flex;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-top: 20px;
-}
-#column1 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
-    margin: 10px;
-} #column2 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding-right: 20px;
-    margin: 10px;
-}
-#column3 {
-    flex-direction: column;
-    display: flex;
     flex-direction: column;
     align-items: stretch;
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 20px;
 }
+
+#column1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    margin: 10px;
+}
+
+#column2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    margin: 10px;
+}
+
+#column3 {
+    flex-direction: column;
+    display: flex;
+    align-items: stretch;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
+}
+
 #column4 {
     flex-direction: column;
     display: flex;
@@ -80,6 +87,7 @@
     padding-left: 50px;
     padding-right: 50px;
 }
+
 #column5 {
     flex-direction: column;
     display: flex;
@@ -89,34 +97,48 @@
     padding-right: 50px;
     margin-top: 20px;
 }
+
+.imageWrapper {
+    position: relative;
+    display: inline-block;
+}
+
 .cross {
+    position: absolute;
+    top: -9px;
+    right: -9px;
     display: flex;
-    cursor: pointer;
+    align-items: center;
     justify-content: center;
+    cursor: pointer;
     width: 20px;
     height: 20px;
-    margin-top: 10px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 40px;
-    border: 1px solid rgb(138, 138, 138);  
+    background-color: rgb(247, 65, 65);
+    border-radius: 50%;
+    border: 1px solid rgb(247, 65, 65);
+    font-size: 14px;
+    color: rgb(255, 255, 255);
 }
 
 .cross:hover {
-    background-color:  rgb(255, 153, 153);;
+    background-color: rgb(211, 42, 42);
     color: rgb(255, 255, 255);
 }
 
 #interestsSelection {
     justify-content: center;
     align-items: center;
+    
 }
 
 .interestButton {
+    font-size: large;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
+    justify-content: space-around;
     padding: 10px;
-    width: auto;
+    width: 70px;
     height: 20px;
     margin: 5px;
     border: 1px solid rgb(138, 138, 138);
@@ -124,20 +146,32 @@
     background-color: rgb(255, 255, 255);
     transition: all 0.3s ease;
 }
+
 .interestButton:hover {
-    background-color:  rgb(255, 153, 153);;
+    background-color: rgb(255, 153, 153);
+    ;
     color: rgb(255, 255, 255);
     transition: all 0.3s ease;
 }
+
 .interestButton.selected {
     height: 30px;
-    width: auto;
-    background: linear-gradient(135deg, rgb(247, 65, 65), rgb(255, 127, 127)); 
+    width: 80px;
+    background: linear-gradient(135deg, rgb(247, 65, 65), rgb(255, 127, 127));
     color: white;
     border: 1px solid rgb(247, 65, 65);
     transition: all 0.3s ease;
 }
-#saveButton{
+
+.interestButton.selected:hover {
+
+    background: linear-gradient(135deg, rgb(211, 42, 42), rgb(218, 66, 66));
+    color: white;
+    border: 1px solid rgb(247, 65, 65);
+    transition: all 0.3s ease;
+}
+
+#saveButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,15 +187,18 @@
 }
 
 #saveButton:hover {
-    background-color:  rgb(255, 153, 153);;
+    background-color: rgb(255, 153, 153);
+    ;
     color: rgb(255, 255, 255);
 
 }
-#saveLayout  {
+
+#saveLayout {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 input {
     display: flex;
     justify-content: center;
@@ -176,6 +213,6 @@ input {
 
 input:focus {
     background-color: rgb(255, 243, 240);
-    border-color: rgb(247, 65, 65); 
+    border-color: rgb(247, 65, 65);
     outline: none;
 }
