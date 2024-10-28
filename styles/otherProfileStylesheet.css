@@ -112,36 +112,6 @@
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-.homeContentLikeButtons {
-    width: 90%; 
-    margin: auto; 
-    text-align: center;
-}
-.homeContentLikeButtons > button {
-    width: 12vw; 
-    height: 4vh; 
-    border: none; 
-    margin-right: 10%;
-    margin-left: 10%; 
-    border-radius: 20px; 
-    background-color: rgba(255,55,55,0.7);
-}
-
-.homeFooter {
-    width: 12%;
-    height: 6%;
-    margin: auto;
-    align-items: center;
-    text-align: center;
-    font-size: 5vh;
-    border-radius: 50%;
-    background-color: rgba(220, 20, 20, 0.5);
-}
-
-.homeFooter > img {
-}
-
-
 #selectedselectedProfileColumn1 {
     flex: 1;
     display: flex;

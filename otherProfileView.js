@@ -20,27 +20,21 @@ function updateViewOtherProfile() {
     <h1>${selectedCatName} sin profil</h1>
     </div>
     <div class="selectedHomeContent">
-        <div class="selectedHomeContentSide">
-        <img style="height: 5vh" src="img/leftArrow.svg" alt="Left arrow"  onclick="privPic()" />
+            <div class="selectedHomeContentSide" onclick="privPic()">
+            <img src="img/leftArrow2.svg" alt="Left arrow" />
         </div>
         <div class="selectedHomeContentCenter">
-            <div class="selectedProfileView" style="background-image: url(${catPicture[model.inputs.home.placeInSequence].pictureUrl});">
-            <div class="selectedProfileViewTopp"></div>
-            <div class="selectedProfileViewBottom"></div>
+            <div class="profileView" style="background-image: url(${displaydPicture = catPicture.length > 0  ? catPicture[model.inputs.home.placeInSequence].pictureUrl : '/img/nofoto.jpg'});" onclick="navigateToPage('otherProfile', ${model.inputs.home.watching[1].userId})">
+                <div class="selectedProfileViewTopp"><h1>${otherProfile[1].name}</h1></div>
+                <div class="selectedProfileViewBottom"><h1>${otherProfile[1].description}</h1></div>
+            </div>
         </div>
-        </div>
-        <div class="selectedHomeContentSide">
-        <img style="height: 5vh" src="img/rightArrow.svg" alt="Right arrow"  onclick="nextPic()" />
+        <div class="selectedHomeContentSide" onclick="nextPic(${catPicture.length})">
+            <img src="img/rightArrow2.svg" alt="Right arrow"/>
         </div>
     </div>
-    <div style="text-align: center;">
-    </div>
-    <br>
-
     <div id="selectedProfileColumn3">
     <button onclick="goToSelectedChat(${chatId}, ${selectedProfile})">Send melding</button>
-    </div>
-    
     <div id="myProfileContent">
     <div id="selectedProfileColumn1">
     Eier fornavn<br><p id="firstName">${loggedUserFirstName}</p><br>
@@ -56,7 +50,12 @@ function updateViewOtherProfile() {
     Rase:<br><p id="race">${loggedRace}</p><br>
     Interesser:<br><p>${displayChosenInterests()}</p><br>
     </div>
+    </div>    
     </div>
+  
+    </div>
+
+  
     `;
 }
 
