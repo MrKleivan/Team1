@@ -1,12 +1,15 @@
 function updateViewChat() {
-    let selectedId = model.inputs.chat.selectedChatId
-    let isSavedChat = model.chatLog.some(({ chatId }) => chatId === selectedId);
+    let selectedChatId = model.inputs.chat.selectedChatId
+    let isSavedChat = model.chatLog.some(({ chatId }) => chatId === selectedChatId);
+    let selectedUserId = model.inputs.chat.selectedUserId;
+    let cat = model.cats.find(({ userId }) => userId === selectedUserId);
+    let username = getUsernameFromId(selectedUserId)
 
     if(isSavedChat == true){
         document.getElementById('app').innerHTML = /*HTML*/`
         <div id="chatBox">
             <div>
-                ${drawChatHtml(selectedId)}
+                ${drawChatHtml(selectedChatId)}
             </div>
             <div class="custom_input">
                 <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value" onkeydown="if(event.code === 'Enter') sendMessage()">
@@ -17,6 +20,8 @@ function updateViewChat() {
     else{
         document.getElementById('app').innerHTML = /*HTML*/`
         <div id="chatBox">
+        <div id="catNameMessages" style="text-align:center">${cat.name}</div>
+        <div id="userNameMessages" style="text-align:center">${username.firstName}</div>
             <div class="custom_input">
                 <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value" onkeydown="if(event.code === 'Enter') createNewChat()">
                 <button  onclick="createNewChat()">Send</button>
