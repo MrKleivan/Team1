@@ -21,7 +21,8 @@ function saveChanges() {
             color: '',
             age: '',
             race: '',
-            description: ''
+            description: '',
+            gender: '',
         };
         model.cats.push(loggedCat);
     }
@@ -34,6 +35,8 @@ function saveChanges() {
     loggedCat.age = model.inputs.myProfile.age;
     loggedCat.race = model.inputs.myProfile.race;
     loggedCat.description = model.inputs.myProfile.description;
+    loggedCat.gender = model.inputs.myProfile.gender;
+    console.log(model);
     alert('Profile data saved successfully!');
     updateViewMyProfile();
 }
