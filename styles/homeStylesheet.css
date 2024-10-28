@@ -1,3 +1,6 @@
+#homeConteiner {
+    height: 100vh;
+}
 
 .homeContent {
     display: flex;
