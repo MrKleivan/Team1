@@ -18,35 +18,39 @@ function updateViewMyProfile() {
     <div class="header">
     <h1 class='headerText'>Din katteprofil</h1>
     </div>
-    <div id="column0">
-    <div id="column3">
+    <div class="column0">
+    Brukers informasjon:<br>
+    <div class="column3">
     Fornavn*<br><input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="Fornavn"><br>
     Etternavn*<br><input id="lastNameInput" type="text"  value="${loggedUserLastName}" placeholder="Etternavn" ><br>
     </div>
+    <div class="header">
+    Kattens informasjon:<br>
+    </div>
     <div id="myProfileContent">
-    <div id="column1">
+    <div class="column1">
     Kattens personlighet:<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder="Personligheten til katten din"><br>
     Kattens favorittmat:<br><input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="Kattens favorittmat"><br>
     Kattens navn:<br><input id="catNameInput" type="text"value="${loggedCatName}" placeholder="Skriv inn kattenavnet ditt" ><br>
     </div>
-    <div id="column2">
+    <div class="column2">
     Kattens farge:<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="Fargen på katten din" ><br>
     Kattens alder:<br><input id="ageInput" type="number" min= '0' value="${loggedAge}" placeholder="Alderen på katten din" ><br>
     Kattens rase:<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="Rasen til katten dint"><br>
     </div>
     </div>
     </div>
-    <div id="column3">
+    <div class="column3">
     Beskrivelse:<br><input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="Beskriv katten din"><br>
     </div>
     <div id="saveLayout">
     <button onclick="saveChanges()" id="saveButton">Lagre</button><br>
     </div>
-    <div id='column4'><br>
+    <div class='column4'><br>
     Velg interessene:<br>
     <div id='interestsSelection'></div><br>
     </div>
-    <div id='column5'>
+    <div class='column5'>
     Legg til kattebilder:<br>
     <input type='file' id='imageInput' accept='image/*' onchange="readFileSelection(event)" style="display: none;" />
     <div id='divAddPictures'>
