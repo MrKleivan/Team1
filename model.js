@@ -91,7 +91,7 @@ let model = {
         },
         {
             userId: 5
-            , userName: 'Ole'
+            , userName: 'ole'
             , userEmail: 'ole@gmail.com'
             , password: '321'
             , firstName: 'Ole'
