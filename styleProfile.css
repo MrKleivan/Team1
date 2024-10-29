@@ -1,12 +1,19 @@
 .headerText {
     display: flex;
     justify-content: center;
+    font-size: 2rem;
+    color: #f74343;
+    font-weight: bold;
 }
-
 #result {
     display: flex;
     gap: 10px;
     padding: 10px 0;
+}
+.myProfileContainer {
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
 }
 
 .thumbnail {
@@ -16,11 +23,15 @@
     border-radius: 15px;
     cursor: pointer;
 }
-
+.myProfileContainer {
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 15px;
+    margin: 10px;
+    background-color: rgba(255, 222, 222, 0.739);
+}
 .imageDisplay {
     display: flex;
     width: 10vh;
-    height: 10vh;
     border: 1px solid rgb(138, 138, 138);
     border-radius: 15px;
     margin: 10px;
@@ -41,7 +52,7 @@
     align-items: center;
     margin: auto;
     width: 80%;
-    max-width: 800px;
+    max-width: 90%;
     border-radius: 40px;
 }
 
@@ -58,7 +69,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding-left: 50%;
+    padding-left: 30%;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -68,7 +79,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding-right: 50%;
+    padding-right: 30%;
     margin-right: 10px;
     margin-left: 10px;
 }
@@ -213,6 +224,8 @@ input {
     height: 15px;
     border: 1px solid rgb(138, 138, 138);
     border-radius: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 input:focus {
@@ -224,10 +237,7 @@ input:focus {
 .gender {
     display: flex;
     justify-content: center;
-    gap: 5%;
-    margin: 20px;
     align-items: center;
     cursor: pointer;
-    padding: 10px;
     margin-bottom: 6%;
 }

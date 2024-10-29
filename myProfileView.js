@@ -15,61 +15,74 @@ function updateViewMyProfile() {
     let loggedGender = loggedCat?.gender || '';
     document.getElementById('app').innerHTML = /*HTML*/`
     <div class="header">
-    <h1 class='headerText'>Din katteprofil</h1>
+        <h1 class='headerText'>Din katteprofil</h1>
     </div>
+<div class="myProfileContainer">
     <div class="column0">
-    Brukers informasjon:<br>
-    <div class="column3">
-    Fornavn*<br><input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="Fornavn"><br>
-    Etternavn*<br><input id="lastNameInput" type="text"  value="${loggedUserLastName}" placeholder="Etternavn" ><br>
+        <h2>Brukers informasjon:</h2>
+        <div class="column3">
+            Fornavn*<br>
+            <input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="Fornavn"><br>
+            Etternavn*<br>
+            <input id="lastNameInput" type="text" value="${loggedUserLastName}" placeholder="Etternavn"><br>
+        </div>
     </div>
-    <div class="header">
-    Kattens informasjon:<br>
+</div>
+<div class="myProfileContainer">
+     <div class="column3">
+        <h2>Kattens informasjon:</h2>
     </div>
     <div id="myProfileContent">
     <div class="column1">
-    Kattens personlighet:<br><input id="personalityInput" type="text" value="${loggedPersonality}" placeholder="Personligheten til katten din"><br>
-    Kattens favorittmat:<br><input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="Kattens favorittmat"><br>
-    Kattens navn:<br><input id="catNameInput" type="text"value="${loggedCatName}" placeholder="Skriv inn kattenavnet ditt" ><br>
+            Kattens personlighet:<br>
+            <input id="personalityInput" type="text" value="${loggedPersonality}" placeholder="Personligheten til katten din"><br>
+            Kattens favorittmat:<br>
+            <input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="Kattens favorittmat"><br>
+            Kattens navn:<br>
+            <input id="catNameInput" type="text" value="${loggedCatName}" placeholder="Skriv inn kattenavnet ditt"><br>
+        </div>
+        <div class="column2">
+        Kattens farge:<br>
+        <input id="colorInput" type="text" value="${loggedColor}" placeholder="Fargen på katten din"><br>
+        Kattens alder:<br>
+        <input id="ageInput" type="number" min="1" value="${loggedAge}" placeholder="Alderen på katten din"><br>
+        Kattens rase:<br>
+        <input id="raceInput" type="text" value="${loggedRace}" placeholder="Rasen til katten din"><br>
     </div>
-    <div class="column2">
-    Kattens farge:<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="Fargen på katten din" ><br>
-    Kattens alder:<br><input id="ageInput" type="number" min='1' value="${loggedAge}" placeholder="Alderen på katten din" ><br>
-    Kattens rase:<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="Rasen til katten dint"><br>
+</div>
+ <div class="column3">
+        <h3>Velg kjønn:</h3><br>
+        <div class="gender">
+            <input id="male" type="radio" value="male" name="gender" onchange="selectGender()" ${loggedGender === 'male' ? 'checked' : ''}>
+            <label for="male">Mann</label>
+            <input id="female" type="radio" value="female" name="gender" onchange="selectGender()" ${loggedGender === 'female' ? 'checked' : ''}>
+            <label for="female">Kvinne</label>
+            <input id="other" type="radio" value="other" name="gender" onchange="selectGender()" ${loggedGender === 'other' ? 'checked' : ''}>
+            <label for="other">Annet</label>
+        </div>
+        <h3>Beskrivelse:</h3><br>
+        <input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="Beskriv katten din"><br>
     </div>
-    </div>
-    </div>
-    <div class="column3">
-    Beskrivelse:<br><input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="Beskriv katten din"><br>
-    
-    Velg kjønn:<br><div class="gender">
-	<input id="male" type="radio" value="${loggedGender}" name="gender" onchange="selectGender()" ${loggedGender === 'male' ? 'checked' : ''}>
-		<div>Mann</div>
-	<input id="female" type="radio" value="${loggedGender}"  name="gender" onchange="selectGender()" ${loggedGender === 'female' ? 'checked' : ''}>
-		<div>Kvinne</div>
-	<input id="other" type="radio" value="${loggedGender}" name="gender" onchange="selectGender()"${loggedGender === 'other' ? 'checked' : ''}>
-		<div>Annet</div>
-    </div>
-    </div>
+</div>
     <div id="saveLayout">
-    <button onclick="saveChanges()" id="saveButton">Lagre</button><br>
+        <button onclick="saveChanges()" id="saveButton">Lagre</button><br>
     </div>
-    <div class='column4'><br>
-    Velg interessene:<br>
-    <div id='interestsSelection'></div><br>
+    <div class='column4'>
+        <h2>Velg interessene:</h2>
+        <div id='interestsSelection'></div><br>
     </div>
     <div class='column5'>
-    Legg til kattebilder:<br>
-    <input type='file' id='imageInput' accept='image/*' onchange="readFileSelection(event)" style="display: none;" />
-    <div id='divAddPictures'>
-    
-    <div id="dragImageHere1" class="imageDisplay" onclick="openFilePicker(1)">+</div>
-    <div id="dragImageHere2" class="imageDisplay" onclick="openFilePicker(2)">+</div>
-    <div id="dragImageHere3" class="imageDisplay" onclick="openFilePicker(3)">+</div>
-    <div id="dragImageHere4" class="imageDisplay" onclick="openFilePicker(4)">+</div>
-    <div id="dragImageHere5" class="imageDisplay" onclick="openFilePicker(5)">+</div>
+        <h2>Legg til kattebilder:</h2>
+        <input type='file' id='imageInput' accept='image/*' onchange="readFileSelection(event)" style="display: none;" />
+        <div id='divAddPictures'>
+            <div id="dragImageHere1" class="imageDisplay" onclick="openFilePicker(1)">+</div>
+            <div id="dragImageHere2" class="imageDisplay" onclick="openFilePicker(2)">+</div>
+            <div id="dragImageHere3" class="imageDisplay" onclick="openFilePicker(3)">+</div>
+            <div id="dragImageHere4" class="imageDisplay" onclick="openFilePicker(4)">+</div>
+            <div id="dragImageHere5" class="imageDisplay" onclick="openFilePicker(5)">+</div>
+        </div>
     </div>
-    </div><br>
+</div>
     `;
     displayImages();
     displayInterests();
@@ -107,7 +120,7 @@ function displayInterests() {
     for (let i = 0; i < model.chosenInterests.length; i++) {
         if (model.chosenInterests[i].userId === userId) {
             selectedInterestsArray.push(model.chosenInterests[i].interest);
-        } 
+        }
     }
     let buttonsHtml = '';
     for (let i = 0; i < interests.length; i++) {
@@ -127,5 +140,5 @@ function displayImages() {
         let addImageToDiv = document.getElementById(divImageId);
         let picture = catPictures.find(p => p.placeInSequence === (i + 1));
         updateImageDiv(addImageToDiv, picture, i);
-        }
     }
+}
