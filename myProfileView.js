@@ -62,7 +62,9 @@ function updateViewMyProfile() {
             <input id="other" type="radio" value="Annet" name="gender" onchange="selectGender()" ${loggedGender === 'Annet' ? 'checked' : ''}>
             <label for="other">Annet</label>
         </div>
-        <h3>Beskrivelse:</h3><br>
+        </div>
+    <div class="column6">
+        Beskrivelse:<br>
         <input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="Beskriv katten din"><br>
     </div>
 </div>
