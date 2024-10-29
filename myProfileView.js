@@ -18,11 +18,13 @@ function updateViewMyProfile() {
         <h1 class='headerText'>Din katteprofil</h1>
     </div>
 <div class="myProfileContainer">
-    <div class="column0">
-        <h3>Brukers informasjon:</h3>
-        <div class="column3">
+<h3>Brukers informasjon:</h3>
+    <div id="myProfileContent">
+        <div class="column1">
             Fornavn*<br>
             <input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="Fornavn"><br>
+        </div>
+        <div class="column2">
             Etternavn*<br>
             <input id="lastNameInput" type="text" value="${loggedUserLastName}" placeholder="Etternavn"><br>
         </div>
@@ -53,11 +55,11 @@ function updateViewMyProfile() {
  <div class="column3">
         <h3>Velg kjønn:</h3><br>
         <div class="gender">
-            <input id="male" type="radio" value="male" name="gender" onchange="selectGender()" ${loggedGender === 'male' ? 'checked' : ''}>
+            <input id="male" type="radio" value="mann" name="gender" onchange="selectGender()" ${loggedGender === 'mann' ? 'checked' : ''}>
             <label for="male">Mann</label>
-            <input id="female" type="radio" value="female" name="gender" onchange="selectGender()" ${loggedGender === 'female' ? 'checked' : ''}>
+            <input id="female" type="radio" value="kvinne" name="gender" onchange="selectGender()" ${loggedGender === 'kvinne' ? 'checked' : ''}>
             <label for="female">Kvinne</label>
-            <input id="other" type="radio" value="other" name="gender" onchange="selectGender()" ${loggedGender === 'other' ? 'checked' : ''}>
+            <input id="other" type="radio" value="annet" name="gender" onchange="selectGender()" ${loggedGender === 'annet' ? 'checked' : ''}>
             <label for="other">Annet</label>
         </div>
         <h3>Beskrivelse:</h3><br>
@@ -92,11 +94,11 @@ function selectGender() {
     women = document.getElementById('female');
     other = document.getElementById('other');
     if (men.checked) {
-        model.inputs.myProfile.gender = 'male';
+        model.inputs.myProfile.gender = 'mann';
     } else if (women.checked) {
-        model.inputs.myProfile.gender = 'female';
+        model.inputs.myProfile.gender = 'kvinne';
     } else if (other.checked) {
-        model.inputs.myProfile.gender = 'other';
+        model.inputs.myProfile.gender = 'annet';
     }
 }
 function updateImageDiv(addImageToDiv, picture, i) {
