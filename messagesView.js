@@ -34,7 +34,7 @@ function drawMessagesHtml(){
         let recivedMessages = getRecivedMessages(currentUser, interactedUser)
 
         let notifications = countNotifications(recivedMessages);
-        if(notifications !== 0){
+        if(notifications !== 0 && notifications !== undefined){
             notificationsHTML = `<div class="numberCircle">${notifications}</div>`;
         }
         
