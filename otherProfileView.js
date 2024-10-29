@@ -13,6 +13,7 @@ function updateViewOtherProfile() {
     let loggedRace = selectedCat.race;
     let loggedDescription = selectedCat.description;
     let chatId = getChatId(model.app.loggedInUser, selectedProfile);
+    let catGender = selectedCat.gender;
 
     document.getElementById('app').innerHTML = /*HTML*/`
     <div id="selectedProfileContainer">
@@ -45,6 +46,7 @@ function updateViewOtherProfile() {
     Favoritt mat:<br><p id="favouriteFood">${loggedFavouriteFood}</p><br>
     Kattens navn:<br><p id="catName">${selectedCatName}</p><br>
     Beskrivelse:<br><p>${loggedDescription}</p><br>
+    Kjønn:<br><p>${catGender}</p><br>
     </div>
     <br>
     <div id="selectedProfileColumn2">

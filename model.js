@@ -110,6 +110,7 @@ let model = {
             , color: 'black'
             , age: null
             , description: 'Livlig og kosen katt'
+            , gender: 'Annet'
         },
         {
             userId: 2
@@ -120,6 +121,7 @@ let model = {
             , color: 'black&white'
             , age: null
             , description: 'Livlig og kosen katt'
+            , gender: 'Kvinne'
         },
         {
             userId: 3
@@ -130,6 +132,7 @@ let model = {
             , color: 'oransje'
             , age: null
             , description: 'Livlig og kosen katt'
+            , gender: 'Mann'
         },
         {
             userId: 4
@@ -140,6 +143,7 @@ let model = {
             , color: 'brun'
             , age: null
             , description: 'Rar og gal'
+            , gender: 'Kvinne'
         },
         {
             userId: 5
@@ -150,6 +154,7 @@ let model = {
             , color: 'brun'
             , age: null
             , description: 'Utekatt'
+            , gender: 'Annet'
         },
     ],
 
