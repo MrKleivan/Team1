@@ -22,7 +22,6 @@ function drawMatchesHtml(){
         let interactedUser = find.interactedUserId;
         let isBothMatched = interactedProfiles.filter(({ userId, interactedUserId, isLike }) => userId == interactedUser && interactedUserId == currentUser && isLike == true);
         for(let match of isBothMatched){
-        match.isSeen = true;
         let user = getUsernameFromId(interactedUser);
         let chatId = getChatId(currentUser, interactedUser);
         let cat = model.cats.find(({ userId }) => userId === interactedUser);
@@ -33,8 +32,8 @@ function drawMatchesHtml(){
                     <div id="userNameMessages">${user.firstName} ${user.lastName}</div>
                     <br />
                     <div id="dateMessages">${match.date.toLocaleString("no-NO", dateFormat)}</div>
-                    <button onclick="navigateToPage('otherProfile', ${interactedUser})">Gå til profil</button>
-                    <button onclick="goToSelectedChat(${chatId}, ${interactedUser})">Send melding</button>
+                    <button onclick="navigateToPage('otherProfile', ${interactedUser});${match.isSeen = true}">Gå til profil</button>
+                    <button onclick="goToSelectedChat(${chatId}, ${interactedUser});${match.isSeen = true}">Send melding</button>
                 </div>
         `}
     }
