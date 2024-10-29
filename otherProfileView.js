@@ -24,7 +24,7 @@ function updateViewOtherProfile() {
             <img src="img/leftArrow2.svg" alt="Left arrow" />
         </div>
         <div class="selectedHomeContentCenter">
-            <div class="profileView" style="background-image: url(${displaydPicture = catPicture.length > 0  ? catPicture[model.inputs.home.placeInSequence].pictureUrl : '/img/nofoto.jpg'});">
+            <div class="selectedProfileView" style="background-image: url(${displaydPicture = catPicture.length > 0  ? catPicture[model.inputs.home.placeInSequence].pictureUrl : '/img/nofoto.jpg'});">
                 <div class="selectedProfileViewTopp"></div>
                 <div class="selectedProfileViewBottom"></div>
                 <div class="selectedProfileViewBottomButton" onclick="goToSelectedChat(${chatId}, ${selectedProfile})"><h1>Send melding</h1></div>
