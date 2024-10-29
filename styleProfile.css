@@ -260,7 +260,6 @@ input:focus {
     cursor: pointer;
     transition: all 0.3s ease;
     color: #333;
-    font-weight: bold;
     margin: 5%;
 }
 .gender label:hover {
