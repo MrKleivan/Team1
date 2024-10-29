@@ -12,6 +12,7 @@ h3{
     color: #000000;
     font-weight: bold;
     padding: 10px;
+    margin: 0;
 }
 #result {
     display: flex;
@@ -248,4 +249,31 @@ input:focus {
     align-items: center;
     cursor: pointer;
     margin-bottom: 6%;
+    border-radius: 15px;
+    margin: 0;
+}
+.gender label {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid rgb(138, 138, 138);
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+    font-weight: bold;
+    margin: 5%;
+}
+.gender label:hover {
+    background: linear-gradient(135deg, rgb(211, 42, 42), rgb(218, 66, 66));
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(247, 65, 65);
+    transition: all 0.3s ease;
+}
+.gender input[type="radio"]:checked + label {
+    background-color: rgb(247, 65, 65);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(247, 65, 65);
+}
+.gender input[type="radio"] {
+    display: none;
 }
