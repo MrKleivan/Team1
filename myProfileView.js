@@ -2,7 +2,6 @@
 function updateViewMyProfile() {
     let loggedInUser = model.app.loggedInUser;
     let loggedUser = model.users.find(user => user.userId === loggedInUser);
-    console.log(loggedUser);
     let loggedUserLastName = loggedUser.lastName;
     let loggedUserFirstName = loggedUser.firstName;
     let loggedCat = model.cats.find(cat => cat.userId === loggedInUser);
@@ -13,7 +12,7 @@ function updateViewMyProfile() {
     let loggedAge = loggedCat?.age || '';
     let loggedRace = loggedCat?.race || '';
     let loggedDescription = loggedCat?.description || '';
-
+    let loggedGender = loggedCat?.gender || '';
     document.getElementById('app').innerHTML = /*HTML*/`
     <div class="header">
     <h1 class='headerText'>Din katteprofil</h1>
@@ -35,13 +34,22 @@ function updateViewMyProfile() {
     </div>
     <div class="column2">
     Kattens farge:<br><input id="colorInput" type="text" value="${loggedColor}" placeholder="Fargen på katten din" ><br>
-    Kattens alder:<br><input id="ageInput" type="number" min= '0' value="${loggedAge}" placeholder="Alderen på katten din" ><br>
+    Kattens alder:<br><input id="ageInput" type="number" min='1' value="${loggedAge}" placeholder="Alderen på katten din" ><br>
     Kattens rase:<br><input id="raceInput" type="text" value="${loggedRace}" placeholder="Rasen til katten dint"><br>
     </div>
     </div>
     </div>
     <div class="column3">
     Beskrivelse:<br><input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="Beskriv katten din"><br>
+    
+    Velg kjønn:<br><div class="gender">
+	<input id="male" type="radio" value="${loggedGender}" name="gender" onchange="selectGender()" ${loggedGender === 'male' ? 'checked' : ''}>
+		<div>Mann</div>
+	<input id="female" type="radio" value="${loggedGender}"  name="gender" onchange="selectGender()" ${loggedGender === 'female' ? 'checked' : ''}>
+		<div>Kvinne</div>
+	<input id="other" type="radio" value="${loggedGender}" name="gender" onchange="selectGender()"${loggedGender === 'other' ? 'checked' : ''}>
+		<div>Annet</div>
+    </div>
     </div>
     <div id="saveLayout">
     <button onclick="saveChanges()" id="saveButton">Lagre</button><br>
@@ -62,12 +70,22 @@ function updateViewMyProfile() {
     <div id="dragImageHere5" class="imageDisplay" onclick="openFilePicker(5)">+</div>
     </div>
     </div><br>
-    
     `;
     displayImages();
     displayInterests();
 }
-
+function selectGender() {
+    men = document.getElementById('male');
+    women = document.getElementById('female');
+    other = document.getElementById('other');
+    if (men.checked) {
+        model.inputs.myProfile.gender = 'male';
+    } else if (women.checked) {
+        model.inputs.myProfile.gender = 'female';
+    } else if (other.checked) {
+        model.inputs.myProfile.gender = 'other';
+    }
+}
 function updateImageDiv(addImageToDiv, picture, i) {
     if (addImageToDiv) {
         if (picture) {

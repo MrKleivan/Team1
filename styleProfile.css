@@ -59,7 +59,8 @@
     display: flex;
     flex-direction: column;
     padding-left: 50%;
-    margin: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .column2 {
@@ -68,7 +69,8 @@
     display: flex;
     flex-direction: column;
     padding-right: 50%;
-    margin: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .column3 {
@@ -77,7 +79,7 @@
     align-items: stretch;
     padding-left: 50px;
     padding-right: 50px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .column4 {
@@ -217,4 +219,15 @@ input:focus {
     background-color: rgb(255, 243, 240);
     border-color: rgb(247, 65, 65);
     outline: none;
+}
+
+.gender {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin: 20px;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 6%;
 }

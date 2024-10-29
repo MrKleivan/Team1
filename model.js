@@ -36,6 +36,7 @@ let model = {
             , pictureUrl: ''
             , interests: []
             , isEditMode: false
+            , gender: ''
         },
         home: {
             userId: null
