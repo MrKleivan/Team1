@@ -18,7 +18,7 @@ function countNotifications(arr){
     for(let item of arr){
         if(item?.isSeen == false){
             count++
-        }else{return}
+        }else{continue}
     }
     return count;
 }

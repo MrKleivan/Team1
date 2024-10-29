@@ -72,7 +72,7 @@ function getMatchNotificationList(){
     let output = [];
     let currentUser = model.app.loggedInUser;
     let interactedProfiles = model.interactedProfiles;
-    let matches = interactedProfiles.filter(({ userId, isLike }) => userId == currentUser && isLike == true)
+    let matches = interactedProfiles.filter(({ userId, isLike, isSeen }) => userId == currentUser && isLike == true && isSeen == false)
     matches.sort((a,b) => b.date.getDate() - a.date.getDate());
 
     for(let find of matches){
