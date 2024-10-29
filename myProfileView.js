@@ -19,7 +19,7 @@ function updateViewMyProfile() {
     </div>
 <div class="myProfileContainer">
     <div class="column0">
-        <h2>Brukers informasjon:</h2>
+        <h3>Brukers informasjon:</h3>
         <div class="column3">
             Fornavn*<br>
             <input id="firstNameInput" type="text" value="${loggedUserFirstName}" placeholder="Fornavn"><br>
@@ -30,7 +30,7 @@ function updateViewMyProfile() {
 </div>
 <div class="myProfileContainer">
      <div class="column3">
-        <h2>Kattens informasjon:</h2>
+        <h3>Kattens informasjon:</h3>
     </div>
     <div id="myProfileContent">
     <div class="column1">
@@ -68,11 +68,11 @@ function updateViewMyProfile() {
         <button onclick="saveChanges()" id="saveButton">Lagre</button><br>
     </div>
     <div class='column4'>
-        <h2>Velg interessene:</h2>
+        <h3>Velg interessene:</h3>
         <div id='interestsSelection'></div><br>
     </div>
     <div class='column5'>
-        <h2>Legg til kattebilder:</h2>
+        <h3>Legg til kattebilder:</h3>
         <input type='file' id='imageInput' accept='image/*' onchange="readFileSelection(event)" style="display: none;" />
         <div id='divAddPictures'>
             <div id="dragImageHere1" class="imageDisplay" onclick="openFilePicker(1)">+</div>
