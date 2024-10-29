@@ -4,7 +4,6 @@ function drawNavigationButtons(){
         let matchesNotfications = countNotifications(getMatchNotificationList())
         let messagesNotificationsHtml = '';
         let matchesNotficationsHtml = '';
-        console.log(matchesNotfications)
         if(messagesNotifications > 9){
             messagesNotificationsHtml = `
              <div class="numberCircle notificationStyleDiv">+9</div>
