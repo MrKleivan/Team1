@@ -11,9 +11,9 @@ function updateViewChat() {
             <div>
                 ${drawChatHtml(selectedChatId)}
             </div>
-            <div class="custom_input">
-                <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value" onkeydown="if(event.code === 'Enter') sendMessage()">
-                <button onclick="sendMessage()">Send</button>
+            <div class="inputChatBox">
+                <input class="inputChat" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value" onkeydown="if(event.code === 'Enter') sendMessage()">
+                <button class="inputChat" onclick="sendMessage()">Send</button>
             </div>
         </div>    
     `;}
@@ -22,9 +22,9 @@ function updateViewChat() {
         <div id="chatBox">
         <div id="catNameMessages" style="text-align:center">${cat.name}</div>
         <div id="userNameMessages" style="text-align:center">${username.firstName}</div>
-            <div class="custom_input">
-                <input class="input" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value" onkeydown="if(event.code === 'Enter') createNewChat()">
-                <button  onclick="createNewChat()">Send</button>
+            <div class="inputChatBox">
+                <input class="inputChat" type="text" placeholder="Skriv melding" oninput="model.inputs.chat.message = this.value" onkeydown="if(event.code === 'Enter') createNewChat()">
+                <button class="inputChat" onclick="createNewChat()">Send</button>
             </div>
         </div>    
     `;        

@@ -1,9 +1,9 @@
 
 /* messages css */
 #borderMessages {
-    border: 7px solid rgba(102,140,164,0.34);
+    border: 7px solid rgb(138, 138, 138);
     border-radius: 18px;
-    background-color: antiquewhite;
+    background-color: rgba(255, 222, 222, 0.247);
     padding: 5px;
     margin: 10px;
     }
@@ -50,7 +50,7 @@
     word-spacing: -2.2px;
     color: #000000;
     font-weight: 400;
-    text-decoration: rgb(68, 68, 68);
+    text-decoration: rgba(255, 222, 222, 0.739);
     font-style: oblique;
     font-variant: normal;
     text-transform: none;
@@ -65,7 +65,7 @@
     border-radius: 30px 30px 30px 30px;
     -webkit-border-radius: 30px 30px 30px 30px;
     -moz-border-radius: 30px 30px 30px 30px;
-    background: #5f88d9;
+    background: rgb(247, 65, 65);
 }
 
 .reciverBackground{
@@ -90,4 +90,17 @@
 }
 .chatBox::-webkit-scrollbar-corner{
     visibility: hidden;
+}
+
+.inputChatBox{
+	display: flex;
+
+    justify-content: center;
+}
+
+.inputChat{
+	display: flex;
+
+	align-items: center;
+	text-align: center;
 }
