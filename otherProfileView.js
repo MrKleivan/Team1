@@ -34,6 +34,9 @@ function updateViewOtherProfile() {
             <img src="img/rightArrow2.svg" alt="Right arrow"/>
         </div>
     </div>
+    <div id="pictureCount" style="text-align: center;">
+    ${createPictureCircle(catPicture)}
+    </div>
 
     <div id="myProfileContent">
     <div id="selectedProfileColumn1">
