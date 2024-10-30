@@ -71,7 +71,7 @@ function displayChosenInterests() {
     let interestHTML = '';
     for (let i = 0; i < chosenInterests.length; i++) {
         let chosenInterest = chosenInterests[i];
-        interestHTML += `${chosenInterest.interest}`;
+        interestHTML += `${chosenInterest.interest} , `;
     }
     return interestHTML;
 }

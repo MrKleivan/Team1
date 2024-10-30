@@ -17,12 +17,12 @@ function updateViewLogin() {
         </div>
         <div style="display:flex; justify-content:center; align-items: center; flex-direction:column">
         <h2 id="errorText">${model.inputs.login.error}</h2>   
-        <!--<h2>LoginData:</h2>   
+        <h2>LoginData:</h2>   
         <h2>Bruker1: per, Passord: 123</h2>   
         <h2>Bruker2: espen, Passord: 123</h2>   
         <h2>Bruker3: pål, Passord: 321</h2>   
         <h2>Bruker4: kåre, Passord: 123</h2>   
-        <h2>Bruker5: ole, Passord: 321</h2>   -->
+        <h2>Bruker5: ole, Passord: 321</h2>
         </div>
         `;
 }
