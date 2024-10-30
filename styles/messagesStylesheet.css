@@ -7,6 +7,9 @@
     padding: 5px;
     margin: 10px;
     }
+#borderMessages:hover {
+    cursor: pointer;
+}
 #userNameMessages {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
