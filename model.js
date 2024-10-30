@@ -178,6 +178,7 @@ let model = {
         , 'Trene'
         , 'Jakte'
         , 'Synge'
+        , 'Klage'
     ],
     
     pictures: [

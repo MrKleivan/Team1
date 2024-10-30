@@ -36,33 +36,35 @@ function updateViewMyProfile() {
     </div>
     <div id="myProfileContent">
     <div class="column1">
-            Kattens personlighet:<br>
+            Personlighet:<br>
             <input id="personalityInput" type="text" value="${loggedPersonality}" placeholder="Personligheten til katten din"><br>
-            Kattens favorittmat:<br>
+            Favorittmat:<br>
             <input id="favouriteFoodInput" type="text" value="${loggedFavouriteFood}" placeholder="Kattens favorittmat"><br>
-            Kattens navn:<br>
+            Navn:<br>
             <input id="catNameInput" type="text" value="${loggedCatName}" placeholder="Skriv inn kattenavnet ditt"><br>
         </div>
-        <div class="column2">
-        Kattens farge:<br>
+    <div class="column2">
+        Farge:<br>
         <input id="colorInput" type="text" value="${loggedColor}" placeholder="Fargen på katten din"><br>
-        Kattens alder:<br>
+        Alder:<br>
         <input id="ageInput" type="number" min="1" value="${loggedAge}" placeholder="Alderen på katten din"><br>
-        Kattens rase:<br>
+        Rase:<br>
         <input id="raceInput" type="text" value="${loggedRace}" placeholder="Rasen til katten din"><br>
     </div>
 </div>
  <div class="column3">
         <h3>Velg kjønn:</h3><br>
         <div class="gender">
-            <input id="male" type="radio" value="mann" name="gender" onchange="selectGender()" ${loggedGender === 'mann' ? 'checked' : ''}>
-            <label for="male">Mann</label>
-            <input id="female" type="radio" value="kvinne" name="gender" onchange="selectGender()" ${loggedGender === 'kvinne' ? 'checked' : ''}>
-            <label for="female">Kvinne</label>
-            <input id="other" type="radio" value="annet" name="gender" onchange="selectGender()" ${loggedGender === 'annet' ? 'checked' : ''}>
+            <input id="male" type="radio" value="Gutt" name="gender" onchange="selectGender()" ${loggedGender === 'Gutt' ? 'checked' : ''}>
+            <label for="male">Gutt</label>
+            <input id="female" type="radio" value="Jente" name="gender" onchange="selectGender()" ${loggedGender === 'Jente' ? 'checked' : ''}>
+            <label for="female">Jente</label>
+            <input id="other" type="radio" value="Annet" name="gender" onchange="selectGender()" ${loggedGender === 'Annet' ? 'checked' : ''}>
             <label for="other">Annet</label>
         </div>
-        <h3>Beskrivelse:</h3><br>
+        </div>
+    <div class="column6">
+        Beskrivelse:<br>
         <input id="descriptionInput" type="text" value="${loggedDescription}" placeholder="Beskriv katten din"><br>
     </div>
 </div>
@@ -94,11 +96,11 @@ function selectGender() {
     women = document.getElementById('female');
     other = document.getElementById('other');
     if (men.checked) {
-        model.inputs.myProfile.gender = 'mann';
+        model.inputs.myProfile.gender = 'Gutt';
     } else if (women.checked) {
-        model.inputs.myProfile.gender = 'kvinne';
+        model.inputs.myProfile.gender = 'Jente';
     } else if (other.checked) {
-        model.inputs.myProfile.gender = 'annet';
+        model.inputs.myProfile.gender = 'Annet';
     }
 }
 function updateImageDiv(addImageToDiv, picture, i) {
