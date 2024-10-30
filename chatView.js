@@ -59,8 +59,8 @@ function drawChatHtml(id){
     }
     
     html = `
-        <div id="catNameMessages" style="text-align:center">${cat.name}</div>
-        <div id="userNameMessages" style="text-align:center">${username.firstName}</div>
+        <div id="catNameMessages" style="text-align:center" onclick="navigateToPage('otherProfile', ${selectedUserId})">${cat.name}</div>
+        <div id="userNameMessages" style="text-align:center" onclick="navigateToPage('otherProfile', ${selectedUserId})">${username.firstName}</div>
         <div class="chatBox">
             ${chatHtml}
         </div>
